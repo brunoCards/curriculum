@@ -10,15 +10,17 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    width: 100vw;    
+    width: 100vw;
+    height: 100vh;  
   }
 
   body {
-    font: 50px 'Roboto', sans-serif ;    
+    font: 50px 'Roboto', sans-serif ;
+    background: var(--primary);
   }
 
   :root {
-    --primary: #F1C40F;
+    --primary: rgba(241, 196, 15, 0.3);
     --green_text: #27AE60;  
     --green_button: #50FF92;
     --purple_text_add_button: #8E44AD;
@@ -29,4 +31,5 @@ const GlobalStyle = createGlobalStyle`
 
 export default GlobalStyle;
 
+// SERÁ USAOD PARA A PAGINA FINAL
 // font-family: 'Baloo 2', cursive;
