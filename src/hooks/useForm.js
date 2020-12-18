@@ -23,4 +23,5 @@ const useForm = (initialState) => {
 
   return [form, onChangeInput, resetState];
 };
+
 export default useForm;

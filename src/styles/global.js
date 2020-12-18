@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Roboto:wght@500&display=swap');
   * {
     margin: 0;
     padding: 0;
@@ -26,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     --purple_text_add_button: #8E44AD;
     --red_text: #C0392B;
     --blue_bg_input: #B0FFF0;
+    --text_input: #000000;
   }
 `;
 

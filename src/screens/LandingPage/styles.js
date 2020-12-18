@@ -1,10 +1,5 @@
 import styled from 'styled-components';
-import { Container, Box } from '@material-ui/core';
-
-export const LandingPageContainer = styled(Container)`
-  width: 100%;
-  height: 100%;
-`;
+import { Box } from '@material-ui/core';
 
 export const MainContainer = styled.main`
   width: 100%;
