@@ -11,13 +11,13 @@ export const MainContainer = styled.main`
 `;
 
 export const CartoonMan = styled.img`
-  width: 690px;
+  width: 650px;
 
   object-fit: contain;
 `;
 
 export const StartButton = styled.img`
-  width: 300px;
+  width: 250px;
 
   object-fit: contain;
 
