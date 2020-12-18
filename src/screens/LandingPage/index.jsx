@@ -1,11 +1,14 @@
 import React from 'react';
+
+//imports react-router-dom
+import { useHistory } from 'react-router-dom';
+
 //imagens
 import cartoonchar from '../../assets/cartoon_char.svg';
 import enterbutton from '../../assets/enter_button.svg';
 
 //styled-components
 import {
-  LandingPageContainer,
   CartoonMan,
   MainContainer,
   StartButton,
@@ -13,18 +16,31 @@ import {
   AdjustLayoutBox,
 } from './styles';
 
+//global-styled-components
+import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
+
 //components
-import Header from '../Header';
+import Header from '../../components/Header';
 
 const LandingPage = () => {
+  const history = useHistory();
+
+  const handleNavigation = () => {
+    history.push('/name');
+  };
+
   return (
     <>
-      <LandingPageContainer>
-        <Header isHome />
+      <Header isHome />
+      <PagesContainer>
         <MainContainer>
           <CartoonMan src={cartoonchar} alt="homem-cartoonizado-no-notebook" />
           <AdjustLayoutBox>
-            <StartButton src={enterbutton} alt="botão-redondo-seta-entrar" />
+            <StartButton
+              src={enterbutton}
+              alt="botão-redondo-seta-entrar"
+              onClick={handleNavigation}
+            />
             <MainParagraph>
               Alguns <span className="green">minutinhos</span> e tenha seu
               <span className="purple"> currículo </span>prontinho em um
@@ -32,7 +48,7 @@ const LandingPage = () => {
             </MainParagraph>
           </AdjustLayoutBox>
         </MainContainer>
-      </LandingPageContainer>
+      </PagesContainer>
     </>
   );
 };
