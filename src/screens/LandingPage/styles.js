@@ -32,7 +32,7 @@ export const StartButton = styled.img`
 export const MainParagraph = styled.p`
   width: 340px;
 
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
   text-align: justify;
 
