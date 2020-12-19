@@ -43,8 +43,8 @@ const LandingPage = () => {
             />
             <MainParagraph>
               Alguns <span className="green">minutinhos</span> e tenha seu
-              <span className="purple"> currículo </span>prontinho em um
-              <span className="red"> &nbsp; arquivo.pdf</span>
+              <span className="purple"> currículo </span>prontinho em
+              <span className="red"> arquivo.pdf</span>
             </MainParagraph>
           </AdjustLayoutBox>
         </MainContainer>

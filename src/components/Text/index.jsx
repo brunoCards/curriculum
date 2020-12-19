@@ -1,14 +1,32 @@
 import React from 'react';
 
 //styled-components
-import { TextArea } from './styles';
+import { TextArea, ParagraphArea } from './styles';
 
-function Text({ content, span, continueContent }) {
+function Text({
+  content,
+  span,
+  continueContent,
+  hasParagraph,
+  isgreen,
+  ispurple,
+  afterEmphasys,
+}) {
   return (
     <>
-      <TextArea>
-        {content} <span className="purple">{span}</span> {continueContent}
-      </TextArea>
+      {hasParagraph ? (
+        <ParagraphArea>
+          {content} <span className="purple"> {span} </span>
+          <span className="green"> {isgreen} </span>
+          {continueContent} <span className="purple"> {ispurple} </span>
+          {afterEmphasys}
+        </ParagraphArea>
+      ) : (
+        <TextArea>
+          {content} <span className="purple"> {span} </span>
+          {continueContent}
+        </TextArea>
+      )}
     </>
   );
 }
