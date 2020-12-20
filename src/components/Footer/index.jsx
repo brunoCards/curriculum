@@ -1,13 +1,13 @@
 import React from 'react';
 
-//imagens
-import nextbutton from '../../assets/next_button.svg';
-import addbutton from '../../assets/add_button.svg';
+//material-ui/core
+import { IconButton } from '@material-ui/core';
 
 //styled-components
 import {
   MainFooter,
   NextButton,
+  NextButtonWithAdd,
   AddButton,
   WithAddButtonFooter,
 } from './styles';
@@ -17,22 +17,27 @@ const Footer = ({ tosubmit, toAdd, hasAddButton }) => {
     <>
       {hasAddButton ? (
         <WithAddButtonFooter>
-          <AddButton
-            src={addbutton}
-            alt="botão redondo com seta pra direita"
-            onClick={toAdd}
-          />
-          <NextButton
-            src={nextbutton}
-            alt="botão redondo com seta pra direita"
-          />
+          <input accept="image/*" id="icon-arrow-button" type="submit" />
+          <label htmlFor="icon-arrow-button">
+            <IconButton>
+              <AddButton />
+            </IconButton>
+          </label>
+          <input accept="image/*" id="icon-arrow-button" type="submit" />
+          <label htmlFor="icon-arrow-button">
+            <IconButton>
+              <NextButtonWithAdd onClick={tosubmit} />
+            </IconButton>
+          </label>
         </WithAddButtonFooter>
       ) : (
         <MainFooter>
-          <NextButton
-            src={nextbutton}
-            alt="botão redondo com seta pra direita"
-          />
+          <input accept="image/*" id="icon-arrow-button" type="submit" />
+          <label htmlFor="icon-arrow-button">
+            <IconButton>
+              <NextButton onClick={tosubmit} />
+            </IconButton>
+          </label>
         </MainFooter>
       )}
     </>

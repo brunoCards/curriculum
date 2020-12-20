@@ -20,9 +20,10 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     --primary: rgba(241, 196, 15, 0.3);
-    --green_text: #27AE60;  
-    --green_button: #50FF92;
-    --purple_text_add_button: #8E44AD;
+    --green_text_green_button: #27AE60;
+    --purple_text_next_button: #8E44AD;
+    --add_button: #c0c0c0;
+    --hover_add_button: #9b59b6;
     --red_text: #C0392B;
     --blue_bg_input: #B0FFF0;
     --text_input: #000000;

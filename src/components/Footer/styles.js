@@ -1,44 +1,87 @@
 import styled from 'styled-components';
 
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+
 export const MainFooter = styled.footer`
   width: 100%;
-  height: 10%;
-  padding-top: 60px;
+  padding-top: 80px;
 
   display: flex;
   justify-content: flex-end;
+
+  #icon-arrow-button {
+    display: none;
+  }
+
+  label {
+    width: 300px;
+  }
 `;
 
 export const WithAddButtonFooter = styled.footer`
   width: 100%;
-  height: 15%;
-  padding-top: 60px;
+  padding-top: 80px;
 
   display: flex;
   justify-content: space-between;
-`;
 
-export const NextButton = styled.img`
-  width: 120px;
-  object-fit: contain;
+  #icon-arrow-button {
+    display: none;
+  }
 
-  cursor: pointer;
-
-  &:hover {
-    background-color: rgba(142, 68, 173, 0.8);
-    border-radius: 50%;
+  label {
+    width: 300px;
   }
 `;
 
-export const AddButton = styled.img`
-  width: 70px;
-  margin-top: 50px;
-  object-fit: contain;
+export const NextButton = styled(PlayCircleFilledIcon)`
+  &.MuiSvgIcon-root {
+    width: 40%;
+    height: 40%;
+    margin-left: 250px;
 
-  cursor: pointer;
-
-  &:hover {
-    background-color: rgba(80, 255, 146, 0.8);
+    font-size: 120px;
+    fill: var(--purple_text_next_button);
+    background-color: #c0c0c0;
     border-radius: 50%;
+
+    &:hover {
+      fill: var(--green_text_green_button);
+      border-radius: 50%;
+    }
+  }
+`;
+
+export const NextButtonWithAdd = styled(PlayCircleFilledIcon)`
+  &.MuiSvgIcon-root {
+    width: 40%;
+    height: 40%;
+    margin-left: 250px;
+
+    font-size: 120px;
+    fill: var(--purple_text_next_button);
+    background-color: #c0c0c0;
+    border-radius: 50%;
+
+    &:hover {
+      fill: var(--green_text_green_button);
+      border-radius: 50%;
+    }
+  }
+`;
+
+export const AddButton = styled(AddCircleIcon)`
+  &.MuiSvgIcon-root {
+    margin-top: 20px;
+
+    font-size: 100px;
+    fill: var(--add_button);
+    fill-opacity: 1;
+    border-radius: 50%;
+
+    &:hover {
+      fill: var(--hover_add_button);
+    }
   }
 `;
