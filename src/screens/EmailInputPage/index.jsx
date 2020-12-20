@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //xcustom-hook
 import useForm from '../../hooks/useForm';
@@ -20,7 +20,6 @@ import { Input } from '../../styles/Components/Input/styles';
 import { MainContainer } from './styles';
 
 const EmailInputPage = () => {
-  const [data, setData] = useState({});
   const [form, onChangeInput] = useForm({
     email: '',
   });
@@ -34,8 +33,6 @@ const EmailInputPage = () => {
 
   const handleSubmit = () => {
     history.push('/descricao');
-
-    setData({ ...data, form });
   };
 
   return (

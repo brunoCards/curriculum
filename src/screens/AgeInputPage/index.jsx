@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //xcustom-hook
 import useForm from '../../hooks/useForm';
@@ -20,7 +20,6 @@ import { Input } from '../../styles/Components/Input/styles';
 import { MainContainer } from './styles';
 
 const AgeInputPage = () => {
-  const [data, setData] = useState({});
   const [form, onChangeInput] = useForm({
     age: '',
   });
@@ -32,10 +31,8 @@ const AgeInputPage = () => {
     onChangeInput(name, value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     history.push('/cidade');
-
-    setData({ ...data, form });
   };
 
   return (

@@ -21,13 +21,10 @@ const Footer = ({ tosubmit, toAdd, hasAddButton }) => {
             src={addbutton}
             alt="botão redondo com seta pra direita"
             onClick={toAdd}
-            type="submit"
           />
           <NextButton
             src={nextbutton}
             alt="botão redondo com seta pra direita"
-            onClick={tosubmit}
-            type="submit"
           />
         </WithAddButtonFooter>
       ) : (
@@ -35,8 +32,6 @@ const Footer = ({ tosubmit, toAdd, hasAddButton }) => {
           <NextButton
             src={nextbutton}
             alt="botão redondo com seta pra direita"
-            onClick={tosubmit}
-            type="submit"
           />
         </MainFooter>
       )}
