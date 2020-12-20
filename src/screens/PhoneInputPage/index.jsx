@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //xcustom-hook
 import useForm from '../../hooks/useForm';
@@ -20,7 +20,6 @@ import { Input } from '../../styles/Components/Input/styles';
 import { MainContainer } from './styles';
 
 const PhoneInputPage = () => {
-  const [data, setData] = useState({});
   const [form, onChangeInput] = useForm({
     phone: '',
   });
@@ -34,8 +33,6 @@ const PhoneInputPage = () => {
 
   const handleSubmit = () => {
     history.push('/emails');
-
-    setData({ ...data, form });
   };
 
   return (

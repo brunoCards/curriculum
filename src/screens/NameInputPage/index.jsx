@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //xcustom-hook
 import useForm from '../../hooks/useForm';
@@ -20,11 +20,9 @@ import { Input } from '../../styles/Components/Input/styles';
 import { MainContainer } from './styles';
 
 const NameInputPage = () => {
-  const [data, setData] = useState({});
   const [form, onChangeInput] = useForm({
     name: '',
   });
-
   const history = useHistory();
 
   const handleInputChange = (event) => {
@@ -32,10 +30,8 @@ const NameInputPage = () => {
     onChangeInput(name, value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     history.push('/idade');
-
-    setData({ ...data, form });
   };
 
   return (
@@ -45,7 +41,7 @@ const NameInputPage = () => {
         <MainContainer>
           <Text content="Olá como" span="você" continueContent="se chama?" />
         </MainContainer>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Input
             onChange={handleInputChange}
             type="text"
