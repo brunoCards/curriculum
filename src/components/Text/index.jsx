@@ -3,7 +3,7 @@ import React from 'react';
 //styled-components
 import { TextArea, ParagraphArea } from './styles';
 
-function Text({
+const Text = ({
   content,
   span,
   continueContent,
@@ -11,7 +11,7 @@ function Text({
   isgreen,
   ispurple,
   afterEmphasys,
-}) {
+}) => {
   return (
     <>
       {hasParagraph ? (
@@ -29,6 +29,6 @@ function Text({
       )}
     </>
   );
-}
+};
 
 export default Text;

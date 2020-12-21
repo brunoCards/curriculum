@@ -7,3 +7,9 @@ export const Form = styled.form`
   display: flex;
   justify-content: center;
 `;
+
+export const SecondForm = styled.form`
+  width: 100%;
+
+  display: flex;
+`;

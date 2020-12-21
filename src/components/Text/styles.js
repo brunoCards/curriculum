@@ -24,3 +24,4 @@ export const ParagraphArea = styled.p`
     color: var(--green_text_green_button);
   }
 `;
+

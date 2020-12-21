@@ -1,11 +1,5 @@
 import React from 'react';
 
-//xcustom-hook
-import useForm from '../../hooks/useForm';
-
-//imports react-router-dom
-import { useHistory } from 'react-router-dom';
-
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -15,26 +9,11 @@ import Footer from '../../components/Footer';
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { Form } from '../../styles/Components/Form/styles';
 import { Input } from '../../styles/Components/Input/styles';
+import { MainContainer } from '../../styles/Components/MainContainer/styles';
 
 //styled-components
-import { MainContainer } from './styles';
 
 const AgeInputPage = () => {
-  const [form, onChangeInput] = useForm({
-    age: '',
-  });
-
-  const history = useHistory();
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    onChangeInput(name, value);
-  };
-
-  const handleSubmit = (event) => {
-    history.push('/cidade');
-  };
-
   return (
     <>
       <Header />
@@ -43,15 +22,10 @@ const AgeInputPage = () => {
           <Text content="Qual a" span="sua" continueContent="idade?" />
         </MainContainer>
         <Form>
-          <Input
-            onChange={handleInputChange}
-            type="text"
-            name="age"
-            value={form.age}
-          />
+          <Input type="text" name="age" />
         </Form>
 
-        <Footer tosubmit={handleSubmit} />
+        <Footer />
       </PagesContainer>
     </>
   );
