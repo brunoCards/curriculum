@@ -16,6 +16,7 @@ import PhoneInputPage from '../screens/PhoneInputPage';
 import EmailInputPage from '../screens/EmailInputPage';
 import DescriptionInputPage from '../screens/DescriptionInputPage';
 import DifferentialsInputPage from '../screens/DifferentialsInputPage';
+import GraduationsPage from '../screens/GraduationsPage';
 
 const Routers = () => {
   return (
@@ -49,6 +50,9 @@ const Routers = () => {
           </Route>
           <Route exact path="/diferenciais">
             <DifferentialsInputPage />
+          </Route>
+          <Route exact path="/graduacoes">
+            <GraduationsPage />
           </Route>
         </Switch>
       </BrowserRouter>

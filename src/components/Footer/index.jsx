@@ -12,30 +12,30 @@ import {
   WithAddButtonFooter,
 } from './styles';
 
-const Footer = ({ tosubmit, toAdd, hasAddButton }) => {
+const Footer = ({ hasAddButton }) => {
   return (
     <>
       {hasAddButton ? (
         <WithAddButtonFooter>
-          <input accept="image/*" id="icon-arrow-button" type="submit" />
+          <input accept="image/*" id="icon-arrow-button" />
           <label htmlFor="icon-arrow-button">
             <IconButton>
               <AddButton />
             </IconButton>
           </label>
-          <input accept="image/*" id="icon-arrow-button" type="submit" />
+          <input accept="image/*" id="icon-arrow-button" />
           <label htmlFor="icon-arrow-button">
             <IconButton>
-              <NextButtonWithAdd onClick={tosubmit} />
+              <NextButtonWithAdd />
             </IconButton>
           </label>
         </WithAddButtonFooter>
       ) : (
         <MainFooter>
-          <input accept="image/*" id="icon-arrow-button" type="submit" />
+          <input accept="image/*" id="icon-arrow-button" />
           <label htmlFor="icon-arrow-button">
             <IconButton>
-              <NextButton onClick={tosubmit} />
+              <NextButton />
             </IconButton>
           </label>
         </MainFooter>
