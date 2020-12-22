@@ -7,8 +7,6 @@ import Footer from '../../components/Footer';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import { Form } from '../../styles/Components/Form/styles';
-import { Input } from '../../styles/Components/Input/styles';
 import { MainContainer } from '../../styles/Components/MainContainer/styles';
 
 const PhoneInputPage = () => {
@@ -23,9 +21,6 @@ const PhoneInputPage = () => {
             continueContent="telefone principal?"
           />
         </MainContainer>
-        <Form>
-          <Input type="text" name="phone" />
-        </Form>
 
         <Footer hasAddButton />
       </PagesContainer>

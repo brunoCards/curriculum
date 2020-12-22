@@ -2,13 +2,11 @@ import React from 'react';
 
 //components
 import Header from '../../components/Header';
-import Text from '../../components/Text';
 import Footer from '../../components/Footer';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import { Form } from '../../styles/Components/Form/styles';
-import { Input } from '../../styles/Components/Input/styles';
+import GlobalForm from '../../components/GlobalForm';
 import { MainContainer } from '../../styles/Components/MainContainer/styles';
 
 //styled-components
@@ -18,13 +16,8 @@ const AgeInputPage = () => {
     <>
       <Header />
       <PagesContainer>
-        <MainContainer>
-          <Text content="Qual a" span="sua" continueContent="idade?" />
-        </MainContainer>
-        <Form>
-          <Input type="text" name="age" />
-        </Form>
-
+        <MainContainer></MainContainer>
+        <GlobalForm />
         <Footer />
       </PagesContainer>
     </>
