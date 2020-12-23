@@ -1,9 +1,9 @@
 import React from 'react';
 
-//components
+//Global-components
 import Header from '../../components/Header';
-import Text from '../../components/Text';
 import Footer from '../../components/Footer';
+import Text from '../../components/Text';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
@@ -21,7 +21,6 @@ const CityInputPage = () => {
             continueContent="mora?"
           />
         </MainContainer>
-
         <Footer />
       </PagesContainer>
     </>

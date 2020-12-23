@@ -1,15 +1,13 @@
 import React from 'react';
 
-//components
+//Global-components
 import Header from '../../components/Header';
-import Text from '../../components/Text';
 import Footer from '../../components/Footer';
+import Text from '../../components/Text';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { MainContainer } from '../../styles/Components/MainContainer/styles';
-
-//styled-components
 
 const AgeInputPage = () => {
   return (
@@ -19,7 +17,6 @@ const AgeInputPage = () => {
         <MainContainer>
           <Text content="Qual a" span="sua" continueContent="idade?" />
         </MainContainer>
-
         <Footer />
       </PagesContainer>
     </>
