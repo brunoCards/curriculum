@@ -12,6 +12,7 @@ const GraduationsPage = () => {
     <>
       <PagesContainer>
         <Header />
+        <Text content="Conte um ou mais diferenciais que" hasParagraph />
       </PagesContainer>
     </>
   );

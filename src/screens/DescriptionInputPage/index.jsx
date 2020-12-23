@@ -3,7 +3,6 @@ import React from 'react';
 //Global-components
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import GlobalForm from '../../components/GlobalForm';
 import Text from '../../components/Text';
 
 //global-styled-components
@@ -25,9 +24,7 @@ const DescriptionInputPage = () => {
             afterEmphasys="espera de uma empresa?"
             hasParagraph
           />
-          <GlobalForm isOneInput isDescription />
         </MainContainer>
-
         <Footer />
       </PagesContainer>
     </>
