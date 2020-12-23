@@ -1,9 +1,10 @@
 import React from 'react';
 
-//components
+//Global-components
 import Header from '../../components/Header';
-import Text from '../../components/Text';
 import Footer from '../../components/Footer';
+import GlobalForm from '../../components/GlobalForm';
+import Text from '../../components/Text';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
@@ -20,10 +21,11 @@ const DescriptionInputPage = () => {
             span="você, e o"
             isgreen="seu"
             continueContent="momento atual. E o que"
-            ispurple="você"
+            isPurple="você"
             afterEmphasys="espera de uma empresa?"
             hasParagraph
           />
+          <GlobalForm isOneInput isDescription />
         </MainContainer>
 
         <Footer />

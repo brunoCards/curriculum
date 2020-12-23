@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const TextArea = styled.p`
+  margin-top: 30px;
   color: var(--text_input);
 
   .purple {
@@ -10,7 +11,6 @@ export const TextArea = styled.p`
 
 export const ParagraphArea = styled.p`
   width: 50%;
-  margin: 0 0 70px 0;
 
   font-size: 35px;
   color: var(--text_input);
@@ -24,4 +24,3 @@ export const ParagraphArea = styled.p`
     color: var(--green_text_green_button);
   }
 `;
-

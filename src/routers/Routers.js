@@ -31,7 +31,7 @@ const Routers = () => {
             <Route exact path="/">
               <LandingPage />
             </Route>
-            <Route exact path="/name">
+            <Route exact path="/nome">
               <NameInputPage />
             </Route>
             <Route exact path="/idade">
