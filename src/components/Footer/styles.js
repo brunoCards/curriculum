@@ -73,7 +73,7 @@ export const NextButtonWithAdd = styled(PlayCircleFilledIcon)`
 
 export const AddButton = styled(AddCircleIcon)`
   &.MuiSvgIcon-root {
-    margin-top: 20px;
+    margin-top: 10px;
 
     font-size: 100px;
     fill: var(--add_button);

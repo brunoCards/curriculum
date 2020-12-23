@@ -1,23 +1,24 @@
 import React from 'react';
 
-//components
+//Global-components
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import GlobalForm from '../../components/GlobalForm';
+import Text from '../../components/Text';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import GlobalForm from '../../components/GlobalForm';
 import { MainContainer } from '../../styles/Components/MainContainer/styles';
-
-//styled-components
 
 const AgeInputPage = () => {
   return (
     <>
       <Header />
       <PagesContainer>
-        <MainContainer></MainContainer>
-        <GlobalForm />
+        <MainContainer>
+          <Text content="Qual a" span="sua" continueContent="idade?" />
+          <GlobalForm isOneInput isAge />
+        </MainContainer>
         <Footer />
       </PagesContainer>
     </>

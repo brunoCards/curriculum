@@ -1,9 +1,10 @@
 import React from 'react';
 
-//components
+//Global-components
 import Header from '../../components/Header';
-import Text from '../../components/Text';
 import Footer from '../../components/Footer';
+import GlobalForm from '../../components/GlobalForm';
+import Text from '../../components/Text';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
@@ -16,6 +17,7 @@ const StateInputPage = () => {
       <PagesContainer>
         <MainContainer>
           <Text content="E o estado?" />
+          <GlobalForm isOneInput isState />
         </MainContainer>
         <Footer />
       </PagesContainer>
