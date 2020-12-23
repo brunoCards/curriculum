@@ -7,8 +7,6 @@ import Footer from '../../components/Footer';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import { Form } from '../../styles/Components/Form/styles';
-import { Input } from '../../styles/Components/Input/styles';
 import { MainContainer } from '../../styles/Components/MainContainer/styles';
 
 const StateInputPage = () => {
@@ -19,10 +17,6 @@ const StateInputPage = () => {
         <MainContainer>
           <Text content="E o estado?" />
         </MainContainer>
-        <Form>
-          <Input type="text" name="state" />
-        </Form>
-
         <Footer />
       </PagesContainer>
     </>

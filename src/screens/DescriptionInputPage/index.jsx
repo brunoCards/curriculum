@@ -7,8 +7,6 @@ import Footer from '../../components/Footer';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import { Form } from '../../styles/Components/Form/styles';
-import { Input } from '../../styles/Components/Input/styles';
 import { MainContainer } from '../../styles/Components/MainContainer/styles';
 
 const DescriptionInputPage = () => {
@@ -27,10 +25,6 @@ const DescriptionInputPage = () => {
             hasParagraph
           />
         </MainContainer>
-        <Form>
-          <Input type="text" name="description" />
-        </Form>
-
         <Footer />
       </PagesContainer>
     </>
