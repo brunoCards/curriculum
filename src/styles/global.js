@@ -12,12 +12,6 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: 100vh;  
   }
-  
-  button, input {
-    outline: none;
-    font: 50px 'Roboto', sans-serif ;
-
-  }
 
   body {
     font: 50px 'Roboto', sans-serif ;

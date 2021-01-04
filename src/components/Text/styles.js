@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TextArea = styled.p`
-  width: 100%;
+  margin-top: 30px;
   color: var(--text_input);
 
   .purple {
@@ -12,7 +12,7 @@ export const TextArea = styled.p`
 export const ParagraphArea = styled.p`
   width: 50%;
 
-  font-size: 27px;
+  font-size: 35px;
   color: var(--text_input);
   text-align: justify;
 

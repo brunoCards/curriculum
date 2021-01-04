@@ -1,5 +1,8 @@
 import React from 'react';
 
+//imports react-router-dom
+import { useHistory } from 'react-router-dom';
+
 //imagens
 import cartoonchar from '../../assets/cartoon_char.svg';
 import enterbutton from '../../assets/enter_button.svg';
@@ -19,7 +22,13 @@ import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 //components
 import Header from '../../components/Header';
 
-const LandingPage = ({ navigation }) => {
+const LandingPage = () => {
+  const history = useHistory();
+
+  const handleNavigation = () => {
+    history.push('/name');
+  };
+
   return (
     <>
       <Header isHome />
@@ -30,7 +39,7 @@ const LandingPage = ({ navigation }) => {
             <StartButton
               src={enterbutton}
               alt="botão-redondo-seta-entrar"
-              onClick={() => navigation.next()}
+              onClick={handleNavigation}
             />
             <MainParagraph>
               Alguns <span className="green">minutinhos</span> e tenha seu
