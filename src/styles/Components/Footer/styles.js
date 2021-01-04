@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const MainFooter = styled.footer`
   width: 100%;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 `;

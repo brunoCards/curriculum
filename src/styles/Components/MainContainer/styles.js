@@ -1,12 +1,25 @@
 import styled from 'styled-components';
 
-export const MainContainer = styled.main`
+export const Main = styled.main`
   width: 100%;
-  height: 50vh;
-  padding-top: 120px;
+  height: 60vh;
 
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+`;
+
+export const LargeMain = styled.main`
+  width: 100%;
+  height: 60vh;
+  padding-top: 50px;
+
+  display: flex;
+  gap: 30px;
   flex-direction: column;
   align-items: center;
 `;

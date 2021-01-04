@@ -10,19 +10,19 @@ import { MainFooter } from '../../styles/Components/Footer/styles';
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
-import { Input } from '../../styles/Components/Input/styles';
+import { LargeInput } from '../../styles/Components/Input/styles';
 import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
 
-const AgeInputPage = ({ navigation, formData, setForm }) => {
-  const { age } = formData;
+const ActivitiesInputPage = ({ navigation, formData, setForm }) => {
+  const { activities } = formData;
 
   return (
     <>
       <Header />
       <PagesContainer>
         <Main>
-          <Text content="Qual a" span="sua" continueContent="idade?" />
-          <Input name="age" value={age} onChange={setForm} />
+          <Text content="Atividades" span="desempenhadas" />
+          <LargeInput name="activities" value={activities} onChange={setForm} />
         </Main>
         <MainFooter>
           <BackButton onClick={() => navigation.previous()} />
@@ -32,4 +32,4 @@ const AgeInputPage = ({ navigation, formData, setForm }) => {
     </>
   );
 };
-export default AgeInputPage;
+export default ActivitiesInputPage;
