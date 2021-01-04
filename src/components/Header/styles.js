@@ -11,7 +11,7 @@ export const MainHeader = styled.header`
 
 export const HeaderSideLogo = styled.header`
   width: 100%;
-  height: 20vh;
+  height: 120px;
   padding: 40px 0 0 50px;
 
   display: flex;

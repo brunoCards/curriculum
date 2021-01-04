@@ -9,7 +9,7 @@ const Text = ({
   continueContent,
   hasParagraph,
   isgreen,
-  ispurple,
+  isPurple,
   afterEmphasys,
 }) => {
   return (
@@ -18,7 +18,7 @@ const Text = ({
         <ParagraphArea>
           {content} <span className="purple"> {span} </span>
           <span className="green"> {isgreen} </span>
-          {continueContent} <span className="purple"> {ispurple} </span>
+          {continueContent} <span className="purple"> {isPurple} </span>
           {afterEmphasys}
         </ParagraphArea>
       ) : (
