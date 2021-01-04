@@ -13,16 +13,16 @@ import { Main } from '../../styles/Components/MainContainer/styles';
 import { Input } from '../../styles/Components/Input/styles';
 import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
 
-const AgeInputPage = ({ navigation, formData, setForm }) => {
-  const { age } = formData;
+const LanguageLevelPage = ({ navigation, formData, setForm }) => {
+  const { level } = formData;
 
   return (
     <>
       <Header />
       <PagesContainer>
         <Main>
-          <Text content="Qual a" span="sua" continueContent="idade?" />
-          <Input name="age" value={age} onChange={setForm} />
+          <Text content="Qual o" span="nível" continueContent="de domínio?" />
+          <Input name="level" value={level} onChange={setForm} />
         </Main>
         <MainFooter>
           <BackButton onClick={() => navigation.previous()} />
@@ -32,4 +32,4 @@ const AgeInputPage = ({ navigation, formData, setForm }) => {
     </>
   );
 };
-export default AgeInputPage;
+export default LanguageLevelPage;

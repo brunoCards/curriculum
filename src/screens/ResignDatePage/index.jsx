@@ -13,16 +13,16 @@ import { Main } from '../../styles/Components/MainContainer/styles';
 import { Input } from '../../styles/Components/Input/styles';
 import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
 
-const AgeInputPage = ({ navigation, formData, setForm }) => {
-  const { age } = formData;
+const ResignDatePage = ({ navigation, formData, setForm }) => {
+  const { resignDate } = formData;
 
   return (
     <>
       <Header />
       <PagesContainer>
         <Main>
-          <Text content="Qual a" span="sua" continueContent="idade?" />
-          <Input name="age" value={age} onChange={setForm} />
+          <Text content="Qual a data de" span="demissão?" />
+          <Input name="resignDate" value={resignDate} onChange={setForm} />
         </Main>
         <MainFooter>
           <BackButton onClick={() => navigation.previous()} />
@@ -32,4 +32,5 @@ const AgeInputPage = ({ navigation, formData, setForm }) => {
     </>
   );
 };
-export default AgeInputPage;
+
+export default ResignDatePage;
