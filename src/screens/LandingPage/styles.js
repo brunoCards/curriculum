@@ -16,16 +16,33 @@ export const CartoonMan = styled.img`
   object-fit: contain;
 `;
 
-export const StartButton = styled.img`
-  width: 250px;
+export const StartButton = styled.button`
+  width: 340px;
+  height: 70px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px 10px var(--text_input);
+  outline: none;
 
-  object-fit: contain;
+  color: #6a6a6a;
+  font-size: 25px;
+  font-weight: bold;
+
+  opacity: 0.9;
 
   cursor: pointer;
 
+  background-color: #555555;
+
   &:hover {
-    background-color: rgba(142, 68, 173, 0.8);
-    border-radius: 50%;
+    transition: 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: #27ae60;
+    color: var(--purple_text_next_button);
+
+    opacity: 1;
+
+    box-shadow: none;
+
+    border: 3px solid var(--text_input);
   }
 `;
 
@@ -51,10 +68,9 @@ export const MainParagraph = styled.p`
 
 export const AdjustLayoutBox = styled(Box)`
   height: 500px;
-  margin-left: 50px;
 
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
