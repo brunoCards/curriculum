@@ -1,45 +1,34 @@
 import React from 'react';
 
-//components
+//Global-components
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import GlobalForm from '../../components/GlobalForm';
 import Text from '../../components/Text';
-
-//import FooterStyleComponents
-import { MainFooter } from '../../styles/Components/Footer/styles';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import { LargeMain } from '../../styles/Components/MainContainer/styles';
-import { LargeInput } from '../../styles/Components/Input/styles';
-import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
+import { MainContainer } from '../../styles/Components/MainContainer/styles';
 
-const DescriptionInputPage = ({ navigation, formData, setForm }) => {
-  const { description } = formData;
-
+const DescriptionInputPage = () => {
   return (
     <>
       <Header />
       <PagesContainer>
-        <LargeMain>
+        <MainContainer>
           <Text
             content="Faça uma breve descrição sobre"
             span="você, e o"
             isgreen="seu"
             continueContent="momento atual. E o que"
-            ispurple="você"
+            isPurple="você"
             afterEmphasys="espera de uma empresa?"
             hasParagraph
           />
-          <LargeInput
-            name="description"
-            value={description}
-            onChange={setForm}
-          />
-        </LargeMain>
-        <MainFooter>
-          <BackButton onClick={() => navigation.previous()} />
-          <NextButton onClick={() => navigation.next()} />
-        </MainFooter>
+          <GlobalForm isOneInput isDescription />
+        </MainContainer>
+
+        <Footer />
       </PagesContainer>
     </>
   );

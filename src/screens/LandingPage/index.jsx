@@ -1,5 +1,8 @@
 import React from 'react';
 
+//imports react-router-dom
+import { useHistory } from 'react-router-dom';
+
 //imagens
 import cartoonchar from '../../assets/cartoon_char.svg';
 
@@ -18,7 +21,13 @@ import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 //components
 import Header from '../../components/Header';
 
-const LandingPage = ({ navigation }) => {
+const LandingPage = () => {
+  const history = useHistory();
+
+  const handleNavigation = () => {
+    history.push('/name');
+  };
+
   return (
     <>
       <Header isHome />
