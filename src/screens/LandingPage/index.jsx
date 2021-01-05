@@ -2,7 +2,6 @@ import React from 'react';
 
 //imagens
 import cartoonchar from '../../assets/cartoon_char.svg';
-import enterbutton from '../../assets/enter_button.svg';
 
 //styled-components
 import {
@@ -27,11 +26,9 @@ const LandingPage = ({ navigation }) => {
         <MainContainer>
           <CartoonMan src={cartoonchar} alt="homem-cartoonizado-no-notebook" />
           <AdjustLayoutBox>
-            <StartButton
-              src={enterbutton}
-              alt="botão-redondo-seta-entrar"
-              onClick={() => navigation.next()}
-            />
+            <StartButton onClick={() => navigation.next()}>
+              Quero um CurriculuM
+            </StartButton>
             <MainParagraph>
               Alguns <span className="green">minutinhos</span> e tenha seu
               <span className="purple"> currículo </span>prontinho em
