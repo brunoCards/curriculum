@@ -34,7 +34,7 @@ export const StartButton = styled.button`
   background-color: #555555;
 
   &:hover {
-    transition: 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
     background-color: #27ae60;
     color: var(--purple_text_next_button);
 

@@ -14,7 +14,7 @@ import { Input } from '../../styles/Components/Input/styles';
 import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
 
 const EducationalInstitutionPage = ({ navigation, formData, setForm }) => {
-  const { institute } = formData;
+  const { institution } = formData;
 
   return (
     <>
@@ -26,7 +26,7 @@ const EducationalInstitutionPage = ({ navigation, formData, setForm }) => {
             span="nome"
             continueContent="da instituição?"
           />
-          <Input name="institute" value={institute} onChange={setForm} />
+          <Input name="institution" value={institution} onChange={setForm} />
         </Main>
         <MainFooter>
           <BackButton onClick={() => navigation.previous()} />

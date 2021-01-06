@@ -19,10 +19,10 @@ const AccordionReviewPage = ({ summary, details, go }) => {
 
         return (
           <>
-            <AccordionBoxDetail>
+            <AccordionBoxDetail onClick={() => go(`${summary.toLowerCase()}`)}>
               <AccordionText key={index}>
                 {`${objKey}: ${objValue}`}
-                <IconButton onClick={() => go(`${summary.toLowerCase()}`)}>
+                <IconButton>
                   <EditIcon />
                 </IconButton>
               </AccordionText>

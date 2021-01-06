@@ -17,10 +17,12 @@ export const Input = styled.input`
 export const LargeInput = styled.textarea`
   width: 50%;
   height: 260px;
+  padding: 10px;
 
   font-size: 25px;
   font-weight: bold;
   color: var(--text_input);
+  text-align: justify;
 
   border: 3px solid var(--text_input);
   border-radius: 6px;

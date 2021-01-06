@@ -1,29 +1,29 @@
 import React from 'react';
 
 //imports screens/inputs
-import ActivitiesInputPage from '../screens/ActivitiesInputPage';
-import AdmitDatePage from '../screens/AdmitDatePage';
-import AgeInputPage from '../screens/AgeInputPage';
-import CityInputPage from '../screens/CityInputPage';
-import CompanyNamePage from '../screens/CompanyNamePage';
-import CourseNamePage from '../screens/CourseNamePage';
-import DegreeLevelPage from '../screens/DegreeLevelPage';
-import DescriptionInputPage from '../screens/DescriptionInputPage';
-import DifferentialsInputPage from '../screens/DifferentialsInputPage';
-// import { DownloadPage } from '../screens/DownloadPage';
-import EducationalInstitutionPage from '../screens/EducationalInstitutionPage';
-import EmailInputPage from '../screens/EmailInputPage';
-import EndDatePage from '../screens/EndDatePage';
-import KnowledgeInputPage from '../screens/KnowledgeInputPage';
-import LandingPage from '../screens/LandingPage';
-import LanguageInputPage from '../screens/LanguageInputPage';
-import LanguageLevelPage from '../screens/LanguageLevelPage';
-import NameInputPage from '../screens/NameInputPage';
-import PhoneInputPage from '../screens/PhoneInputPage';
-import ResignDatePage from '../screens/ResignDatePage';
-// import { ReviewPage } from '../screens/ReviewPage';
-import StateInputPage from '../screens/StateInputPage';
-import StartDatePage from '../screens/StartDatePage';
+import ActivitiesInputPage from '../../screens/ActivitiesInputPage';
+import AdmitDatePage from '../../screens/AdmitDatePage';
+import AgeInputPage from '../../screens/AgeInputPage';
+import CityInputPage from '../../screens/CityInputPage';
+import CompanyNamePage from '../../screens/CompanyNamePage';
+import CourseNamePage from '../../screens/CourseNamePage';
+import DegreeLevelPage from '../../screens/DegreeLevelPage';
+import DescriptionInputPage from '../../screens/DescriptionInputPage';
+import DifferentialsInputPage from '../../screens/DifferentialsInputPage';
+// import { DownloadPage } from '../../screens/DownloadPage';
+import EducationalInstitutionPage from '../../screens/EducationalInstitutionPage';
+import EmailInputPage from '../../screens/EmailInputPage';
+import EndDatePage from '../../screens/EndDatePage';
+import KnowledgeInputPage from '../../screens/KnowledgeInputPage';
+import LandingPage from '../../screens/LandingPage';
+import LanguageInputPage from '../../screens/LanguageInputPage';
+import LanguageLevelPage from '../../screens/LanguageLevelPage';
+import NameInputPage from '../../screens/NameInputPage';
+import PhoneInputPage from '../../screens/PhoneInputPage';
+import ResignDatePage from '../../screens/ResignDatePage';
+import ReviewPage from '../../screens/ReviewPage';
+import StateInputPage from '../../screens/StateInputPage';
+import StartDatePage from '../../screens/StartDatePage';
 
 //imports react-hooks-helper
 import { useForm, useStep } from 'react-hooks-helper';
@@ -31,7 +31,7 @@ import { useForm, useStep } from 'react-hooks-helper';
 const defaultData = {
   activities: '',
   actualWork: false,
-  admitDate: '',
+  admitdate: '',
   age: '',
   city: '',
   company: '',
@@ -40,15 +40,15 @@ const defaultData = {
   description: '',
   differentials: '',
   email: '',
-  endDate: '',
-  generalKnowledge: '',
-  institute: '',
+  endate: '',
+  knowledge: '',
+  institution: '',
   language: '',
   level: '',
   name: '',
   phone: '',
-  resignDate: '',
-  startDate: '',
+  resigndate: '',
+  startdate: '',
   state: '',
 };
 
@@ -63,19 +63,19 @@ const steps = [
   { id: 'description' },
   { id: 'differentials' },
   { id: 'institution' },
-  { id: 'courseName' },
+  { id: 'course' },
   { id: 'degree' },
-  { id: 'startDate' },
-  { id: 'endDate' },
+  { id: 'startdate' },
+  { id: 'endate' },
   { id: 'language' },
-  { id: 'languageLevel' },
+  { id: 'level' },
   { id: 'knowledge' },
   { id: 'company' },
-  { id: 'admitDate' },
-  { id: 'resignDate' },
+  { id: 'admitdate' },
+  { id: 'resigndate' },
   { id: 'activities' },
   { id: 'review' },
-  { id: 'download' },
+  // { id: 'download' },
 ];
 
 const MultiStepForm = () => {
@@ -115,22 +115,22 @@ const MultiStepForm = () => {
     case 'institution':
       return <EducationalInstitutionPage {...props} />;
 
-    case 'courseName':
+    case 'course':
       return <CourseNamePage {...props} />;
 
     case 'degree':
       return <DegreeLevelPage {...props} />;
 
-    case 'startDate':
+    case 'startdate':
       return <StartDatePage {...props} />;
 
-    case 'endDate':
+    case 'endate':
       return <EndDatePage {...props} />;
 
     case 'language':
       return <LanguageInputPage {...props} />;
 
-    case 'languageLevel':
+    case 'level':
       return <LanguageLevelPage {...props} />;
 
     case 'knowledge':
@@ -139,17 +139,17 @@ const MultiStepForm = () => {
     case 'company':
       return <CompanyNamePage {...props} />;
 
-    case 'admitDate':
+    case 'admitdate':
       return <AdmitDatePage {...props} />;
 
-    case 'resignDate':
+    case 'resigndate':
       return <ResignDatePage {...props} />;
 
     case 'activities':
       return <ActivitiesInputPage {...props} />;
 
-    // case 'review':
-    //   return <ReviewPage {...props} />;
+    case 'review':
+      return <ReviewPage {...props} />;
 
     // case 'download':
     //   return <DownloadPage {...props} />;

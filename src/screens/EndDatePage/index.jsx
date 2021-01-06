@@ -14,7 +14,7 @@ import { Input } from '../../styles/Components/Input/styles';
 import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
 
 const EndDatePage = ({ navigation, formData, setForm }) => {
-  const { endDate } = formData;
+  const { enddate } = formData;
 
   return (
     <>
@@ -26,7 +26,7 @@ const EndDatePage = ({ navigation, formData, setForm }) => {
             span="término"
             continueContent=" do curso?"
           />
-          <Input name="endDate" value={endDate} onChange={setForm} />
+          <Input name="enddate" value={enddate} onChange={setForm} />
         </Main>
         <MainFooter>
           <BackButton onClick={() => navigation.previous()} />
