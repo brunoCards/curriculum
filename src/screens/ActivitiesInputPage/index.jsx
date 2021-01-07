@@ -5,29 +5,41 @@ import Header from '../../components/Header';
 import Text from '../../components/Text';
 
 //import FooterStyleComponents
-import { MainFooter } from '../../styles/Components/Footer/styles';
+import { LargeFooter } from '../../styles/Components/Footer/styles';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import { Main } from '../../styles/Components/MainContainer/styles';
+import { LargeMain } from '../../styles/Components/MainContainer/styles';
 import { LargeInput } from '../../styles/Components/Input/styles';
-import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
+import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 
-const ActivitiesInputPage = ({ navigation, formData, setForm }) => {
+import {
+  BackButton,
+  NextButton,
+  BackToButton,
+} from '../../styles/Components/Buttons/styles';
+
+const ActivitiesInputPage = ({ navigation, formData, setForm, go }) => {
   const { activities } = formData;
-
   return (
     <>
       <Header />
       <PagesContainer>
-        <Main>
+        <LargeMain>
+          <BoxIcon>
+            {activities !== '' ? (
+              <BackToButton onClick={() => go('review')} />
+            ) : (
+              <BackToButton className="ishidden" onClick={() => go('review')} />
+            )}
+          </BoxIcon>
           <Text content="Atividades" span="desempenhadas" />
           <LargeInput name="activities" value={activities} onChange={setForm} />
-        </Main>
-        <MainFooter>
+        </LargeMain>
+        <LargeFooter>
           <BackButton onClick={() => navigation.previous()} />
           <NextButton onClick={() => navigation.next()} />
-        </MainFooter>
+        </LargeFooter>
       </PagesContainer>
     </>
   );

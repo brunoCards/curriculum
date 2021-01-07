@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const TextArea = styled.p`
   width: 100%;
   color: var(--text_input);
+  text-align: center;
 
   .purple {
     color: var(--purple_text_next_button);
@@ -12,7 +13,7 @@ export const TextArea = styled.p`
 export const ParagraphArea = styled.p`
   width: 50%;
 
-  font-size: 27px;
+  font-size: 25px;
   color: var(--text_input);
   text-align: justify;
 

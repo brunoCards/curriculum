@@ -10,10 +10,15 @@ import { MainFooter } from '../../styles/Components/Footer/styles';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
+import {
+  BackButton,
+  NextButton,
+  BackToButton,
+} from '../../styles/Components/Buttons/styles';
 import { Input } from '../../styles/Components/Input/styles';
+import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 
-const DifferentialsInputPage = ({ navigation, formData, setForm }) => {
+const DifferentialsInputPage = ({ navigation, formData, setForm, go }) => {
   const { differentials } = formData;
 
   return (
@@ -21,6 +26,13 @@ const DifferentialsInputPage = ({ navigation, formData, setForm }) => {
       <Header />
       <PagesContainer>
         <Main>
+          <BoxIcon>
+            {differentials !== '' ? (
+              <BackToButton onClick={() => go('review')} />
+            ) : (
+              <BackToButton className="ishidden" onClick={() => go('review')} />
+            )}
+          </BoxIcon>
           <Text
             content="Conte um ou mais diferenciais pessoais ou profissionais os quais"
             span="você"

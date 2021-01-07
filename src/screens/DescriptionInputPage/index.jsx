@@ -5,15 +5,21 @@ import Header from '../../components/Header';
 import Text from '../../components/Text';
 
 //import FooterStyleComponents
-import { MainFooter } from '../../styles/Components/Footer/styles';
+import { LargeFooter } from '../../styles/Components/Footer/styles';
 
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { LargeMain } from '../../styles/Components/MainContainer/styles';
 import { LargeInput } from '../../styles/Components/Input/styles';
-import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
+import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 
-const DescriptionInputPage = ({ navigation, formData, setForm }) => {
+import {
+  BackButton,
+  NextButton,
+  BackToButton,
+} from '../../styles/Components/Buttons/styles';
+
+const DescriptionInputPage = ({ navigation, formData, setForm, go }) => {
   const { description } = formData;
 
   return (
@@ -21,6 +27,13 @@ const DescriptionInputPage = ({ navigation, formData, setForm }) => {
       <Header />
       <PagesContainer>
         <LargeMain>
+          <BoxIcon>
+            {description !== '' ? (
+              <BackToButton onClick={() => go('review')} />
+            ) : (
+              <BackToButton className="ishidden" onClick={() => go('review')} />
+            )}
+          </BoxIcon>
           <Text
             content="Faça uma breve descrição sobre"
             span="você, e o"
@@ -36,10 +49,10 @@ const DescriptionInputPage = ({ navigation, formData, setForm }) => {
             onChange={setForm}
           />
         </LargeMain>
-        <MainFooter>
+        <LargeFooter>
           <BackButton onClick={() => navigation.previous()} />
           <NextButton onClick={() => navigation.next()} />
-        </MainFooter>
+        </LargeFooter>
       </PagesContainer>
     </>
   );

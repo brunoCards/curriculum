@@ -11,9 +11,15 @@ import { MainFooter } from '../../styles/Components/Footer/styles';
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { Input } from '../../styles/Components/Input/styles';
-import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
+import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 
-const EmailInputPage = ({ navigation, formData, setForm }) => {
+import {
+  BackButton,
+  NextButton,
+  BackToButton,
+} from '../../styles/Components/Buttons/styles';
+
+const EmailInputPage = ({ navigation, formData, setForm, go }) => {
   const { email } = formData;
 
   return (
@@ -21,6 +27,13 @@ const EmailInputPage = ({ navigation, formData, setForm }) => {
       <Header />
       <PagesContainer>
         <Main>
+          <BoxIcon>
+            {email !== '' ? (
+              <BackToButton onClick={() => go('review')} />
+            ) : (
+              <BackToButton className="ishidden" onClick={() => go('review')} />
+            )}
+          </BoxIcon>
           <Text content="Qual o" span="seu" continueContent="melhor email?" />
           <Input name="email" value={email} onChange={setForm} />
         </Main>

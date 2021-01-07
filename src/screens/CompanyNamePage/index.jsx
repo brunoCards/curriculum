@@ -11,16 +11,28 @@ import { MainFooter } from '../../styles/Components/Footer/styles';
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { Input } from '../../styles/Components/Input/styles';
-import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
+import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 
-const CompanyNamePage = ({ navigation, formData, setForm }) => {
+import {
+  BackButton,
+  NextButton,
+  BackToButton,
+} from '../../styles/Components/Buttons/styles';
+
+const CompanyNamePage = ({ navigation, formData, setForm, go }) => {
   const { company } = formData;
-
   return (
     <>
       <Header />
       <PagesContainer>
         <Main>
+          <BoxIcon>
+            {company !== '' ? (
+              <BackToButton onClick={() => go('review')} />
+            ) : (
+              <BackToButton className="ishidden" onClick={() => go('review')} />
+            )}
+          </BoxIcon>
           <Text content="Qual o" span="nome" continueContent="da empresa?" />
           <Input name="company" value={company} onChange={setForm} />
         </Main>

@@ -11,7 +11,7 @@ export const ReviewPageMainContainer = styled(Container)`
   width: 100vw;
   display: flex;
   justify-content: center;
-  padding: 0;
+  padding-top: 5vh;
 `;
 
 export const AccordionContainer = withStyles({
@@ -50,6 +50,7 @@ export const AccordionBoxDetail = withStyles({
 export const AccordionText = styled.p`
   width: 100%;
   height: 100px;
+  border: 1px dotted var(--text_input);
 
   padding-left: 16px;
 
@@ -67,7 +68,7 @@ export const AccordionText = styled.p`
 `;
 
 export const AccordionTitle = styled.h3`
-  font-size: 35px;
+  font-size: 43px;
   font-family: 'Baloo 2', cursive;
 
   color: var(--purple_text_next_button);

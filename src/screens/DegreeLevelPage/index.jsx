@@ -11,9 +11,15 @@ import { MainFooter } from '../../styles/Components/Footer/styles';
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { Input } from '../../styles/Components/Input/styles';
-import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
+import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 
-const DegreeLevelPage = ({ navigation, formData, setForm }) => {
+import {
+  BackButton,
+  NextButton,
+  BackToButton,
+} from '../../styles/Components/Buttons/styles';
+
+const DegreeLevelPage = ({ navigation, formData, setForm, go }) => {
   const { degree } = formData;
 
   return (
@@ -21,6 +27,13 @@ const DegreeLevelPage = ({ navigation, formData, setForm }) => {
       <Header />
       <PagesContainer>
         <Main>
+          <BoxIcon>
+            {degree !== '' ? (
+              <BackToButton onClick={() => go('review')} />
+            ) : (
+              <BackToButton className="ishidden" onClick={() => go('review')} />
+            )}
+          </BoxIcon>
           <Text
             content="Nível de"
             span="graduação"

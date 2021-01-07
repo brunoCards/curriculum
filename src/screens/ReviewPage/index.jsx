@@ -2,8 +2,7 @@ import React from 'react';
 
 //components
 import Header from '../../components/Header';
-import { MainFooter } from '../../styles/Components/Footer/styles';
-import { BackButton } from '../../styles/Components/Buttons/styles';
+import { LargeFooter } from '../../styles/Components/Footer/styles';
 
 import AccordionReviewPage from '../../components/AccordionReviewPage';
 import {
@@ -11,6 +10,14 @@ import {
   AccordionTitle,
   AccordionContainer,
 } from '../../components/AccordionReviewPage/styles';
+
+import { HomeButton } from '../../styles/Components/Buttons/styles';
+import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
+
+import {
+  Submit,
+  ExitReviewButton,
+} from '../../styles/Components/Buttons/styles';
 
 //import material-ui
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -23,7 +30,7 @@ const ReviewPage = ({ title, formData, navigation }) => {
   const {
     activities,
     // actualWork,
-    admitDate,
+    admitdate,
     age,
     city,
     company,
@@ -32,22 +39,24 @@ const ReviewPage = ({ title, formData, navigation }) => {
     description,
     differentials,
     email,
-    endDate,
+    enddate,
     knowledge,
     institution,
     language,
     level,
     name,
     phone,
-    resignDate,
-    startDate,
+    resigndate,
+    startdate,
     state,
   } = formData;
   return (
     <>
       <Header />
       <ReviewPageMainContainer>
-        <AccordionTitle onClick={() => navigation.previous()}>X</AccordionTitle>
+        <BoxIcon>
+          <HomeButton onClick={() => go('landing')} />
+        </BoxIcon>
         <AccordionContainer>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <AccordionTitle>{(title = 'Dados Pessoais')}</AccordionTitle>
@@ -113,13 +122,13 @@ const ReviewPage = ({ title, formData, navigation }) => {
             go={go}
           />
           <AccordionReviewPage
-            summary="startDate"
-            details={[{ 'Data de início': startDate }]}
+            summary="startdate"
+            details={[{ 'Data de início': startdate }]}
             go={go}
           />
           <AccordionReviewPage
-            summary="endDate"
-            details={[{ 'Data de conclusão': endDate }]}
+            summary="enddate"
+            details={[{ 'Data de conclusão': enddate }]}
             go={go}
           />
           <AccordionReviewPage
@@ -150,13 +159,13 @@ const ReviewPage = ({ title, formData, navigation }) => {
             go={go}
           />
           <AccordionReviewPage
-            summary="admitDate"
-            details={[{ 'Data de entrada': admitDate }]}
+            summary="admitdate"
+            details={[{ 'Data de entrada': admitdate }]}
             go={go}
           />
           <AccordionReviewPage
-            summary="resignDate"
-            details={[{ 'Data de saída': resignDate }]}
+            summary="resigndate"
+            details={[{ 'Data de saída': resigndate }]}
             go={go}
           />
           <AccordionReviewPage
@@ -165,7 +174,10 @@ const ReviewPage = ({ title, formData, navigation }) => {
             go={go}
           />
         </AccordionContainer>
-        <MainFooter />
+        <LargeFooter>
+          <ExitReviewButton />
+          <Submit />
+        </LargeFooter>
       </ReviewPageMainContainer>
     </>
   );

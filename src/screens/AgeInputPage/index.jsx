@@ -11,9 +11,15 @@ import { MainFooter } from '../../styles/Components/Footer/styles';
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { Input } from '../../styles/Components/Input/styles';
-import { BackButton, NextButton } from '../../styles/Components/Buttons/styles';
+import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 
-const AgeInputPage = ({ navigation, formData, setForm }) => {
+import {
+  BackButton,
+  NextButton,
+  BackToButton,
+} from '../../styles/Components/Buttons/styles';
+
+const AgeInputPage = ({ navigation, formData, setForm, go }) => {
   const { age } = formData;
 
   return (
@@ -21,6 +27,13 @@ const AgeInputPage = ({ navigation, formData, setForm }) => {
       <Header />
       <PagesContainer>
         <Main>
+          <BoxIcon>
+            {age !== '' ? (
+              <BackToButton onClick={() => go('review')} />
+            ) : (
+              <BackToButton className="ishidden" onClick={() => go('review')} />
+            )}
+          </BoxIcon>
           <Text content="Qual a" span="sua" continueContent="idade?" />
           <Input name="age" value={age} onChange={setForm} />
         </Main>

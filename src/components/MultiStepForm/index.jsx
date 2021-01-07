@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { BackToButton } from '../../styles/Components/Buttons/styles';
+
 //imports screens/inputs
 import ActivitiesInputPage from '../../screens/ActivitiesInputPage';
 import AdmitDatePage from '../../screens/AdmitDatePage';
@@ -40,7 +42,7 @@ const defaultData = {
   description: '',
   differentials: '',
   email: '',
-  endate: '',
+  enddate: '',
   knowledge: '',
   institution: '',
   language: '',
@@ -66,7 +68,7 @@ const steps = [
   { id: 'course' },
   { id: 'degree' },
   { id: 'startdate' },
-  { id: 'endate' },
+  { id: 'enddate' },
   { id: 'language' },
   { id: 'level' },
   { id: 'knowledge' },
@@ -81,8 +83,9 @@ const steps = [
 const MultiStepForm = () => {
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({ steps, initialStep: 0 });
+  const { go } = navigation;
 
-  const props = { step, navigation, formData, setForm };
+  const props = { step, navigation, formData, setForm, go };
 
   switch (step.id) {
     case 'landing':
@@ -124,7 +127,7 @@ const MultiStepForm = () => {
     case 'startdate':
       return <StartDatePage {...props} />;
 
-    case 'endate':
+    case 'enddate':
       return <EndDatePage {...props} />;
 
     case 'language':
