@@ -6,7 +6,6 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
 import UndoRoundedIcon from '@material-ui/icons/UndoRounded';
-import GetAppRoundedIcon from '@material-ui/icons/GetAppRounded';
 
 export const BackButton = withStyles({
   root: {
@@ -170,30 +169,3 @@ export const ExitReviewButton = withStyles({
     },
   },
 })(UndoRoundedIcon);
-
-export const DownloadButton = withStyles({
-  root: {
-    width: 60,
-    height: 60,
-    padding: 10,
-    color: 'var(--purple_text_next_button)',
-    fontSize: 40,
-    fontWeight: 'bolder',
-    cursor: 'pointer',
-    alignSelf: 'end',
-    backgroundColor: 'var(--blue_bg_input)',
-
-    '&:hover': {
-      transition: 'ease-in-out .4s',
-      transform: 'scale(1.2)',
-    },
-
-    '&:active': {
-      transition: 'ease-in .2s',
-    },
-
-    '&.ishidden': {
-      visibility: 'hidden',
-    },
-  },
-})(GetAppRoundedIcon);

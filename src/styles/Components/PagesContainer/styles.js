@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Container } from '@material-ui/core';
 
 export const PagesContainer = styled(Container)`
-  width: 100%;
+  width: 100vw;
   height: 100%;
 
   display: flex;
