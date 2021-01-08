@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const MainFooter = styled.footer`
   width: 100%;
   height: 15vh;
   padding-top: 5vh;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 `;
 
 export const LargeFooter = styled.footer`

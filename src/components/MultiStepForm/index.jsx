@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { BackToButton } from '../../styles/Components/Buttons/styles';
+
 //imports screens/inputs
 import ActivitiesInputPage from '../../screens/ActivitiesInputPage';
 import AdmitDatePage from '../../screens/AdmitDatePage';
