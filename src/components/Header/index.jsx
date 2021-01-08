@@ -7,7 +7,7 @@ import sidelogo from '../../assets/side_logo.svg';
 //styled-components
 import { MainHeader, Logo, SideLogo, HeaderSideLogo } from './styles';
 
-const Header = ({ isHome }) => {
+const Header = ({ isHome, title }) => {
   return (
     <>
       {isHome ? (
@@ -17,6 +17,7 @@ const Header = ({ isHome }) => {
       ) : (
         <HeaderSideLogo>
           <SideLogo src={sidelogo} alt="Logo-curriculum" />
+          <h1>{title}</h1>
         </HeaderSideLogo>
       )}
     </>

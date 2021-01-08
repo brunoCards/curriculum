@@ -15,7 +15,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font: 50px 'Roboto', sans-serif ;
-    background: var(--primary);
+    overflow-x: hidden;
+    background-color: var(--primary)
   }
 
   :root {
@@ -30,6 +31,3 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
-
-// SERÁ USAOD PARA A PAGINA FINAL
-// font-family: 'Baloo 2', cursive;

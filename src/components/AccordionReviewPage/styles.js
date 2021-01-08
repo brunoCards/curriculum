@@ -11,6 +11,7 @@ export const ReviewPageMainContainer = styled(Container)`
   width: 100vw;
   display: flex;
   justify-content: center;
+  padding-top: 5vh;
 `;
 
 export const AccordionContainer = withStyles({
@@ -19,28 +20,56 @@ export const AccordionContainer = withStyles({
     marginBottom: '1vh',
     borderStyle: 'solid',
     borderRadius: 8,
-    backgroundColor: 'rgba(176, 255, 240, 0.6)',
+    backgroundColor: '#dff9fb',
+
+    '&:hover': {
+      backgroundColor: '#bee8ea',
+    },
+
+    '&:nth-child(3)': {
+      width: '92.5%',
+      marginLeft: '6vw',
+    },
+
+    '&:nth-child(4)': {
+      width: '85%',
+      marginLeft: '12vw',
+    },
   },
 })(Accordion);
-
 export const AccordionBoxDetail = withStyles({
   root: {
+    width: '100%',
+    height: '100%',
+    padding: 0,
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start',
   },
 })(AccordionDetail);
 
 export const AccordionText = styled.p`
   width: 100%;
-  height: 40%;
+  height: 100px;
+  border: 1px dotted var(--text_input);
+
+  padding-left: 16px;
+
   font-size: 20px;
+  text-align: justify;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &:hover {
+    background-color: var(--purple_text_next_button);
+    cursor: pointer;
+  }
 `;
 
 export const AccordionTitle = styled.h3`
-  font-size: 35px;
+  font-size: 43px;
   font-family: 'Baloo 2', cursive;
+
+  color: var(--purple_text_next_button);
 `;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MainHeader = styled.header`
   width: 100%;
-  height: 150px;
+  height: 20vh;
   padding-top: 30px;
 
   display: flex;
@@ -11,7 +11,11 @@ export const MainHeader = styled.header`
 
 export const HeaderSideLogo = styled.header`
   width: 100%;
+<<<<<<< HEAD
+  height: 15vh;
+=======
   height: 120px;
+>>>>>>> 99bb68f104945ad5eacbc8428db44c5f61efb7a7
   padding: 40px 0 0 50px;
 
   display: flex;
