@@ -6,6 +6,7 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
 import UndoRoundedIcon from '@material-ui/icons/UndoRounded';
+import GetAppRoundedIcon from '@material-ui/icons/GetAppRounded';
 
 export const BackButton = withStyles({
   root: {
@@ -119,18 +120,46 @@ export const BackToButton = withStyles({
 export const Submit = withStyles({
   root: {
     width: 60,
-    height: 60,
+    height: 55,
     padding: 10,
-    color: 'var(--purple_text_next_button)',
+    color: 'var(--green_text_green_button)',
     fontSize: 40,
     fontWeight: 'bolder',
     cursor: 'pointer',
-    alignSelf: 'end',
+
+    '&:hover': {
+      transition: 'ease-in-out .4s',
+      color: 'var(--blue_bg_input)',
+      backgroundColor: 'var(--green_text_green_button)',
+    },
+
+    '&:active': {
+      transition: '1s',
+    },
+
+    '&.ishidden': {
+      visibility: 'hidden',
+    },
+  },
+})(DoneRoundedIcon);
+
+export const ExitReviewButton = withStyles({
+  root: {
+    width: 60,
+    height: 55,
+    padding: 10,
+
+    color: 'var(--red_text)',
+    fontSize: 40,
+    fontWeight: 'bolder',
+    cursor: 'pointer',
     backgroundColor: 'var(--blue_bg_input)',
 
     '&:hover': {
       transition: 'ease-in-out .4s',
-      transform: 'scale(1.2)',
+
+      color: 'var(--blue_bg_input)',
+      backgroundColor: 'var(--red_text)',
     },
 
     '&:active': {
@@ -141,9 +170,9 @@ export const Submit = withStyles({
       visibility: 'hidden',
     },
   },
-})(DoneRoundedIcon);
+})(UndoRoundedIcon);
 
-export const ExitReviewButton = withStyles({
+export const DownloadButton = withStyles({
   root: {
     width: 60,
     height: 60,
@@ -168,4 +197,4 @@ export const ExitReviewButton = withStyles({
       visibility: 'hidden',
     },
   },
-})(UndoRoundedIcon);
+})(GetAppRoundedIcon);

@@ -1,16 +1,17 @@
 import React from 'react';
 
-//import fatherComponentForm
-import MultiStepForm from './components/MultiStepForm/';
-
 //import globalStyles
 import GlobalStyle from './styles/global';
+
+//import Routers
+import Router from './routers/Router';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <MultiStepForm />
+
+      <Router />
     </>
   );
 };
