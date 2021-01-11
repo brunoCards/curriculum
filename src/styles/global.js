@@ -8,21 +8,17 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html {
-    width: 100vw;
-    height: 100vh;  
-  }
-  
+ 
   button, input {
     outline: none;
     font: 50px 'Roboto', sans-serif ;
 
   }
 
-  body {
+  body{
     font: 50px 'Roboto', sans-serif ;
     overflow-x: hidden;
-    background-color: var(--primary)
+    background-color: var(--primary);
   }
 
   :root {

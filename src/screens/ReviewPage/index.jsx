@@ -1,31 +1,26 @@
 import React from 'react';
 
-//components
-import Header from '../../components/Header';
-import { LargeFooter } from '../../styles/Components/Footer/styles';
-
-import AccordionReviewPage from '../../components/AccordionReviewPage';
+//ownStyles
 import {
   ReviewPageMainContainer,
-  AccordionTitle,
-  AccordionContainer,
-} from '../../components/AccordionReviewPage/styles';
+  ReviewDataContainer,
+  ReviewDataTitle,
+  ReviewFooter,
+} from './styles';
 
-import { HomeButton } from '../../styles/Components/Buttons/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
+//components
+import Header from '../../components/Header';
+import DetailsReviewPage from '../../components/DetailsReviewPage';
 
 import {
   Submit,
   ExitReviewButton,
+  HomeButton,
 } from '../../styles/Components/Buttons/styles';
 
-//import material-ui
-import AccordionSummary from '@material-ui/core/AccordionSummary';
+import { BoxIcon, BoxTwinIcons } from '../../styles/Components/BoxIcon/styles';
 
-//import material-icons
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
-const ReviewPage = ({ title, formData, navigation }) => {
+const ReviewPage = ({ title, formData, navigation, summary }) => {
   const { go } = navigation;
   const {
     activities,
@@ -53,132 +48,128 @@ const ReviewPage = ({ title, formData, navigation }) => {
   return (
     <>
       <Header />
+
+      <BoxIcon>
+        <HomeButton onClick={() => go('landing')} />
+      </BoxIcon>
       <ReviewPageMainContainer>
-        <BoxIcon>
-          <HomeButton onClick={() => go('landing')} />
-        </BoxIcon>
-        <AccordionContainer>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <AccordionTitle>{(title = 'Dados Pessoais')}</AccordionTitle>
-          </AccordionSummary>
-          <AccordionReviewPage
+        <ReviewDataContainer>
+          <ReviewDataTitle>Dados Pessoais</ReviewDataTitle>
+          <DetailsReviewPage
             summary="name"
             details={[{ Nome: name }]}
             go={go}
           />
-          <AccordionReviewPage
-            summary="age"
-            details={[{ Idade: age }]}
-            go={go}
-          />
-          <AccordionReviewPage
+          <DetailsReviewPage summary="age" details={[{ Idade: age }]} go={go} />
+
+          <DetailsReviewPage
             summary="city"
             details={[{ Cidade: city }]}
             go={go}
           />
-          <AccordionReviewPage
+
+          <DetailsReviewPage
             summary="state"
             details={[{ Estado: state }]}
             go={go}
           />
-          <AccordionReviewPage
+
+          <DetailsReviewPage
             summary="phone"
             details={[{ Celular: phone }]}
             go={go}
           />
-          <AccordionReviewPage
+
+          <DetailsReviewPage
             summary="email"
             details={[{ Email: email }]}
             go={go}
           />
-          <AccordionReviewPage
+
+          <DetailsReviewPage
             summary="description"
             details={[{ Resumo: description }]}
             go={go}
           />
-          <AccordionReviewPage
+
+          <DetailsReviewPage
             summary="differentials"
             details={[{ Diferenciais: differentials }]}
             go={go}
           />
-        </AccordionContainer>
-        <AccordionContainer>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <AccordionTitle>{(title = 'Dados Acadêmicos')}</AccordionTitle>
-          </AccordionSummary>
-          <AccordionReviewPage
+        </ReviewDataContainer>
+        <ReviewDataContainer>
+          <ReviewDataTitle>Dados Acadêmicos</ReviewDataTitle>
+          <DetailsReviewPage
             summary="institution"
             details={[{ Instituição: institution }]}
             go={go}
           />
-          <AccordionReviewPage
+          <DetailsReviewPage
             summary="course"
             details={[{ 'Nome do Curso': course }]}
             go={go}
           />
-          <AccordionReviewPage
+          <DetailsReviewPage
             summary="degree"
             details={[{ 'Nível de graduação': degree }]}
             go={go}
           />
-          <AccordionReviewPage
+          <DetailsReviewPage
             summary="startdate"
             details={[{ 'Data de início': startdate }]}
             go={go}
           />
-          <AccordionReviewPage
+          <DetailsReviewPage
             summary="enddate"
             details={[{ 'Data de conclusão': enddate }]}
             go={go}
           />
-          <AccordionReviewPage
+          <DetailsReviewPage
             summary="language"
             details={[{ Idiomas: language }]}
             go={go}
           />
-          <AccordionReviewPage
+          <DetailsReviewPage
             summary="level"
             details={[{ Nível: level }]}
             go={go}
           />
-          <AccordionReviewPage
+          <DetailsReviewPage
             summary="knowledge"
             details={[{ Conhecimentos: knowledge }]}
             go={go}
           />
-        </AccordionContainer>
-        <AccordionContainer>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <AccordionTitle>
-              {(title = 'Experiência Profissional')}
-            </AccordionTitle>
-          </AccordionSummary>
-          <AccordionReviewPage
+        </ReviewDataContainer>
+        <ReviewDataContainer>
+          <ReviewDataTitle>Experiência Profissional</ReviewDataTitle>
+          <DetailsReviewPage
             summary="company"
             details={[{ 'Nome da empresa': company }]}
             go={go}
           />
-          <AccordionReviewPage
+          <DetailsReviewPage
             summary="admitdate"
             details={[{ 'Data de entrada': admitdate }]}
             go={go}
           />
-          <AccordionReviewPage
+          <DetailsReviewPage
             summary="resigndate"
             details={[{ 'Data de saída': resigndate }]}
             go={go}
           />
-          <AccordionReviewPage
+          <DetailsReviewPage
             summary="activities"
             details={[{ 'Atividades desempenhadas': activities }]}
             go={go}
           />
-        </AccordionContainer>
-        <LargeFooter>
-          <ExitReviewButton />
-          <Submit />
-        </LargeFooter>
+          <BoxTwinIcons>
+            <ExitReviewButton onClick={() => navigation.previous()} />
+            <Submit onClick={() => navigation.next()} />
+          </BoxTwinIcons>
+        </ReviewDataContainer>
       </ReviewPageMainContainer>
+      <ReviewFooter />
     </>
   );
 };
