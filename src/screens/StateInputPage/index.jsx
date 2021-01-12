@@ -1,5 +1,11 @@
 import React from 'react';
 
+//import context
+import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToEmailPage, goBack } from '../../routers/goToPages';
+
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -19,8 +25,8 @@ import {
   BackToButton,
 } from '../../styles/Components/Buttons/styles';
 
-const StateInputPage = ({ navigation, formData, setForm, go }) => {
-  const { state } = formData;
+const StateInputPage = () => {
+  const { history, form, handleOnchangeInput } = useFormulary();
 
   return (
     <>
@@ -28,18 +34,22 @@ const StateInputPage = ({ navigation, formData, setForm, go }) => {
       <PagesContainer>
         <Main>
           <BoxIcon>
-            {state !== '' ? (
-              <BackToButton onClick={() => go('review')} />
+            {form.state !== '' ? (
+              <BackToButton />
             ) : (
-              <BackToButton className="ishidden" onClick={() => go('review')} />
+              <BackToButton className="ishidden" />
             )}
           </BoxIcon>
           <Text content="E o estado?" />
-          <Input name="state" value={state} onChange={setForm} />
+          <Input
+            name="state"
+            value={form.state}
+            onChange={handleOnchangeInput}
+          />
         </Main>
         <MainFooter>
-          <BackButton onClick={() => navigation.previous()} />
-          <NextButton onClick={() => navigation.next()} />
+          <BackButton onClick={() => goBack(history)} />
+          <NextButton onClick={() => goToEmailPage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

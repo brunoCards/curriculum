@@ -1,5 +1,11 @@
 import React from 'react';
 
+//import context
+import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToStatePage, goBack } from '../../routers/goToPages';
+
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -19,18 +25,19 @@ import {
   BackToButton,
 } from '../../styles/Components/Buttons/styles';
 
-const CityInputPage = ({ navigation, formData, setForm, go }) => {
-  const { city } = formData;
+const CityInputPage = () => {
+  const { history, form, handleOnchangeInput } = useFormulary();
+
   return (
     <>
       <Header />
       <PagesContainer>
         <Main>
           <BoxIcon>
-            {city !== '' ? (
-              <BackToButton onClick={() => go('review')} />
+            {form.city !== '' ? (
+              <BackToButton />
             ) : (
-              <BackToButton className="ishidden" onClick={() => go('review')} />
+              <BackToButton className="ishidden" />
             )}
           </BoxIcon>
           <Text
@@ -38,11 +45,11 @@ const CityInputPage = ({ navigation, formData, setForm, go }) => {
             span="você"
             continueContent="mora?"
           />
-          <Input name="city" value={city} onChange={setForm} />
+          <Input name="city" value={form.city} onChange={handleOnchangeInput} />
         </Main>
         <MainFooter>
-          <BackButton onClick={() => navigation.previous()} />
-          <NextButton onClick={() => navigation.next()} />
+          <BackButton onClick={() => goBack(history)} />
+          <NextButton onClick={() => goToStatePage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

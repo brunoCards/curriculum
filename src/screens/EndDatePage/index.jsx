@@ -1,5 +1,11 @@
 import React from 'react';
 
+//import context
+import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToLanguagesPage, goBack } from '../../routers/goToPages';
+
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -19,8 +25,8 @@ import {
   BackToButton,
 } from '../../styles/Components/Buttons/styles';
 
-const EndDatePage = ({ navigation, formData, setForm, go }) => {
-  const { enddate } = formData;
+const EndDatePage = () => {
+  const { history, form, handleOnchangeInput } = useFormulary();
 
   return (
     <>
@@ -28,10 +34,10 @@ const EndDatePage = ({ navigation, formData, setForm, go }) => {
       <PagesContainer>
         <Main>
           <BoxIcon>
-            {enddate !== '' ? (
-              <BackToButton onClick={() => go('review')} />
+            {form.enddate !== '' ? (
+              <BackToButton />
             ) : (
-              <BackToButton className="ishidden" onClick={() => go('review')} />
+              <BackToButton className="ishidden" />
             )}
           </BoxIcon>
           <Text
@@ -39,11 +45,15 @@ const EndDatePage = ({ navigation, formData, setForm, go }) => {
             span="término"
             continueContent=" do curso?"
           />
-          <Input name="enddate" value={enddate} onChange={setForm} />
+          <Input
+            name="enddate"
+            value={form.enddate}
+            onChange={handleOnchangeInput}
+          />
         </Main>
         <MainFooter>
-          <BackButton onClick={() => navigation.previous()} />
-          <NextButton onClick={() => navigation.next()} />
+          <BackButton onClick={() => goBack(history)} />
+          <NextButton onClick={() => goToLanguagesPage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

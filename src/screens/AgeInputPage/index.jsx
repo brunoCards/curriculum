@@ -1,5 +1,11 @@
 import React from 'react';
 
+//import context
+import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToCityPage, goBack } from '../../routers/goToPages';
+
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -19,8 +25,8 @@ import {
   BackToButton,
 } from '../../styles/Components/Buttons/styles';
 
-const AgeInputPage = ({ navigation, formData, setForm, go }) => {
-  const { age } = formData;
+const AgeInputPage = () => {
+  const { history, form, handleOnchangeInput } = useFormulary();
 
   return (
     <>
@@ -28,18 +34,18 @@ const AgeInputPage = ({ navigation, formData, setForm, go }) => {
       <PagesContainer>
         <Main>
           <BoxIcon>
-            {age !== '' ? (
-              <BackToButton onClick={() => go('review')} />
+            {form.age !== '' ? (
+              <BackToButton />
             ) : (
-              <BackToButton className="ishidden" onClick={() => go('review')} />
+              <BackToButton className="ishidden" />
             )}
           </BoxIcon>
           <Text content="Qual a" span="sua" continueContent="idade?" />
-          <Input name="age" value={age} onChange={setForm} />
+          <Input name="age" value={form.age} onChange={handleOnchangeInput} />
         </Main>
         <MainFooter>
-          <BackButton onClick={() => navigation.previous()} />
-          <NextButton onClick={() => navigation.next()} />
+          <BackButton onClick={() => goBack(history)} />
+          <NextButton onClick={() => goToCityPage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

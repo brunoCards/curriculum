@@ -1,5 +1,11 @@
 import React from 'react';
 
+//import context
+import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToAdmitDatePage, goBack } from '../../routers/goToPages';
+
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -19,26 +25,31 @@ import {
   BackToButton,
 } from '../../styles/Components/Buttons/styles';
 
-const CompanyNamePage = ({ navigation, formData, setForm, go }) => {
-  const { company } = formData;
+const CompanyNamePage = () => {
+  const { history, form, handleOnchangeInput } = useFormulary();
+
   return (
     <>
       <Header />
       <PagesContainer>
         <Main>
           <BoxIcon>
-            {company !== '' ? (
-              <BackToButton onClick={() => go('review')} />
+            {form.company !== '' ? (
+              <BackToButton />
             ) : (
-              <BackToButton className="ishidden" onClick={() => go('review')} />
+              <BackToButton className="ishidden" />
             )}
           </BoxIcon>
           <Text content="Qual o" span="nome" continueContent="da empresa?" />
-          <Input name="company" value={company} onChange={setForm} />
+          <Input
+            name="company"
+            value={form.company}
+            onChange={handleOnchangeInput}
+          />
         </Main>
         <MainFooter>
-          <BackButton onClick={() => navigation.previous()} />
-          <NextButton onClick={() => navigation.next()} />
+          <BackButton onClick={() => goBack(history)} />
+          <NextButton onClick={() => goToAdmitDatePage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

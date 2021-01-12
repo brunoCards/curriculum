@@ -1,4 +1,4 @@
-export const BackTo = (history) => {
+export const goBack = (history) => {
   history.goBack();
 };
 
@@ -30,13 +30,13 @@ export const goToDescriptionPage = (history) => {
   history.push('/dados-pessoais/descricao');
 };
 
-export const goToLinkedinPage = (history) => {
-  history.push('/dados-pessoais/linkedin');
-};
+// export const goToLinkedinPage = (history) => {
+//   history.push('/dados-pessoais/linkedin');
+// };
 
-export const goToGithubPage = (history) => {
-  history.push('/dados-pessoais/portfolio');
-};
+// export const goToGithubPage = (history) => {
+//   history.push('/dados-pessoais/portfolio');
+// };
 
 export const goToKnowledgesPage = (history) => {
   history.push('/dados-pessoais/conhecimentos');
@@ -54,9 +54,9 @@ export const goToCourseNamePage = (history) => {
   history.push('/dados-academicos/nome/curso');
 };
 
-export const goToDescriptionCoursePage = (history) => {
-  history.push('/dados-academicos/descricao/curso');
-};
+// export const goToDescriptionCoursePage = (history) => {
+//   history.push('/dados-academicos/descricao/curso');
+// };
 
 export const goToStartDateCoursePage = (history) => {
   history.push('/dados-academicos/data/inicio');
@@ -78,9 +78,9 @@ export const goToCompanyNamePage = (history) => {
   history.push('/dados-profissionais/nome-empresa');
 };
 
-export const goToResponsibilityPage = (history) => {
-  history.push('/dados-profissionais/cargo');
-};
+// export const goToResponsibilityPage = (history) => {
+//   history.push('/dados-profissionais/cargo');
+// };
 
 export const goToAdmitDatePage = (history) => {
   history.push('/dados-profissionais/data/admissao');

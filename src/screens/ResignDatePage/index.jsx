@@ -1,5 +1,11 @@
 import React from 'react';
 
+//import context
+import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToActtvitiesPage, goBack } from '../../routers/goToPages';
+
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -19,8 +25,8 @@ import {
   BackToButton,
 } from '../../styles/Components/Buttons/styles';
 
-const ResignDatePage = ({ navigation, formData, setForm, go }) => {
-  const { resigndate } = formData;
+const ResignDatePage = () => {
+  const { history, form, handleOnchangeInput } = useFormulary();
 
   return (
     <>
@@ -28,18 +34,22 @@ const ResignDatePage = ({ navigation, formData, setForm, go }) => {
       <PagesContainer>
         <Main>
           <BoxIcon>
-            {resigndate !== '' ? (
-              <BackToButton onClick={() => go('review')} />
+            {form.resigndate !== '' ? (
+              <BackToButton />
             ) : (
-              <BackToButton className="ishidden" onClick={() => go('review')} />
+              <BackToButton className="ishidden" />
             )}
           </BoxIcon>
           <Text content="Qual a data de" span="demissão?" />
-          <Input name="resigndate" value={resigndate} onChange={setForm} />
+          <Input
+            name="resigndate"
+            value={form.resigndate}
+            onChange={handleOnchangeInput}
+          />
         </Main>
         <MainFooter>
-          <BackButton onClick={() => navigation.previous()} />
-          <NextButton onClick={() => navigation.next()} />
+          <BackButton onClick={() => goBack(history)} />
+          <NextButton onClick={() => goToActtvitiesPage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

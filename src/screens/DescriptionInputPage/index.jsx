@@ -1,5 +1,11 @@
 import React from 'react';
 
+//import context
+import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToKnowledgesPage, goBack } from '../../routers/goToPages';
+
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -19,8 +25,8 @@ import {
   BackToButton,
 } from '../../styles/Components/Buttons/styles';
 
-const DescriptionInputPage = ({ navigation, formData, setForm, go }) => {
-  const { description } = formData;
+const DescriptionInputPage = () => {
+  const { history, form, handleOnchangeInput } = useFormulary();
 
   return (
     <>
@@ -28,10 +34,10 @@ const DescriptionInputPage = ({ navigation, formData, setForm, go }) => {
       <PagesContainer>
         <LargeMain>
           <BoxIcon>
-            {description !== '' ? (
-              <BackToButton onClick={() => go('review')} />
+            {form.description !== '' ? (
+              <BackToButton />
             ) : (
-              <BackToButton className="ishidden" onClick={() => go('review')} />
+              <BackToButton className="ishidden" />
             )}
           </BoxIcon>
           <Text
@@ -45,13 +51,13 @@ const DescriptionInputPage = ({ navigation, formData, setForm, go }) => {
           />
           <LargeInput
             name="description"
-            value={description}
-            onChange={setForm}
+            value={form.description}
+            onChange={handleOnchangeInput}
           />
         </LargeMain>
         <LargeFooter>
-          <BackButton onClick={() => navigation.previous()} />
-          <NextButton onClick={() => navigation.next()} />
+          <BackButton onClick={() => goBack(history)} />
+          <NextButton onClick={() => goToKnowledgesPage(history)} />
         </LargeFooter>
       </PagesContainer>
     </>
