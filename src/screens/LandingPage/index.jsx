@@ -1,5 +1,11 @@
 import React from 'react';
 
+//import context
+import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToNamePage } from '../../routers/goToPages';
+
 //imagens
 import cartoonchar from '../../assets/cartoon_char.svg';
 
@@ -18,7 +24,8 @@ import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 //components
 import Header from '../../components/Header';
 
-const LandingPage = ({ navigation }) => {
+const LandingPage = () => {
+  const { history } = useFormulary();
   return (
     <>
       <Header isHome />
@@ -26,7 +33,7 @@ const LandingPage = ({ navigation }) => {
         <MainContainer>
           <CartoonMan src={cartoonchar} alt="homem-cartoonizado-no-notebook" />
           <AdjustLayoutBox>
-            <StartButton onClick={() => navigation.next()}>
+            <StartButton onClick={() => goToNamePage(history)}>
               Quero um CurriculuM
             </StartButton>
             <MainParagraph>

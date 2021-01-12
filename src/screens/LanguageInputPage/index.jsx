@@ -1,5 +1,11 @@
 import React from 'react';
 
+//import context
+import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToLanguagesLevelPage, goBack } from '../../routers/goToPages';
+
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -19,8 +25,8 @@ import {
   BackToButton,
 } from '../../styles/Components/Buttons/styles';
 
-const LanguageInputPage = ({ navigation, formData, setForm, go }) => {
-  const { language } = formData;
+const LanguageInputPage = () => {
+  const { history, form, handleOnchangeInput } = useFormulary();
 
   return (
     <>
@@ -28,10 +34,10 @@ const LanguageInputPage = ({ navigation, formData, setForm, go }) => {
       <PagesContainer>
         <Main>
           <BoxIcon>
-            {language !== '' ? (
-              <BackToButton onClick={() => go('review')} />
+            {form.language !== '' ? (
+              <BackToButton />
             ) : (
-              <BackToButton className="ishidden" onClick={() => go('review')} />
+              <BackToButton className="ishidden" />
             )}
           </BoxIcon>
           <Text
@@ -39,11 +45,15 @@ const LanguageInputPage = ({ navigation, formData, setForm, go }) => {
             span="seu"
             continueContent="idioma nativo?"
           />
-          <Input name="language" value={language} onChange={setForm} />
+          <Input
+            name="language"
+            value={form.language}
+            onChange={handleOnchangeInput}
+          />
         </Main>
         <MainFooter>
-          <BackButton onClick={() => navigation.previous()} />
-          <NextButton onClick={() => navigation.next()} />
+          <BackButton onClick={() => goBack(history)} />
+          <NextButton onClick={() => goToLanguagesLevelPage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

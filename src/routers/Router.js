@@ -34,79 +34,79 @@ const Router = () => {
       <BrowserRouter>
         <FormProvider>
           <Switch>
-            <Route path="/">
+            <Route exact path="/">
               <LandingPage />
             </Route>
-            <Route path="/dados-pessoais/nome">
+            <Route exact exact path="/dados-pessoais/nome">
               <NameInputPage />
             </Route>
-            <Route path="/dados-pessoais/idade">
+            <Route exact path="/dados-pessoais/idade">
               <AgeInputPage />
             </Route>
-            <Route path="/dados-pessoais/cidade">
+            <Route exact path="/dados-pessoais/cidade">
               <CityInputPage />
             </Route>
-            <Route path="/dados-pessoais/estado">
+            <Route exact path="/dados-pessoais/estado">
               <StateInputPage />
             </Route>
-            <Route path="/dados-pessoais/telefones">
+            <Route exact path="/dados-pessoais/telefones">
               <PhoneInputPage />
             </Route>
-            <Route path="/dados-pessoais/emails">
+            <Route exact path="/dados-pessoais/emails">
               <EmailInputPage />
             </Route>
-            {/* <Route path="/dados-pessoais/linkedin">
+            {/* <Route exact path="/dados-pessoais/linkedin">
               <EmailInputPage />
             </Route>
-            <Route path="/dados-pessoais/portfolio">
+            <Route exact path="/dados-pessoais/portfolio">
               <EmailInputPage />
             </Route> */}
-            <Route path="/dados-pessoais/descricao">
+            <Route exact path="/dados-pessoais/descricao">
               <DescriptionInputPage />
             </Route>
-            <Route path="/dados-pessoais/conhecimentos">
+            <Route exact path="/dados-pessoais/conhecimentos">
               <KnowledgeInputPage />
             </Route>
-            <Route path="/dados-academicos/nome/instituicao">
+            <Route exact path="/dados-academicos/nome/instituicao">
               <EducationalInstitutionPage />
             </Route>
-            <Route path="/dados-academicos/graduacao">
+            <Route exact path="/dados-academicos/graduacao">
               <DegreeLevelPage />
             </Route>
-            <Route path="/dados-academicos/nome/curso">
+            <Route exact path="/dados-academicos/nome/curso">
               <CourseNamePage />
             </Route>
-            {/* <Route path="/dados-academicos/descricao/curso">
+            {/* <Route exact path="/dados-academicos/descricao/curso">
               <EmailInputPage />
             </Route> */}
-            <Route path="/dados-academicos/data/inicio">
+            <Route exact path="/dados-academicos/data/inicio">
               <StartDatePage />
             </Route>
-            <Route path="/dados-academicos/data/termino">
+            <Route exact path="/dados-academicos/data/termino">
               <EndDatePage />
             </Route>
-            <Route path="/dados-academicos/idiomas">
+            <Route exact path="/dados-academicos/idiomas">
               <LanguageInputPage />
             </Route>
-            <Route path="/dados-academicos/idiomas/nivel">
+            <Route exact path="/dados-academicos/idiomas/nivel">
               <LanguageLevelPage />
             </Route>
-            <Route path="/dados-profissionais/nome-empresa">
+            <Route exact path="/dados-profissionais/nome-empresa">
               <CompanyNamePage />
             </Route>
-            {/* <Route path="/dados-profissionais/cargo">
+            {/* <Route exact path="/dados-profissionais/cargo">
               <PostInputPage />
             </Route> */}
-            <Route path="/dados-profissionais/data/admissao">
+            <Route exact path="/dados-profissionais/data/admissao">
               <AdmitDatePage />
             </Route>
-            <Route path="/dados-profissionais/data/recisao">
+            <Route exact path="/dados-profissionais/data/recisao">
               <ResignDatePage />
             </Route>
-            <Route path="/dados-profissionais/atividades">
+            <Route exact path="/dados-profissionais/atividades">
               <ActivitiesInputPage />
             </Route>
-            <Route path="/review">
+            <Route exact path="/review">
               <ReviewPage />
             </Route>
           </Switch>

@@ -3,10 +3,10 @@ import ArrowLeftRoundedIcon from '@material-ui/icons/ArrowLeftRounded';
 import ArrowRightRoundedIcon from '@material-ui/icons/ArrowRightRounded';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import RateReviewIcon from '@material-ui/icons/RateReview';
-import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
 import UndoRoundedIcon from '@material-ui/icons/UndoRounded';
 import GetAppRoundedIcon from '@material-ui/icons/GetAppRounded';
+import AddBoxRoundedIcon from '@material-ui/icons/AddBoxRounded';
 
 export const BackButton = withStyles({
   root: {
@@ -54,22 +54,26 @@ export const AddButton = withStyles({
   root: {
     width: 70,
     height: 70,
-    color: 'var(--text_input)',
+
+    color: 'var(--green_text_green_button)',
     fontSize: 61,
     borderRadius: 50,
     cursor: 'pointer',
 
     '&:hover': {
-      backgroundColor: 'var(--blue_bg_input)',
-      transition: 'ease-in-out .4s',
-      transform: 'scale(1.2)',
+      transform: 'scale(1.1)',
+      transition: 'ease-in-out .3s',
     },
 
     '&:active': {
       transition: 'ease-in .2s',
     },
+    '&.isdisabled': {
+      opacity: '0.3',
+      transition: 'ease-in-out .5s',
+    },
   },
-})(AddRoundedIcon);
+})(AddBoxRoundedIcon);
 
 export const HomeButton = withStyles({
   root: {
@@ -95,14 +99,13 @@ export const BackToButton = withStyles({
   root: {
     width: 50,
     height: 50,
-    color: 'var(--text_input)',
+    color: 'var(--purple_text_next_button)',
     fontSize: 30,
     borderRadius: 50,
     cursor: 'pointer',
     alignSelf: 'end',
 
     '&:hover': {
-      backgroundColor: 'var(--blue_bg_input)',
       transition: 'ease-in-out .4s',
       transform: 'scale(1.2)',
     },

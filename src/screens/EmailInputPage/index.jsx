@@ -1,26 +1,37 @@
 import React from 'react';
 
+//import context
+import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToPhonePage, goBack } from '../../routers/goToPages';
+
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
-import { Main } from '../../styles/Components/MainContainer/styles';
 
-//import FooterStyleComponents
-import { MainFooter } from '../../styles/Components/Footer/styles';
-
-//global-styled-components
+//styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import { Input } from '../../styles/Components/Input/styles';
 import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
-
+import { Main } from '../../styles/Components/MainContainer/styles';
+import { InputBox } from '../../styles/Components/InputBox/styles';
+import { Input } from '../../styles/Components/Input/styles';
+import { MainFooter } from '../../styles/Components/Footer/styles';
 import {
   BackButton,
   NextButton,
   BackToButton,
+  AddButton,
 } from '../../styles/Components/Buttons/styles';
 
-const EmailInputPage = ({ navigation, formData, setForm, go }) => {
-  const { email } = formData;
+const EmailInputPage = () => {
+  const {
+    history,
+    form,
+    handleOnchangeInput,
+    handleAddingEmails,
+    emails,
+  } = useFormulary();
 
   return (
     <>
@@ -28,18 +39,33 @@ const EmailInputPage = ({ navigation, formData, setForm, go }) => {
       <PagesContainer>
         <Main>
           <BoxIcon>
-            {email !== '' ? (
-              <BackToButton onClick={() => go('review')} />
+            {emails.length > 0 ? (
+              <BackToButton />
             ) : (
-              <BackToButton className="ishidden" onClick={() => go('review')} />
+              <BackToButton className="ishidden" />
             )}
           </BoxIcon>
-          <Text content="Qual o" span="seu" continueContent="melhor email?" />
-          <Input name="email" value={email} onChange={setForm} />
+          {emails.length > 0 ? (
+            <Text span="Você" continueContent="quer adicionar mais um email?" />
+          ) : (
+            <Text content="Qual o" span="seu" continueContent="melhor email?" />
+          )}
+          <InputBox>
+            <Input
+              name="email"
+              value={form.email}
+              onChange={handleOnchangeInput}
+            />
+            {form.email !== '' ? (
+              <AddButton onClick={() => handleAddingEmails(form.email)} />
+            ) : (
+              <AddButton className="isdisabled" aria-disabled="true" />
+            )}
+          </InputBox>
         </Main>
         <MainFooter>
-          <BackButton onClick={() => navigation.previous()} />
-          <NextButton onClick={() => navigation.next()} />
+          <BackButton onClick={() => goBack(history)} />
+          <NextButton onClick={() => goToPhonePage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

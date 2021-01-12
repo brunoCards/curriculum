@@ -1,6 +1,10 @@
 import React from 'react';
 
+//import context
 import { useFormulary } from '../../contexts/FormContext';
+
+//import routers-goTo's
+import { goToAgePage, goBack } from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -22,11 +26,7 @@ import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 
 const NameInputPage = () => {
-  const { formData, setForm } = useFormulary();
-
-  const { name } = formData;
-
-  console.log(formData);
+  const { history, form, handleOnchangeInput } = useFormulary();
 
   return (
     <>
@@ -35,22 +35,19 @@ const NameInputPage = () => {
         <Main>
           {
             <BoxIcon>
-              {name !== '' ? (
-                <BackToButton onClick={() => go('review')} />
+              {form.name !== '' ? (
+                <BackToButton />
               ) : (
-                <BackToButton
-                  className="ishidden"
-                  onClick={() => go('review')}
-                />
+                <BackToButton className="ishidden" />
               )}
             </BoxIcon>
           }
           <Text content="Olá como" span="você" continueContent="se chama?" />
-          <Input name="name" value={name} onChange={setForm} />
+          <Input name="name" value={form.name} onChange={handleOnchangeInput} />
         </Main>
         <MainFooter>
-          <BackButton />
-          <NextButton />
+          <BackButton onClick={() => goBack(history)} />
+          <NextButton onClick={() => goToAgePage(history)} />
         </MainFooter>
       </PagesContainer>
     </>
