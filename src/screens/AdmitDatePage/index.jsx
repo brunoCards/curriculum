@@ -43,6 +43,7 @@ const AdmitDatePage = () => {
               <BackToButton className="ishidden" />
             )}
             <Input
+              className="withoutAdd"
               name="admitdate"
               value={form.admitdate}
               onChange={handleOnchangeInput}

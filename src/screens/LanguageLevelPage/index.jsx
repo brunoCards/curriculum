@@ -13,8 +13,8 @@ import Text from '../../components/Text';
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
+import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 import {
@@ -33,19 +33,20 @@ const LanguageLevelPage = () => {
       </Header>
       <PagesContainer>
         <Main>
-          <BoxIcon>
+          <Text content="Qual o" span="nível" continueContent="de domínio?" />
+          <InputBox>
             {form.level !== '' ? (
               <BackToButton />
             ) : (
               <BackToButton className="ishidden" />
             )}
-          </BoxIcon>
-          <Text content="Qual o" span="nível" continueContent="de domínio?" />
-          <Input
-            name="level"
-            value={form.level}
-            onChange={handleOnchangeInput}
-          />
+            <Input
+              className="withoutAdd"
+              name="level"
+              value={form.level}
+              onChange={handleOnchangeInput}
+            />
+          </InputBox>
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />

@@ -12,7 +12,7 @@ import AddRoundedIcon from '@material-ui/icons/AddRounded';
 export const StartButton = styled.button`
   width: 340px;
   height: 70px;
-  border: 3px solid var(--text_input);
+  border: 3px solid var(--black);
   border-radius: 6px;
   outline: none;
 
@@ -26,7 +26,7 @@ export const StartButton = styled.button`
   &:hover {
     transition: 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
     background-color: #27ae60;
-    color: var(--purple_text_next_button);
+    color: var(--purple);
   }
 `;
 
@@ -34,13 +34,15 @@ export const BackButton = withStyles({
   root: {
     width: 70,
     height: 70,
-    color: 'var(--text_input)',
+    color: 'var(--black)',
     fontSize: 61,
     borderRadius: 50,
     cursor: 'pointer',
 
     '&:hover': {
-      backgroundColor: 'var(--blue_bg_input)',
+      backgroundColor: 'var(--purple)',
+      color: 'var(--white)',
+
       transition: 'ease-in-out .4s',
       transform: 'scale(1.2)',
     },
@@ -55,13 +57,14 @@ export const NextButton = withStyles({
   root: {
     width: 70,
     height: 70,
-    color: 'var(--text_input)',
+    color: 'var(--black)',
     fontSize: 61,
     borderRadius: 50,
     cursor: 'pointer',
 
     '&:hover': {
-      backgroundColor: 'var(--blue_bg_input)',
+      backgroundColor: 'var(--purple)',
+      color: 'var(--white)',
       transition: 'ease-in-out .4s',
       transform: 'scale(1.2)',
     },
@@ -77,8 +80,8 @@ export const AddButton = withStyles({
     width: 60,
     height: 50,
 
-    color: 'var(--text_input)',
-    backgroundColor: 'var(--blue_bg_input)',
+    color: 'var(--black)',
+    backgroundColor: 'var(--blue)',
     fontSize: 61,
     fontWeight: 'bold',
     borderColor: 'black',
@@ -111,14 +114,14 @@ export const BackToButton = withStyles({
     borderTopLeftRadius: 6,
     borderBottomLeftRadius: 6,
 
-    color: 'var(--text_input)',
-    backgroundColor: 'var(--blue_bg_input)',
+    color: 'var(--black)',
+    backgroundColor: 'var(--blue)',
     fontSize: 30,
     cursor: 'pointer',
 
     '&:hover': {
       transition: 'ease-in-out .4s',
-      transform: 'scale(1.2)',
+      transform: 'scale(1.1)',
     },
 
     '&:active': {
@@ -137,9 +140,9 @@ export const HomeButton = withStyles({
     width: 40,
     height: 40,
     marginBottom: '5vh',
-    color: 'var(--text_input)',
+    color: 'var(--black)',
     cursor: 'pointer',
-    backgroundColor: 'var(--blue_bg_input)',
+    backgroundColor: 'var(--blue)',
 
     '&:hover': {
       transition: 'ease-in-out .4s',
@@ -158,17 +161,17 @@ export const ExitReviewButton = withStyles({
     height: 55,
     padding: 10,
 
-    color: 'var(--red_text)',
+    color: 'var(--red)',
     fontSize: 40,
     fontWeight: 'bolder',
     cursor: 'pointer',
-    backgroundColor: 'var(--blue_bg_input)',
+    backgroundColor: 'var(--blue)',
 
     '&:hover': {
       transition: 'ease-in-out .4s',
 
-      color: 'var(--blue_bg_input)',
-      backgroundColor: 'var(--red_text)',
+      color: 'var(--blue)',
+      backgroundColor: 'var(--red)',
     },
 
     '&:active': {
@@ -186,15 +189,15 @@ export const Submit = withStyles({
     width: 60,
     height: 55,
     padding: 10,
-    color: 'var(--green_text_green_button)',
+    color: 'var(--green)',
     fontSize: 40,
     fontWeight: 'bolder',
     cursor: 'pointer',
 
     '&:hover': {
       transition: 'ease-in-out .4s',
-      color: 'var(--blue_bg_input)',
-      backgroundColor: 'var(--green_text_green_button)',
+      color: 'var(--blue)',
+      backgroundColor: 'var(--green)',
     },
 
     '&:active': {
@@ -212,12 +215,12 @@ export const DownloadButton = withStyles({
     width: 60,
     height: 60,
     padding: 10,
-    color: 'var(--purple_text_next_button)',
+    color: 'var(--purple)',
     fontSize: 40,
     fontWeight: 'bolder',
     cursor: 'pointer',
     alignSelf: 'end',
-    backgroundColor: 'var(--blue_bg_input)',
+    backgroundColor: 'var(--blue)',
 
     '&:hover': {
       transition: 'ease-in-out .4s',

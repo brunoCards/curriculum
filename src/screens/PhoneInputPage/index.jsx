@@ -13,7 +13,6 @@ import Text from '../../components/Text';
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
@@ -42,13 +41,6 @@ const PhoneInputPage = () => {
       </Header>
       <PagesContainer>
         <Main>
-          <BoxIcon>
-            {phones.length > 0 ? (
-              <BackToButton />
-            ) : (
-              <BackToButton className="ishidden" />
-            )}
-          </BoxIcon>
           {phones.length > 0 ? (
             <Text
               span="Você"
@@ -62,7 +54,13 @@ const PhoneInputPage = () => {
             />
           )}
           <InputBox>
+            {phones.length > 0 ? (
+              <BackToButton />
+            ) : (
+              <BackToButton className="ishidden" />
+            )}
             <Input
+              className="withAdd"
               name="phone"
               value={form.phone}
               onChange={handleOnchangeInput}

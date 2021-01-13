@@ -13,8 +13,8 @@ import Text from '../../components/Text';
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
+import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 import {
@@ -33,23 +33,24 @@ const EducationalInstitutionPage = () => {
       </Header>
       <PagesContainer>
         <Main>
-          <BoxIcon>
-            {form.institution !== '' ? (
-              <BackToButton />
-            ) : (
-              <BackToButton className="ishidden" />
-            )}
-          </BoxIcon>
           <Text
             content="Qual o"
             span="nome"
             continueContent="da instituição?"
           />
-          <Input
-            name="institution"
-            value={form.institution}
-            onChange={handleOnchangeInput}
-          />
+          <InputBox>
+            {form.institution !== '' ? (
+              <BackToButton />
+            ) : (
+              <BackToButton className="ishidden" />
+            )}
+            <Input
+              className="withoutAdd"
+              name="institution"
+              value={form.institution}
+              onChange={handleOnchangeInput}
+            />
+          </InputBox>
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />

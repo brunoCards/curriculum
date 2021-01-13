@@ -13,8 +13,8 @@ import Text from '../../components/Text';
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
+import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 import {
@@ -32,23 +32,24 @@ const StartDatePage = () => {
       </Header>
       <PagesContainer>
         <Main>
-          <BoxIcon>
-            {form.startdate !== '' ? (
-              <BackToButton />
-            ) : (
-              <BackToButton className="ishidden" />
-            )}
-          </BoxIcon>
           <Text
             content="Qual a data de"
             span="início"
             continueContent=" do curso?"
           />
-          <Input
-            name="startdate"
-            value={form.startdate}
-            onChange={handleOnchangeInput}
-          />
+          <InputBox>
+            {form.startdate !== '' ? (
+              <BackToButton />
+            ) : (
+              <BackToButton className="ishidden" />
+            )}
+            <Input
+              className="withoutAdd"
+              name="startdate"
+              value={form.startdate}
+              onChange={handleOnchangeInput}
+            />
+          </InputBox>
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
