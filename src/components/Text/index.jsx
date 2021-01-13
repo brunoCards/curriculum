@@ -23,7 +23,7 @@ const Text = ({
         </ParagraphArea>
       ) : (
         <TextArea>
-          {content} <span className="purple"> {span} </span>
+          {content} <span className="purple"> &nbsp;{span}&nbsp; </span>
           {continueContent}
         </TextArea>
       )}

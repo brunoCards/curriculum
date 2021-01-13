@@ -41,13 +41,6 @@ const KnowledgeInputPage = () => {
       </Header>
       <PagesContainer>
         <Main>
-          <BoxIcon>
-            {form.knowledge !== '' ? (
-              <BackToButton />
-            ) : (
-              <BackToButton className="ishidden" />
-            )}
-          </BoxIcon>
           {knowledges.length > 0 ? (
             <Text
               span="Você"
@@ -55,13 +48,19 @@ const KnowledgeInputPage = () => {
             />
           ) : (
             <Text
-              content="Quais os conhecimentos que"
+              content="Adicione os conhecimentos que"
               span="você"
               continueContent="possui"
             />
           )}
           <InputBox>
+            {form.knowledge !== '' ? (
+              <BackToButton />
+            ) : (
+              <BackToButton className="ishidden" />
+            )}
             <Input
+              className="withAdd"
               name="knowledge"
               value={form.knowledge}
               onChange={handleOnchangeInput}

@@ -11,24 +11,28 @@ const GlobalStyle = createGlobalStyle`
  
   button, input {
     outline: none;
-    font: 50px 'Roboto', sans-serif ;
-
+    font: 50px 'Baloo 2', cursive;
   }
 
   body{
-    font: 50px 'Roboto', sans-serif ;
+    font: 50px 'Baloo 2', cursive;;
     overflow-x: hidden;
-    background-color: var(--primary);
+    background-color: var(--background_yellow);
+
+    color: #000020;
   }
 
   :root {
-    --primary: rgba(241, 196, 15, 0.3);
-    --green_text_green_button: #27AE60;
-    --purple_text_next_button: #8E44AD;
-    --add_button: #c0c0c0;
-    --red_text: #C0392B;
-    --blue_bg_input: #B0FFF0;
-    --text_input: #000000;
+    --white:#ffffff;
+    --red: #C0392B;
+    --red_secondary: #eb4d4b;
+    --green: #27AE60;
+    --blue: #B0FFF0;
+    --blue_secondary: #2980b9;
+    --background_yellow: rgba(241, 196, 15, 0.3);
+    --purple: #8E44AD;
+    --grey: #f7f1e3;
+    --black: #00000e;
   }
 `;
 

@@ -14,7 +14,7 @@ import Text from '../../components/Text';
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
+import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 
@@ -34,17 +34,19 @@ const NameInputPage = () => {
       </Header>
       <PagesContainer>
         <Main>
-          {
-            <BoxIcon>
-              {form.name !== '' ? (
-                <BackToButton />
-              ) : (
-                <BackToButton className="ishidden" />
-              )}
-            </BoxIcon>
-          }
-          <Text content="Olá como" span="você" continueContent="se chama?" />
-          <Input name="name" value={form.name} onChange={handleOnchangeInput} />
+          <Text content="Olá como" span=" você " continueContent="se chama?" />
+          <InputBox>
+            <Input
+              name="name"
+              value={form.name}
+              onChange={handleOnchangeInput}
+            />
+            {form.name !== '' ? (
+              <BackToButton />
+            ) : (
+              <BackToButton className="ishidden" />
+            )}
+          </InputBox>
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />

@@ -13,8 +13,8 @@ import Text from '../../components/Text';
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
+import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 import {
@@ -35,19 +35,20 @@ const ResignDatePage = () => {
       </Header>
       <PagesContainer>
         <Main>
-          <BoxIcon>
+          <Text content="Qual a data de" span="demissão?" />
+          <InputBox>
             {form.resigndate !== '' ? (
               <BackToButton />
             ) : (
               <BackToButton className="ishidden" />
             )}
-          </BoxIcon>
-          <Text content="Qual a data de" span="demissão?" />
-          <Input
-            name="resigndate"
-            value={form.resigndate}
-            onChange={handleOnchangeInput}
-          />
+            <Input
+              className="withoutAdd"
+              name="resigndate"
+              value={form.resigndate}
+              onChange={handleOnchangeInput}
+            />
+          </InputBox>
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />

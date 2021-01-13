@@ -39,16 +39,17 @@ const CityInputPage = () => {
             continueContent="mora?"
           />
           <InputBox>
+            <Input
+              className="withoutAdd"
+              name="city"
+              value={form.city}
+              onChange={handleOnchangeInput}
+            />
             {form.city !== '' ? (
               <BackToButton />
             ) : (
               <BackToButton className="ishidden" />
             )}
-            <Input
-              name="city"
-              value={form.city}
-              onChange={handleOnchangeInput}
-            />
           </InputBox>
         </Main>
         <MainFooter>

@@ -32,7 +32,7 @@ export const MainParagraph = styled.p`
   }
 
   .red {
-    color: var(--red_text);
+    color: var(--red);
   }
 `;
 

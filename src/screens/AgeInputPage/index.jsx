@@ -35,12 +35,17 @@ const AgeInputPage = () => {
         <Main>
           <Text content="Qual a" span="sua" continueContent="idade?" />
           <InputBox>
+            <Input
+              className="withoutAdd"
+              name="age"
+              value={form.age}
+              onChange={handleOnchangeInput}
+            />
             {form.age !== '' ? (
               <BackToButton />
             ) : (
               <BackToButton className="ishidden" />
             )}
-            <Input name="age" value={form.age} onChange={handleOnchangeInput} />
           </InputBox>
         </Main>
         <MainFooter>

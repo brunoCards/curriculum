@@ -53,6 +53,7 @@ const EmailInputPage = () => {
               <BackToButton className="ishidden" />
             )}
             <Input
+              className="withAdd"
               name="email"
               value={form.email}
               onChange={handleOnchangeInput}

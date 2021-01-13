@@ -14,10 +14,10 @@ export const ReviewDataContainer = styled.div`
   width: 70%;
   height: 100%;
   padding: 10px;
-  border: 4px solid var(--text_input);
+  border: 4px solid var(--black);
   border-radius: 8px 0 0 8px;
 
-  background-color: var(--blue_bg_input);
+  background-color: var(--blue);
 `;
 
 export const ReviewDataTitle = styled.h3`
@@ -25,7 +25,7 @@ export const ReviewDataTitle = styled.h3`
 
   font-family: 'Baloo 2', cursive;
   font-size: 34px;
-  color: var(--purple_text_next_button);
+  color: var(--purple);
 `;
 
 export const ReviewFooter = styled.footer`

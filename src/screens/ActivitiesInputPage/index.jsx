@@ -34,7 +34,7 @@ const ActivitiesInputPage = () => {
         </HeaderTitle>
       </Header>
       <PagesContainer>
-        <LargeMain>
+        <LargeMain className="isActivities">
           <Text content="Atividades" span="desempenhadas" />
           <LargeInputBox>
             {form.activities !== '' ? (
@@ -43,6 +43,7 @@ const ActivitiesInputPage = () => {
               <BackToButton className="ishidden" />
             )}
             <LargeInput
+              className="withoutAdd"
               name="activities"
               value={form.activities}
               onChange={handleOnchangeInput}
