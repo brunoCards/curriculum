@@ -9,10 +9,13 @@ import { goToAgePage, goBack } from '../../routers/goToPages';
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
-import { Main } from '../../styles/Components/MainContainer/styles';
-import { Input } from '../../styles/Components/Input/styles';
 
-//import FooterStyleComponents
+//styled-components
+import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
+import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
+import { Main } from '../../styles/Components/MainContainer/styles';
+import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
+import { Input } from '../../styles/Components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 
 import {
@@ -21,16 +24,14 @@ import {
   BackToButton,
 } from '../../styles/Components/Buttons/styles';
 
-//global-styled-components
-import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
-
 const NameInputPage = () => {
   const { history, form, handleOnchangeInput } = useFormulary();
 
   return (
     <>
-      <Header />
+      <Header>
+        <HeaderTitle className="isPersonal">Dados Pessoais</HeaderTitle>
+      </Header>
       <PagesContainer>
         <Main>
           {

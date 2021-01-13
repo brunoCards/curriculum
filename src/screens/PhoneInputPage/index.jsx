@@ -12,11 +12,13 @@ import Text from '../../components/Text';
 
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
+import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
+
 import {
   BackButton,
   NextButton,
@@ -35,7 +37,9 @@ const PhoneInputPage = () => {
 
   return (
     <>
-      <Header />
+      <Header>
+        <HeaderTitle className="isPersonal">Dados Pessoais</HeaderTitle>
+      </Header>
       <PagesContainer>
         <Main>
           <BoxIcon>

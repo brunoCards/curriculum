@@ -12,6 +12,7 @@ import Text from '../../components/Text';
 
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
+import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
@@ -35,7 +36,9 @@ const KnowledgeInputPage = () => {
 
   return (
     <>
-      <Header />
+      <Header>
+        <HeaderTitle className="isPersonal">Dados Pessoais</HeaderTitle>
+      </Header>
       <PagesContainer>
         <Main>
           <BoxIcon>
@@ -63,7 +66,7 @@ const KnowledgeInputPage = () => {
               value={form.knowledge}
               onChange={handleOnchangeInput}
             />
-            {knowledges.length > 0 ? (
+            {form.knowledge !== '' ? (
               <AddButton
                 onClick={() => handleAddingKnowledges(form.knowledge)}
               />

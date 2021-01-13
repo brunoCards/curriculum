@@ -1,12 +1,34 @@
+import styled from 'styled-components';
+
 import { withStyles } from '@material-ui/core/styles';
 import ArrowLeftRoundedIcon from '@material-ui/icons/ArrowLeftRounded';
 import ArrowRightRoundedIcon from '@material-ui/icons/ArrowRightRounded';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
-import RateReviewIcon from '@material-ui/icons/RateReview';
+import HistoryRoundedIcon from '@material-ui/icons/HistoryRounded';
 import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
 import UndoRoundedIcon from '@material-ui/icons/UndoRounded';
 import GetAppRoundedIcon from '@material-ui/icons/GetAppRounded';
-import AddBoxRoundedIcon from '@material-ui/icons/AddBoxRounded';
+import AddRoundedIcon from '@material-ui/icons/AddRounded';
+export const StartButton = styled.button`
+  width: 340px;
+  height: 70px;
+  border: 3px solid var(--text_input);
+  border-radius: 6px;
+  outline: none;
+
+  background-color: transparent;
+
+  font-size: 25px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  &:hover {
+    transition: 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    background-color: #27ae60;
+    color: var(--purple_text_next_button);
+  }
+`;
 
 export const BackButton = withStyles({
   root: {
@@ -52,12 +74,18 @@ export const NextButton = withStyles({
 
 export const AddButton = withStyles({
   root: {
-    width: 70,
-    height: 70,
+    width: 60,
+    height: 50,
 
-    color: 'var(--green_text_green_button)',
+    color: 'var(--text_input)',
+    backgroundColor: 'var(--blue_bg_input)',
     fontSize: 61,
-    borderRadius: 50,
+    fontWeight: 'bold',
+    borderColor: 'black',
+    borderWidth: 3,
+    borderStyle: 'solid',
+    borderTopRightRadius: 6,
+    borderBottomRightRadius: 6,
     cursor: 'pointer',
 
     '&:hover': {
@@ -73,7 +101,36 @@ export const AddButton = withStyles({
       transition: 'ease-in-out .5s',
     },
   },
-})(AddBoxRoundedIcon);
+})(AddRoundedIcon);
+
+export const BackToButton = withStyles({
+  root: {
+    width: 60,
+    height: 50,
+    borderStyle: 'solid',
+    borderTopLeftRadius: 6,
+    borderBottomLeftRadius: 6,
+
+    color: 'var(--text_input)',
+    backgroundColor: 'var(--blue_bg_input)',
+    fontSize: 30,
+    cursor: 'pointer',
+
+    '&:hover': {
+      transition: 'ease-in-out .4s',
+      transform: 'scale(1.2)',
+    },
+
+    '&:active': {
+      transition: 'ease-in .2s',
+    },
+
+    '&.ishidden': {
+      opacity: '0.3',
+      transition: 'ease-in-out .5s',
+    },
+  },
+})(HistoryRoundedIcon);
 
 export const HomeButton = withStyles({
   root: {
@@ -94,57 +151,6 @@ export const HomeButton = withStyles({
     },
   },
 })(HomeRoundedIcon);
-
-export const BackToButton = withStyles({
-  root: {
-    width: 50,
-    height: 50,
-    color: 'var(--purple_text_next_button)',
-    fontSize: 30,
-    borderRadius: 50,
-    cursor: 'pointer',
-    alignSelf: 'end',
-
-    '&:hover': {
-      transition: 'ease-in-out .4s',
-      transform: 'scale(1.2)',
-    },
-
-    '&:active': {
-      transition: 'ease-in .2s',
-    },
-
-    '&.ishidden': {
-      visibility: 'hidden',
-    },
-  },
-})(RateReviewIcon);
-
-export const Submit = withStyles({
-  root: {
-    width: 60,
-    height: 55,
-    padding: 10,
-    color: 'var(--green_text_green_button)',
-    fontSize: 40,
-    fontWeight: 'bolder',
-    cursor: 'pointer',
-
-    '&:hover': {
-      transition: 'ease-in-out .4s',
-      color: 'var(--blue_bg_input)',
-      backgroundColor: 'var(--green_text_green_button)',
-    },
-
-    '&:active': {
-      transition: '1s',
-    },
-
-    '&.ishidden': {
-      visibility: 'hidden',
-    },
-  },
-})(DoneRoundedIcon);
 
 export const ExitReviewButton = withStyles({
   root: {
@@ -174,6 +180,32 @@ export const ExitReviewButton = withStyles({
     },
   },
 })(UndoRoundedIcon);
+
+export const Submit = withStyles({
+  root: {
+    width: 60,
+    height: 55,
+    padding: 10,
+    color: 'var(--green_text_green_button)',
+    fontSize: 40,
+    fontWeight: 'bolder',
+    cursor: 'pointer',
+
+    '&:hover': {
+      transition: 'ease-in-out .4s',
+      color: 'var(--blue_bg_input)',
+      backgroundColor: 'var(--green_text_green_button)',
+    },
+
+    '&:active': {
+      transition: '1s',
+    },
+
+    '&.ishidden': {
+      visibility: 'hidden',
+    },
+  },
+})(DoneRoundedIcon);
 
 export const DownloadButton = withStyles({
   root: {
