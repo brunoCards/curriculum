@@ -16,27 +16,6 @@ export const CartoonMan = styled.img`
   object-fit: contain;
 `;
 
-export const StartButton = styled.button`
-  width: 340px;
-  height: 70px;
-  border: 3px solid var(--text_input);
-  border-radius: 6px;
-  outline: none;
-
-  background-color: transparent;
-
-  font-size: 25px;
-  font-weight: bold;
-
-  cursor: pointer;
-
-  &:hover {
-    transition: 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
-    background-color: #27ae60;
-    color: var(--purple_text_next_button);
-  }
-`;
-
 export const MainParagraph = styled.p`
   width: 340px;
 

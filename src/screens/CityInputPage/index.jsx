@@ -10,15 +10,13 @@ import { goToStatePage, goBack } from '../../routers/goToPages';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 
-//import FooterStyleComponents
-import { MainFooter } from '../../styles/Components/Footer/styles';
-
-//global-styled-components
+//styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
+import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
+import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
-
+import { MainFooter } from '../../styles/Components/Footer/styles';
 import {
   BackButton,
   NextButton,
@@ -30,22 +28,28 @@ const CityInputPage = () => {
 
   return (
     <>
-      <Header />
+      <Header>
+        <HeaderTitle className="isPersonal">Dados Pessoais</HeaderTitle>
+      </Header>
       <PagesContainer>
         <Main>
-          <BoxIcon>
-            {form.city !== '' ? (
-              <BackToButton />
-            ) : (
-              <BackToButton className="ishidden" />
-            )}
-          </BoxIcon>
           <Text
             content="Qual a cidade que"
             span="você"
             continueContent="mora?"
           />
-          <Input name="city" value={form.city} onChange={handleOnchangeInput} />
+          <InputBox>
+            {form.city !== '' ? (
+              <BackToButton />
+            ) : (
+              <BackToButton className="ishidden" />
+            )}
+            <Input
+              name="city"
+              value={form.city}
+              onChange={handleOnchangeInput}
+            />
+          </InputBox>
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />

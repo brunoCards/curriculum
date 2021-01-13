@@ -17,6 +17,7 @@ import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
+import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import {
   BackButton,
   NextButton,
@@ -35,22 +36,22 @@ const EmailInputPage = () => {
 
   return (
     <>
-      <Header />
+      <Header>
+        <HeaderTitle className="isPersonal">Dados Pessoais</HeaderTitle>
+      </Header>
       <PagesContainer>
         <Main>
-          <BoxIcon>
-            {emails.length > 0 ? (
-              <BackToButton />
-            ) : (
-              <BackToButton className="ishidden" />
-            )}
-          </BoxIcon>
           {emails.length > 0 ? (
             <Text span="Você" continueContent="quer adicionar mais um email?" />
           ) : (
             <Text content="Qual o" span="seu" continueContent="melhor email?" />
           )}
           <InputBox>
+            {emails.length > 0 ? (
+              <BackToButton />
+            ) : (
+              <BackToButton className="ishidden" />
+            )}
             <Input
               name="email"
               value={form.email}

@@ -10,15 +10,13 @@ import { goToReviewPage, goBack } from '../../routers/goToPages';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 
-//import FooterStyleComponents
-import { LargeFooter } from '../../styles/Components/Footer/styles';
-
 //global-styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
+import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
+import { LargeInputBox } from '../../styles/Components/InputBox/styles';
 import { LargeMain } from '../../styles/Components/MainContainer/styles';
 import { LargeInput } from '../../styles/Components/Input/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
-
+import { LargeFooter } from '../../styles/Components/Footer/styles';
 import {
   BackButton,
   NextButton,
@@ -30,22 +28,26 @@ const ActivitiesInputPage = () => {
 
   return (
     <>
-      <Header />
+      <Header>
+        <HeaderTitle className="isProffesional">
+          Dados Profissionais
+        </HeaderTitle>
+      </Header>
       <PagesContainer>
         <LargeMain>
-          <BoxIcon>
+          <Text content="Atividades" span="desempenhadas" />
+          <LargeInputBox>
             {form.activities !== '' ? (
               <BackToButton />
             ) : (
               <BackToButton className="ishidden" />
             )}
-          </BoxIcon>
-          <Text content="Atividades" span="desempenhadas" />
-          <LargeInput
-            name="activities"
-            value={form.activities}
-            onChange={handleOnchangeInput}
-          />
+            <LargeInput
+              name="activities"
+              value={form.activities}
+              onChange={handleOnchangeInput}
+            />
+          </LargeInputBox>
         </LargeMain>
         <LargeFooter>
           <BackButton onClick={() => goBack(history)} />

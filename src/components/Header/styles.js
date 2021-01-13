@@ -12,10 +12,10 @@ export const MainHeader = styled.header`
 export const HeaderSideLogo = styled.header`
   width: 100%;
   height: 15vh;
-  padding: 40px 0 0 50px;
+  padding: 40px 10vw 0 50px;
 
   display: flex;
-  align-items: flex-start;
+  justify-content: space-between;
 `;
 
 export const Logo = styled.img`

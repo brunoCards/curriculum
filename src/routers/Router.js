@@ -7,7 +7,6 @@ import CompanyNamePage from '../screens/CompanyNamePage';
 import CourseNamePage from '../screens/CourseNamePage';
 import DegreeLevelPage from '../screens/DegreeLevelPage';
 import DescriptionInputPage from '../screens/DescriptionInputPage';
-// import DownloadPdfPage from '../screens/DownloadPdfPage';
 import EducationalInstitutionPage from '../screens/EducationalInstitutionPage';
 import EmailInputPage from '../screens/EmailInputPage';
 import EndDatePage from '../screens/EndDatePage';
@@ -37,7 +36,7 @@ const Router = () => {
             <Route exact path="/">
               <LandingPage />
             </Route>
-            <Route exact exact path="/dados-pessoais/nome">
+            <Route exact path="/dados-pessoais/nome">
               <NameInputPage />
             </Route>
             <Route exact path="/dados-pessoais/idade">
@@ -56,10 +55,10 @@ const Router = () => {
               <EmailInputPage />
             </Route>
             {/* <Route exact path="/dados-pessoais/linkedin">
-              <EmailInputPage />
+              <LinkedinInputPage />
             </Route>
             <Route exact path="/dados-pessoais/portfolio">
-              <EmailInputPage />
+              <PortfolioInputPage />
             </Route> */}
             <Route exact path="/dados-pessoais/descricao">
               <DescriptionInputPage />
@@ -77,7 +76,7 @@ const Router = () => {
               <CourseNamePage />
             </Route>
             {/* <Route exact path="/dados-academicos/descricao/curso">
-              <EmailInputPage />
+              <CourseDescriptionInputPage />
             </Route> */}
             <Route exact path="/dados-academicos/data/inicio">
               <StartDatePage />

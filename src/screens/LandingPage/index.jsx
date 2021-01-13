@@ -9,20 +9,20 @@ import { goToNamePage } from '../../routers/goToPages';
 //imagens
 import cartoonchar from '../../assets/cartoon_char.svg';
 
+//components
+import Header from '../../components/Header';
+
 //styled-components
 import {
   CartoonMan,
   MainContainer,
-  StartButton,
   MainParagraph,
   AdjustLayoutBox,
 } from './styles';
 
-//global-styled-components
+//styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-
-//components
-import Header from '../../components/Header';
+import { StartButton } from '../../styles/Components/Buttons/styles';
 
 const LandingPage = () => {
   const { history } = useFormulary();
