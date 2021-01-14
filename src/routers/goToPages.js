@@ -10,12 +10,12 @@ export const goToAgePage = (history) => {
   history.push('/dados-pessoais/idade');
 };
 
-export const goToCityPage = (history) => {
-  history.push('/dados-pessoais/cidade');
+export const goToCityPage = (history, id) => {
+  history.push(`/dados-pessoais/cidade/${id}`);
 };
 
-export const goToStatePage = (history) => {
-  history.push('/dados-pessoais/estado');
+export const goToStatePage = (history, id) => {
+  history.push(`/dados-pessoais/estado/${id}`);
 };
 
 export const goToPhonePage = (history) => {

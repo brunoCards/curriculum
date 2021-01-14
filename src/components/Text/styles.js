@@ -8,7 +8,6 @@ export const TextArea = styled.p`
 
   color: var(--black);
   text-align: center;
-  font-family: 'Baloo 2', cursive;
 
   .purple {
     color: var(--purple);
@@ -22,7 +21,6 @@ export const ParagraphArea = styled.p`
   font-size: 30px;
   color: var(--black);
   text-align: justify;
-  font-family: 'Baloo 2', cursive;
 
   .purple {
     color: var(--purple);
