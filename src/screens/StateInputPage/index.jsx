@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+//import api-instance
+import api from '../../webServices/api';
 
 //import context
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToEmailPage, goBack } from '../../routers/goToPages';
+import { goToCityPage, goBack } from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -15,7 +18,11 @@ import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
-import { Input } from '../../styles/Components/Input/styles';
+import {
+  Select,
+  Option,
+  AdjustSelectBox,
+} from '../../styles/Components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 import {
   BackButton,
@@ -24,7 +31,33 @@ import {
 } from '../../styles/Components/Buttons/styles';
 
 const StateInputPage = () => {
-  const { history, form, handleOnchangeInput } = useFormulary();
+  const {
+    history,
+    params,
+    form,
+    handleOnchangeInput,
+    setStates,
+    states,
+  } = useFormulary();
+
+  useEffect(() => {
+    getStates();
+  }, []);
+
+  const getStates = () => {
+    api
+      .get(
+        `https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome`
+      )
+      .then((response) => {
+        setStates(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  console.log(form.state);
 
   return (
     <>
@@ -33,24 +66,39 @@ const StateInputPage = () => {
       </Header>
       <PagesContainer>
         <Main>
-          <Text content="E o estado?" />
+          <Text
+            content="Qual é o estado que"
+            span="você"
+            continueContent="mora?"
+          />
           <InputBox>
-            <Input
-              className="withoutAdd"
-              name="state"
-              value={form.state}
-              onChange={handleOnchangeInput}
-            />
             {form.state !== '' ? (
               <BackToButton />
             ) : (
               <BackToButton className="ishidden" />
             )}
+            <AdjustSelectBox className="select-wrapper">
+              <Select
+                className="withoutAdd"
+                name="state"
+                value={form.state}
+                onChange={handleOnchangeInput}
+              >
+                <Option disabled value="">
+                  Selecione um estado
+                </Option>
+                {states.map((state) => (
+                  <Option key={state.id} value={state.id}>
+                    {state.nome}
+                  </Option>
+                ))}
+              </Select>
+            </AdjustSelectBox>
           </InputBox>
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
-          <NextButton onClick={() => goToEmailPage(history)} />
+          <NextButton onClick={() => goToCityPage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

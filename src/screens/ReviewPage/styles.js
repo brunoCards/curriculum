@@ -23,7 +23,6 @@ export const ReviewDataContainer = styled.div`
 export const ReviewDataTitle = styled.h3`
   width: 100%;
 
-  font-family: 'Baloo 2', cursive;
   font-size: 34px;
   color: var(--purple);
 `;

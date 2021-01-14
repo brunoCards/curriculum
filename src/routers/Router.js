@@ -42,10 +42,10 @@ const Router = () => {
             <Route exact path="/dados-pessoais/idade">
               <AgeInputPage />
             </Route>
-            <Route exact path="/dados-pessoais/cidade">
+            <Route exact path="/dados-pessoais/cidade/:stateId">
               <CityInputPage />
             </Route>
-            <Route exact path="/dados-pessoais/estado">
+            <Route exact path="/dados-pessoais/estado/:stateId">
               <StateInputPage />
             </Route>
             <Route exact path="/dados-pessoais/telefones">

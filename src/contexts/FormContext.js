@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import useForm from '../hooks/useForm';
 
 //import react-router-dom
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 const FormContext = createContext();
 
@@ -33,9 +33,12 @@ const initialState = {
 
 export const FormProvider = ({ children }) => {
   const history = useHistory();
+  const params = useParams();
   const [emails, setEmails] = useState([]);
   const [phones, setPhones] = useState([]);
   const [knowledges, setKnowledges] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [states, setStates] = useState([]);
 
   const [form, handleOnchangeInput, resetState, setForm] = useForm(
     initialState
@@ -90,10 +93,26 @@ export const FormProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    const statesData = sessionStorage.getItem('states');
+    if (statesData) {
+      setStates(JSON.parse(statesData));
+    }
+  }, []);
+
+  useEffect(() => {
+    const citiesData = sessionStorage.getItem('cities');
+    if (citiesData) {
+      setCities(JSON.parse(citiesData));
+    }
+  }, []);
+
+  useEffect(() => {
     sessionStorage.setItem('form', JSON.stringify(form));
     sessionStorage.setItem('emails', JSON.stringify(emails));
     sessionStorage.setItem('phones', JSON.stringify(phones));
     sessionStorage.setItem('knowledges', JSON.stringify(knowledges));
+    sessionStorage.setItem('states', JSON.stringify(states));
+    sessionStorage.setItem('cities', JSON.stringify(cities));
   });
   // até aqui
 
@@ -109,6 +128,11 @@ export const FormProvider = ({ children }) => {
         emails,
         phones,
         knowledges,
+        cities,
+        setCities,
+        states,
+        setStates,
+        params,
       }}
     >
       {children}
@@ -128,6 +152,11 @@ export const useFormulary = () => {
     emails,
     phones,
     knowledges,
+    cities,
+    setCities,
+    states,
+    setStates,
+    params,
   } = context;
 
   return {
@@ -140,5 +169,10 @@ export const useFormulary = () => {
     emails,
     phones,
     knowledges,
+    cities,
+    setCities,
+    states,
+    setStates,
+    params,
   };
 };

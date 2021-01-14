@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
  
-  button, input {
+  button, input, select {
     outline: none;
     font: 50px 'Baloo 2', cursive;
   }
@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
     font: 50px 'Baloo 2', cursive;;
     overflow-x: hidden;
     background-color: var(--background_yellow);
+    font-family: 'Baloo 2', cursive;
 
     color: #000020;
   }
