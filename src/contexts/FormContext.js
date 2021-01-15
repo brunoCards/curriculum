@@ -28,7 +28,10 @@ const initialState = {
   phone: '',
   resigndate: '',
   startdate: '',
-  state: '',
+  state: {
+    id: '',
+    nome: '',
+  },
 };
 
 export const FormProvider = ({ children }) => {
@@ -39,6 +42,7 @@ export const FormProvider = ({ children }) => {
   const [knowledges, setKnowledges] = useState([]);
   const [cities, setCities] = useState([]);
   const [states, setStates] = useState([]);
+  const [stateName, setStateName] = useState('Selecione um estado');
 
   const [form, handleOnchangeInput, resetState, setForm] = useForm(
     initialState
@@ -133,6 +137,8 @@ export const FormProvider = ({ children }) => {
         states,
         setStates,
         params,
+        stateName,
+        setStateName,
       }}
     >
       {children}
@@ -157,6 +163,8 @@ export const useFormulary = () => {
     states,
     setStates,
     params,
+    stateName,
+    setStateName,
   } = context;
 
   return {
@@ -174,5 +182,7 @@ export const useFormulary = () => {
     states,
     setStates,
     params,
+    stateName,
+    setStateName,
   };
 };

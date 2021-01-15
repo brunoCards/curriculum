@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 //import api-instance
 import api from '../../webServices/api';
@@ -33,31 +33,31 @@ import {
 const StateInputPage = () => {
   const {
     history,
-    params,
     form,
-    handleOnchangeInput,
     setStates,
     states,
+    stateName,
+    setStateName,
   } = useFormulary();
-
-  useEffect(() => {
-    getStates();
-  }, []);
 
   const getStates = () => {
     api
-      .get(
-        `https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome`
-      )
+      .get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/`)
       .then((response) => {
-        setStates(response.data);
+        const result = response.data;
+        result.sort((a, b) => a.nome.localeCompare(b.nome));
+        setStates([...result]);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  console.log(form.state);
+  useEffect(() => {
+    getStates();
+  }, []);
+
+  console.log(stateName);
 
   return (
     <>
@@ -81,17 +81,17 @@ const StateInputPage = () => {
               <Select
                 className="withoutAdd"
                 name="state"
-                value={form.state}
-                onChange={handleOnchangeInput}
+                value={stateName}
+                onChange={(event) => setStateName(event.target.value)}
               >
-                <Option disabled value="">
-                  Selecione um estado
-                </Option>
-                {states.map((state) => (
-                  <Option key={state.id} value={state.id}>
-                    {state.nome}
-                  </Option>
-                ))}
+                <Option value={''}>{stateName}</Option>
+                {states.map((state) => {
+                  return (
+                    <Option key={state.id} value={state.id}>
+                      {state.nome}
+                    </Option>
+                  );
+                })}
               </Select>
             </AdjustSelectBox>
           </InputBox>

@@ -33,25 +33,28 @@ import {
 const CityInputPage = () => {
   const {
     history,
-    params,
     form,
     handleOnchangeInput,
     cities,
     setCities,
-    states,
+    stateName,
   } = useFormulary();
 
   useEffect(() => {
-    getCities();
-  }, []);
+    if (stateName) {
+      getCities(stateName);
+    }
+  }, [stateName]);
 
-  const getCities = () => {
+  const getCities = (id) => {
     api
       .get(
-        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${form.state}/municipios?orderBy=nome`
+        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${id}/municipios?orderBy=nome`
       )
       .then((response) => {
-        setCities(response.data);
+        const results = response.data;
+        results.sort((a, b) => a.nome.localeCompare(b.nome));
+        setCities(results);
       })
       .catch((error) => console.log(error));
   };
