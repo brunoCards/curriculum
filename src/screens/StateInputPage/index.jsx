@@ -38,6 +38,7 @@ const StateInputPage = () => {
     states,
     stateName,
     setStateName,
+    handleOnchangeInput,
   } = useFormulary();
 
   const getStates = () => {
@@ -56,8 +57,6 @@ const StateInputPage = () => {
   useEffect(() => {
     getStates();
   }, []);
-
-  console.log(stateName);
 
   return (
     <>
@@ -81,8 +80,9 @@ const StateInputPage = () => {
               <Select
                 className="withoutAdd"
                 name="state"
-                value={stateName}
-                onChange={(event) => setStateName(event.target.value)}
+                id="state"
+                value={form.state}
+                onChange={handleOnchangeInput}
               >
                 <Option value={''}>{stateName}</Option>
                 {states.map((state) => {

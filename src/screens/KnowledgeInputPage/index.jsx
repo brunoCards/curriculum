@@ -43,14 +43,15 @@ const KnowledgeInputPage = () => {
         <Main>
           {knowledges.length > 0 ? (
             <Text
-              span="Você"
-              continueContent="possui, mais algum conhecimento?"
+              content="mais algum"
+              span="conhecimento"
+              continueContent="?"
             />
           ) : (
             <Text
-              content="Adicione os conhecimentos que"
-              span="você"
-              continueContent="possui"
+              content="Adicione aqui os"
+              span="seus"
+              continueContent="conhecimentos"
             />
           )}
           <InputBox>

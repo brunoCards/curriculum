@@ -19,8 +19,7 @@ export const CartoonMan = styled.img`
 export const MainParagraph = styled.p`
   width: 340px;
 
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 25px;
   text-align: justify;
 
   .green {
@@ -33,6 +32,7 @@ export const MainParagraph = styled.p`
 
   .red {
     color: var(--red);
+    font-weight: bold;
   }
 `;
 

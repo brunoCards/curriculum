@@ -28,10 +28,7 @@ const initialState = {
   phone: '',
   resigndate: '',
   startdate: '',
-  state: {
-    id: '',
-    nome: '',
-  },
+  state: '',
 };
 
 export const FormProvider = ({ children }) => {
@@ -111,13 +108,34 @@ export const FormProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    const stateNameData = sessionStorage.getItem('stateName');
+    if (stateNameData) {
+      setStateName(JSON.parse(stateNameData));
+    }
+  }, []);
+
+  useEffect(() => {
     sessionStorage.setItem('form', JSON.stringify(form));
+  });
+  useEffect(() => {
     sessionStorage.setItem('emails', JSON.stringify(emails));
+  });
+  useEffect(() => {
     sessionStorage.setItem('phones', JSON.stringify(phones));
+  });
+  useEffect(() => {
     sessionStorage.setItem('knowledges', JSON.stringify(knowledges));
+  });
+  useEffect(() => {
     sessionStorage.setItem('states', JSON.stringify(states));
+  });
+  useEffect(() => {
+    sessionStorage.setItem('stateName', JSON.stringify(stateName));
+  });
+  useEffect(() => {
     sessionStorage.setItem('cities', JSON.stringify(cities));
   });
+
   // até aqui
 
   return (

@@ -37,19 +37,18 @@ const CityInputPage = () => {
     handleOnchangeInput,
     cities,
     setCities,
-    stateName,
   } = useFormulary();
 
   useEffect(() => {
-    if (stateName) {
-      getCities(stateName);
+    if (form.state) {
+      getCities(form.state);
     }
-  }, [stateName]);
+  }, [form.state]);
 
   const getCities = (id) => {
     api
       .get(
-        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${id}/municipios?orderBy=nome`
+        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${form.state}/municipios?orderBy=nome`
       )
       .then((response) => {
         const results = response.data;
