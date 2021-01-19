@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import useForm from '../hooks/useForm';
 
 //import react-router-dom
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const FormContext = createContext();
 
@@ -33,130 +33,111 @@ const initialState = {
 
 export const FormProvider = ({ children }) => {
   const history = useHistory();
-  const params = useParams();
+  const [cities, setCities] = useState([]);
+  const [states, setStates] = useState([]);
   const [emails, setEmails] = useState([]);
   const [phones, setPhones] = useState([]);
   const [knowledges, setKnowledges] = useState([]);
-  const [cities, setCities] = useState([]);
-  const [states, setStates] = useState([]);
-  const [stateName, setStateName] = useState('Selecione um estado');
 
-  const [form, handleOnchangeInput, resetState, setForm] = useForm(
-    initialState
-  );
+  const [form, handleOnchangeInput, setForm] = useForm(initialState);
 
-  //verificar refatoração futura
-
+  //handlers
   const handleAddingEmails = (input) => {
     setEmails([...emails, input]);
 
-    return resetState();
+    setForm({ ...form, email: '' });
   };
 
   const handleAddingPhones = (input) => {
     setPhones([...phones, input]);
 
-    return resetState();
+    setForm({ ...form, phone: '' });
   };
 
   const handleAddingKnowledges = (input) => {
     setKnowledges([...knowledges, input]);
 
-    return resetState();
+    setForm({ ...form, knowledge: '' });
   };
 
+  //data persist
+
+  //emails
   useEffect(() => {
-    const formdata = sessionStorage.getItem('form');
-    if (formdata) {
-      setForm(JSON.parse(formdata));
+    const persistEmails = window.localStorage.getItem('emails');
+    if (persistEmails) {
+      setEmails(JSON.parse(persistEmails));
     }
   }, []);
 
   useEffect(() => {
-    const emailsdata = sessionStorage.getItem('emails');
-    if (emailsdata) {
-      setEmails(JSON.parse(emailsdata));
+    window.localStorage.setItem('emails', JSON.stringify(emails));
+  });
+
+  //phones
+  useEffect(() => {
+    const persistPhones = window.localStorage.getItem('phones');
+    if (persistPhones) {
+      setPhones(JSON.parse(persistPhones));
     }
   }, []);
 
   useEffect(() => {
-    const phonesdata = localStorage.getItem('phones');
-    if (phonesdata) {
-      setPhones(JSON.parse(phonesdata));
+    window.localStorage.setItem('phones', JSON.stringify(phones));
+  });
+
+  //knowledges
+  useEffect(() => {
+    const persistKnowledges = window.localStorage.getItem('knowledges');
+    if (persistKnowledges) {
+      setKnowledges(JSON.parse(persistKnowledges));
     }
   }, []);
 
   useEffect(() => {
-    const knowledgesdata = sessionStorage.getItem('knowledges');
-    if (knowledgesdata) {
-      setKnowledges(JSON.parse(knowledgesdata));
+    window.localStorage.setItem('knowledges', JSON.stringify(knowledges));
+  });
+
+  //states
+  useEffect(() => {
+    const persistStates = window.localStorage.getItem('states');
+    if (persistStates) {
+      setStates(JSON.parse(persistStates));
     }
   }, []);
 
   useEffect(() => {
-    const statesData = sessionStorage.getItem('states');
-    if (statesData) {
-      setStates(JSON.parse(statesData));
+    window.localStorage.setItem('states', JSON.stringify(states));
+  });
+
+  //cities
+  useEffect(() => {
+    const persistCities = window.localStorage.getItem('cities');
+    if (persistCities) {
+      setCities(JSON.parse(persistCities));
     }
   }, []);
 
   useEffect(() => {
-    const citiesData = sessionStorage.getItem('cities');
-    if (citiesData) {
-      setCities(JSON.parse(citiesData));
-    }
-  }, []);
-
-  useEffect(() => {
-    const stateNameData = sessionStorage.getItem('stateName');
-    if (stateNameData) {
-      setStateName(JSON.parse(stateNameData));
-    }
-  }, []);
-
-  useEffect(() => {
-    sessionStorage.setItem('form', JSON.stringify(form));
+    window.localStorage.setItem('cities', JSON.stringify(cities));
   });
-  useEffect(() => {
-    sessionStorage.setItem('emails', JSON.stringify(emails));
-  });
-  useEffect(() => {
-    sessionStorage.setItem('phones', JSON.stringify(phones));
-  });
-  useEffect(() => {
-    sessionStorage.setItem('knowledges', JSON.stringify(knowledges));
-  });
-  useEffect(() => {
-    sessionStorage.setItem('states', JSON.stringify(states));
-  });
-  useEffect(() => {
-    sessionStorage.setItem('stateName', JSON.stringify(stateName));
-  });
-  useEffect(() => {
-    sessionStorage.setItem('cities', JSON.stringify(cities));
-  });
-
-  // até aqui
 
   return (
     <FormContext.Provider
       value={{
         history,
         form,
-        handleOnchangeInput,
-        handleAddingEmails,
-        handleAddingPhones,
-        handleAddingKnowledges,
-        emails,
-        phones,
-        knowledges,
         cities,
         setCities,
         states,
         setStates,
-        params,
-        stateName,
-        setStateName,
+        emails,
+        phones,
+        knowledges,
+        handleOnchangeInput,
+        handleAddingEmails,
+        handleAddingPhones,
+        handleAddingKnowledges,
       }}
     >
       {children}
@@ -180,9 +161,6 @@ export const useFormulary = () => {
     setCities,
     states,
     setStates,
-    params,
-    stateName,
-    setStateName,
   } = context;
 
   return {
@@ -199,8 +177,5 @@ export const useFormulary = () => {
     setCities,
     states,
     setStates,
-    params,
-    stateName,
-    setStateName,
   };
 };

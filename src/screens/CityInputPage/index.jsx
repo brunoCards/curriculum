@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 //import api-instance
-import api from '../../webServices/api';
+import api from '../../services/api';
 
 //import context
 import { useFormulary } from '../../contexts/FormContext';
