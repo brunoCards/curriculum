@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 //import api-instance
-import api from '../../webServices/api';
+import api from '../../services/api';
 
 //import context
 import { useFormulary } from '../../contexts/FormContext';
@@ -33,25 +33,27 @@ import {
 const CityInputPage = () => {
   const {
     history,
-    params,
     form,
     handleOnchangeInput,
     cities,
     setCities,
-    states,
   } = useFormulary();
 
   useEffect(() => {
-    getCities();
-  }, []);
+    if (form.state) {
+      getCities(form.state);
+    }
+  }, [form.state]);
 
-  const getCities = () => {
+  const getCities = (id) => {
     api
       .get(
         `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${form.state}/municipios?orderBy=nome`
       )
       .then((response) => {
-        setCities(response.data);
+        const results = response.data;
+        results.sort((a, b) => a.nome.localeCompare(b.nome));
+        setCities(results);
       })
       .catch((error) => console.log(error));
   };

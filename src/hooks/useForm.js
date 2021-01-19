@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const useForm = (props) => {
   let initialState = { ...props };
@@ -10,11 +10,18 @@ const useForm = (props) => {
     setForm({ ...form, [name]: value });
   };
 
-  const resetState = () => {
-    setForm({ ...initialState });
-  };
+  useEffect(() => {
+    const persistFormData = window.localStorage.getItem('form');
+    if (persistFormData) {
+      setForm(JSON.parse(persistFormData));
+    }
+  }, []);
 
-  return [form, handleOnchangeInput, resetState, setForm];
+  useEffect(() => {
+    window.localStorage.setItem('form', JSON.stringify(form));
+  });
+
+  return [form, handleOnchangeInput, setForm];
 };
 
 export default useForm;

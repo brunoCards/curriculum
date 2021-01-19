@@ -5,10 +5,11 @@ import { useFormulary } from '../../contexts/FormContext';
 
 //ownStyles
 import {
-  ReviewPageMainContainer,
-  ReviewDataContainer,
-  ReviewDataTitle,
-  ReviewFooter,
+  ReviewPageLayout,
+  PersonalData,
+  ReviewPageTitle,
+  ReviewPageCityState,
+  CityStateText,
 } from './styles';
 
 //components
@@ -27,9 +28,17 @@ const ReviewPage = () => {
 
   return (
     <>
-      <ReviewPageMainContainer>
-        <h1>Review Page</h1>
-      </ReviewPageMainContainer>
+      <ReviewPageLayout>
+        <PersonalData>
+          <ReviewPageTitle>
+            {form.name}
+            {form.city}
+          </ReviewPageTitle>
+          <ReviewPageCityState>
+            <CityStateText>{form.state}</CityStateText>
+          </ReviewPageCityState>
+        </PersonalData>
+      </ReviewPageLayout>
     </>
   );
 };
