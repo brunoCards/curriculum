@@ -2,7 +2,6 @@
 import ActivitiesInputPage from '../screens/ActivitiesInputPage';
 import AdmitDatePage from '../screens/AdmitDatePage';
 import AgeInputPage from '../screens/AgeInputPage';
-import CityInputPage from '../screens/CityInputPage';
 import CompanyNamePage from '../screens/CompanyNamePage';
 import CourseNamePage from '../screens/CourseNamePage';
 import DegreeLevelPage from '../screens/DegreeLevelPage';
@@ -18,7 +17,7 @@ import NameInputPage from '../screens/NameInputPage';
 import PhoneInputPage from '../screens/PhoneInputPage';
 import ResignDatePage from '../screens/ResignDatePage';
 import ReviewPage from '../screens/ReviewPage';
-import StateInputPage from '../screens/StateInputPage';
+import AddressSearchPage from '../screens/AddressSearchPage';
 import StartDatePage from '../screens/StartDatePage';
 
 //import Context
@@ -42,17 +41,14 @@ const Router = () => {
             <Route exact path="/dados-pessoais/idade">
               <AgeInputPage />
             </Route>
-            <Route exact path="/dados-pessoais/cidade">
-              <CityInputPage />
-            </Route>
-            <Route exact path="/dados-pessoais/estado">
-              <StateInputPage />
-            </Route>
-            <Route exact path="/dados-pessoais/telefones">
-              <PhoneInputPage />
+            <Route exact path="/dados-pessoais/cep">
+              <AddressSearchPage />
             </Route>
             <Route exact path="/dados-pessoais/emails">
               <EmailInputPage />
+            </Route>
+            <Route exact path="/dados-pessoais/telefones">
+              <PhoneInputPage />
             </Route>
             {/* <Route exact path="/dados-pessoais/linkedin">
               <LinkedinInputPage />
