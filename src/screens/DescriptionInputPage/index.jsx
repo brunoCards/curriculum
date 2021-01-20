@@ -4,7 +4,11 @@ import React from 'react';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToKnowledgesPage, goBack } from '../../routers/goToPages';
+import {
+  goToKnowledgesPage,
+  goBack,
+  goToReviewPage,
+} from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -44,7 +48,7 @@ const DescriptionInputPage = () => {
           />
           <LargeInputBox>
             {form.description !== '' ? (
-              <BackToButton />
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}

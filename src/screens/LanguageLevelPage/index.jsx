@@ -4,7 +4,11 @@ import React from 'react';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToCompanyNamePage, goBack } from '../../routers/goToPages';
+import {
+  goToCompanyNamePage,
+  goBack,
+  goToReviewPage,
+} from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -36,7 +40,7 @@ const LanguageLevelPage = () => {
           <Text content="Qual o" span="nível" continueContent="de domínio?" />
           <InputBox>
             {form.level !== '' ? (
-              <BackToButton />
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}

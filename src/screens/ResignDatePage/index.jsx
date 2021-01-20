@@ -4,7 +4,11 @@ import React from 'react';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToActtvitiesPage, goBack } from '../../routers/goToPages';
+import {
+  goToActtvitiesPage,
+  goBack,
+  goToReviewPage,
+} from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -38,7 +42,7 @@ const ResignDatePage = () => {
           <Text content="Qual a data de" span="demissão?" />
           <InputBox>
             {form.resigndate !== '' ? (
-              <BackToButton />
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}

@@ -4,7 +4,7 @@ import React from 'react';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToPhonePage, goBack } from '../../routers/goToPages';
+import { goToPhonePage, goBack, goToReviewPage } from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -49,7 +49,7 @@ const EmailInputPage = () => {
           )}
           <InputBox>
             {emails.length > 0 ? (
-              <BackToButton />
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}

@@ -38,7 +38,7 @@ const ActivitiesInputPage = () => {
           <Text content="Atividades" span="desempenhadas" />
           <LargeInputBox>
             {form.activities !== '' ? (
-              <BackToButton />
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}

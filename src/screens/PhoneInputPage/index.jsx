@@ -4,7 +4,11 @@ import React from 'react';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToDescriptionPage, goBack } from '../../routers/goToPages';
+import {
+  goToDescriptionPage,
+  goBack,
+  goToReviewPage,
+} from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -58,7 +62,7 @@ const PhoneInputPage = () => {
           )}
           <InputBox>
             {phones.length > 0 ? (
-              <BackToButton />
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}
