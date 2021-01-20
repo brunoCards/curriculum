@@ -4,7 +4,11 @@ import React from 'react';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToInstitutionPage, goBack } from '../../routers/goToPages';
+import {
+  goToInstitutionPage,
+  goBack,
+  goToReviewPage,
+} from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -55,8 +59,8 @@ const KnowledgeInputPage = () => {
             />
           )}
           <InputBox>
-            {form.knowledge !== '' ? (
-              <BackToButton />
+            {knowledges.length > 0 ? (
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}

@@ -4,7 +4,11 @@ import React from 'react';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToEndDateCoursePage, goBack } from '../../routers/goToPages';
+import {
+  goToEndDateCoursePage,
+  goBack,
+  goToReviewPage,
+} from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -39,7 +43,7 @@ const StartDatePage = () => {
           />
           <InputBox>
             {form.startdate !== '' ? (
-              <BackToButton />
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}

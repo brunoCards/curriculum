@@ -9,9 +9,7 @@ import ArrowLeftRoundedIcon from '@material-ui/icons/ArrowLeftRounded';
 import ArrowRightRoundedIcon from '@material-ui/icons/ArrowRightRounded';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import HistoryRoundedIcon from '@material-ui/icons/HistoryRounded';
-import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
 import UndoRoundedIcon from '@material-ui/icons/UndoRounded';
-import GetAppRoundedIcon from '@material-ui/icons/GetAppRounded';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import SearchIcon from '@material-ui/icons/Search';
 export const StartButton = styled.button`
@@ -188,59 +186,6 @@ export const ExitReviewButton = withStyles({
     },
   },
 })(UndoRoundedIcon);
-
-export const Submit = withStyles({
-  root: {
-    width: 60,
-    height: 55,
-    padding: 10,
-    color: 'var(--green)',
-    fontSize: 40,
-    fontWeight: 'bolder',
-    cursor: 'pointer',
-
-    '&:hover': {
-      transition: 'ease-in-out .4s',
-      color: 'var(--blue)',
-      backgroundColor: 'var(--green)',
-    },
-
-    '&:active': {
-      transition: '1s',
-    },
-
-    '&.ishidden': {
-      visibility: 'hidden',
-    },
-  },
-})(DoneRoundedIcon);
-
-export const DownloadButton = withStyles({
-  root: {
-    width: 60,
-    height: 60,
-    padding: 10,
-    color: 'var(--purple)',
-    fontSize: 40,
-    fontWeight: 'bolder',
-    cursor: 'pointer',
-    alignSelf: 'end',
-    backgroundColor: 'var(--blue)',
-
-    '&:hover': {
-      transition: 'ease-in-out .4s',
-      transform: 'scale(1.2)',
-    },
-
-    '&:active': {
-      transition: 'ease-in .2s',
-    },
-
-    '&.ishidden': {
-      visibility: 'hidden',
-    },
-  },
-})(GetAppRoundedIcon);
 
 export const SearchButton = withStyles({
   root: {

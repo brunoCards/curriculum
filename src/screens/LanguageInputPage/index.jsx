@@ -4,7 +4,11 @@ import React from 'react';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToLanguagesLevelPage, goBack } from '../../routers/goToPages';
+import {
+  goToLanguagesLevelPage,
+  goBack,
+  goToReviewPage,
+} from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -40,7 +44,7 @@ const LanguageInputPage = () => {
           />
           <InputBox>
             {form.language !== '' ? (
-              <BackToButton />
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}

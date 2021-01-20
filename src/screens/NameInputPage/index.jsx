@@ -4,7 +4,7 @@ import React from 'react';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToAgePage, goBack } from '../../routers/goToPages';
+import { goToAgePage, goBack, goToReviewPage } from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -42,7 +42,7 @@ const NameInputPage = () => {
               onChange={handleOnchangeInput}
             />
             {form.name !== '' ? (
-              <BackToButton />
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}

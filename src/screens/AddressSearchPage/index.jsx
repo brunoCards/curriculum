@@ -7,7 +7,7 @@ import api from '../../services/api';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToEmailPage, goBack } from '../../routers/goToPages';
+import { goToEmailPage, goBack, goToReviewPage } from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -59,7 +59,7 @@ const AddressSearchPage = () => {
           />
           <InputBox>
             {form.cep !== '' ? (
-              <BackToButton />
+              <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
               <BackToButton className="ishidden" />
             )}

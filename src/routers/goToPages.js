@@ -92,4 +92,5 @@ export const goToActtvitiesPage = (history) => {
 
 export const goToReviewPage = (history) => {
   history.push('/review');
+  console.log(history);
 };
