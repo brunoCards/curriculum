@@ -12,7 +12,6 @@ import { goToEmailPage, goBack } from '../../routers/goToPages';
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
-import { AddressArea } from '../../components/Text/styles';
 
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
@@ -20,7 +19,9 @@ import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
+import { AddressArea } from '../../components/Text/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
+import { AddresPinIcon } from '../../styles/Components/Icons/styles';
 import {
   BackButton,
   NextButton,
@@ -52,9 +53,9 @@ const AddressSearchPage = () => {
       <PagesContainer>
         <Main>
           <Text
-            content="Qual é o estado que"
+            content="Informe o cep de onde"
             span="você"
-            continueContent="mora?"
+            continueContent="mora"
           />
           <InputBox>
             {form.cep !== '' ? (
@@ -71,8 +72,9 @@ const AddressSearchPage = () => {
             <SearchButton onClick={() => getAddress(form.cep)} />
           </InputBox>
           {address.length !== 0 ? (
-            <InputBox>
+            <InputBox className="address">
               <AddressArea>
+                <AddresPinIcon />
                 {address.localidade + ' - '}
                 {address.uf}
               </AddressArea>

@@ -16,6 +16,9 @@ import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
+import { PhonesIcon } from '../../styles/Components/Icons/styles';
+import { ListBox, ListItem } from '../../styles/Components/List/styles';
+import { PhonesArea } from '../../components/Text/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 
 import {
@@ -70,6 +73,20 @@ const PhoneInputPage = () => {
             ) : (
               <AddButton className="isdisabled" aria-disabled="true" />
             )}
+          </InputBox>
+          <InputBox className="phone">
+            <ListBox>
+              {phones.map((phone) => {
+                return (
+                  <ListItem>
+                    <PhonesArea>
+                      <PhonesIcon />
+                      {phone}
+                    </PhonesArea>
+                  </ListItem>
+                );
+              })}
+            </ListBox>
           </InputBox>
         </Main>
         <MainFooter>
