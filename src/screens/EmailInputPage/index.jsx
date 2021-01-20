@@ -12,10 +12,11 @@ import Text from '../../components/Text';
 
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
+import { ListBox, ListItem } from '../../styles/Components/List/styles';
+import { EmailsIcon } from '../../styles/Components/Icons/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import {
@@ -63,6 +64,18 @@ const EmailInputPage = () => {
             ) : (
               <AddButton className="isdisabled" aria-disabled="true" />
             )}
+          </InputBox>
+          <InputBox className="email">
+            <ListBox>
+              {emails.map((email) => {
+                return (
+                  <ListItem>
+                    <EmailsIcon />
+                    {email}
+                  </ListItem>
+                );
+              })}
+            </ListBox>
           </InputBox>
         </Main>
         <MainFooter>

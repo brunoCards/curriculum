@@ -9,6 +9,14 @@ export const InputBox = styled(Box)`
   gap: 7px;
   align-items: center;
   justify-content: center;
+
+  &.address {
+    margin-top: 15px;
+  }
+
+  &.email {
+    flex-direction: column;
+  }
 `;
 
 export const LargeInputBox = styled(Box)`

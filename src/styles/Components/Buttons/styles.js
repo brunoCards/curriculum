@@ -1,6 +1,10 @@
+// import styled-components
 import styled from 'styled-components';
 
+//import material-ui
 import { withStyles } from '@material-ui/core/styles';
+
+//imports material-ui/icons
 import ArrowLeftRoundedIcon from '@material-ui/icons/ArrowLeftRounded';
 import ArrowRightRoundedIcon from '@material-ui/icons/ArrowRightRounded';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';

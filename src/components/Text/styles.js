@@ -34,9 +34,30 @@ export const ParagraphArea = styled.p`
 `;
 
 export const AddressArea = styled.p`
-  padding-top: 20px;
+  width: 100%;
+  font-style: italic;
   font-size: 21px;
   color: var(--black);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  &.hide {
+    visibility: hidden;
+  }
+`;
+
+export const PhonesArea = styled.p`
+  width: 26.5%;
+  font-style: italic;
+  font-size: 21px;
+  color: var(--black);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   &.hide {
     visibility: hidden;
