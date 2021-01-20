@@ -9,6 +9,7 @@ import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
 import UndoRoundedIcon from '@material-ui/icons/UndoRounded';
 import GetAppRoundedIcon from '@material-ui/icons/GetAppRounded';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
+import SearchIcon from '@material-ui/icons/Search';
 export const StartButton = styled.button`
   width: 340px;
   height: 70px;
@@ -236,3 +237,31 @@ export const DownloadButton = withStyles({
     },
   },
 })(GetAppRoundedIcon);
+
+export const SearchButton = withStyles({
+  root: {
+    width: 60,
+    height: 50,
+    borderTopRightRadius: 6,
+    borderBottomRightRadius: 6,
+    borderStyle: 'solid',
+    color: 'var(--black)',
+    backgroundColor: 'var(--blue)',
+    fontSize: 30,
+    cursor: 'pointer',
+
+    '&:hover': {
+      transition: 'ease-in-out .4s',
+      transform: 'scale(1.1)',
+    },
+
+    '&:active': {
+      transition: 'ease-in .2s',
+    },
+
+    '&.ishidden': {
+      opacity: '0.3',
+      transition: 'ease-in-out .5s',
+    },
+  },
+})(SearchIcon);

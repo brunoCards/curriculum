@@ -12,50 +12,37 @@ import { goToEmailPage, goBack } from '../../routers/goToPages';
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
+import { AddressArea } from '../../components/Text/styles';
 
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
-import {
-  Select,
-  Option,
-  AdjustSelectBox,
-} from '../../styles/Components/Input/styles';
+import { Input } from '../../styles/Components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 import {
   BackButton,
   NextButton,
   BackToButton,
+  SearchButton,
 } from '../../styles/Components/Buttons/styles';
 
-const CityInputPage = () => {
+const AddressSearchPage = () => {
   const {
     history,
     form,
     handleOnchangeInput,
-    cities,
-    setCities,
+    address,
+    setAddress,
+    setForm,
   } = useFormulary();
 
-  useEffect(() => {
-    if (form.state) {
-      getCities(form.state);
-    }
-  }, [form.state]);
-
-  const getCities = (id) => {
-    api
-      .get(
-        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${form.state}/municipios?orderBy=nome`
-      )
-      .then((response) => {
-        const results = response.data;
-        results.sort((a, b) => a.nome.localeCompare(b.nome));
-        setCities(results);
-      })
-      .catch((error) => console.log(error));
+  const getAddress = (cep) => {
+    api.get(`https://viacep.com.br/ws/${cep}/json`).then((response) => {
+      const result = response.data;
+      setAddress(result);
+    });
   };
   return (
     <>
@@ -64,29 +51,40 @@ const CityInputPage = () => {
       </Header>
       <PagesContainer>
         <Main>
-          <Text content="E a" span="cidade?" />
+          <Text
+            content="Qual é o estado que"
+            span="você"
+            continueContent="mora?"
+          />
           <InputBox>
-            {form.city !== '' ? (
+            {form.cep !== '' ? (
               <BackToButton />
             ) : (
               <BackToButton className="ishidden" />
             )}
-            <AdjustSelectBox className="select-wrapper">
-              <Select
-                className="withoutAdd"
-                name="city"
-                value={form.city}
-                onChange={handleOnchangeInput}
-              >
-                <Option disabled value="">
-                  cidades
-                </Option>
-                {cities.map((city) => (
-                  <Option key={city.id}>{city.nome}</Option>
-                ))}
-              </Select>
-            </AdjustSelectBox>
+            <Input
+              name="cep"
+              value={form.cep}
+              onChange={handleOnchangeInput}
+              placeholder="Digite seu CEP"
+            />
+            <SearchButton onClick={() => getAddress(form.cep)} />
           </InputBox>
+          {address.length !== 0 ? (
+            <InputBox>
+              <AddressArea>
+                {address.localidade + ' - '}
+                {address.uf}
+              </AddressArea>
+            </InputBox>
+          ) : (
+            <InputBox>
+              <AddressArea className="hide">
+                {address.localidade + ' - '}
+                {address.uf}
+              </AddressArea>
+            </InputBox>
+          )}
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
@@ -96,4 +94,4 @@ const CityInputPage = () => {
     </>
   );
 };
-export default CityInputPage;
+export default AddressSearchPage;

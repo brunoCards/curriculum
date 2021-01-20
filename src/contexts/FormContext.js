@@ -13,7 +13,7 @@ const initialState = {
   actualWork: false,
   admitdate: '',
   age: '',
-  city: '',
+  cep: '',
   company: '',
   course: '',
   degree: '',
@@ -28,13 +28,11 @@ const initialState = {
   phone: '',
   resigndate: '',
   startdate: '',
-  state: '',
 };
 
 export const FormProvider = ({ children }) => {
   const history = useHistory();
-  const [cities, setCities] = useState([]);
-  const [states, setStates] = useState([]);
+  const [address, setAddress] = useState([]);
   const [emails, setEmails] = useState([]);
   const [phones, setPhones] = useState([]);
   const [knowledges, setKnowledges] = useState([]);
@@ -98,46 +96,33 @@ export const FormProvider = ({ children }) => {
     window.localStorage.setItem('knowledges', JSON.stringify(knowledges));
   });
 
-  //states
+  //address
   useEffect(() => {
-    const persistStates = window.localStorage.getItem('states');
-    if (persistStates) {
-      setStates(JSON.parse(persistStates));
+    const persistAddress = window.localStorage.getItem('address');
+    if (persistAddress) {
+      setAddress(JSON.parse(persistAddress));
     }
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem('states', JSON.stringify(states));
-  });
-
-  //cities
-  useEffect(() => {
-    const persistCities = window.localStorage.getItem('cities');
-    if (persistCities) {
-      setCities(JSON.parse(persistCities));
-    }
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem('cities', JSON.stringify(cities));
+    window.localStorage.setItem('address', JSON.stringify(address));
   });
 
   return (
     <FormContext.Provider
       value={{
-        history,
         form,
-        cities,
-        setCities,
-        states,
-        setStates,
+        address,
+        setAddress,
         emails,
         phones,
         knowledges,
+        history,
         handleOnchangeInput,
         handleAddingEmails,
         handleAddingPhones,
         handleAddingKnowledges,
+        setForm,
       }}
     >
       {children}
@@ -148,8 +133,8 @@ export const FormProvider = ({ children }) => {
 export const useFormulary = () => {
   const context = useContext(FormContext);
   const {
-    history,
     form,
+    history,
     handleOnchangeInput,
     handleAddingEmails,
     handleAddingPhones,
@@ -157,10 +142,9 @@ export const useFormulary = () => {
     emails,
     phones,
     knowledges,
-    cities,
-    setCities,
-    states,
-    setStates,
+    address,
+    setAddress,
+    setForm,
   } = context;
 
   return {
@@ -173,9 +157,8 @@ export const useFormulary = () => {
     emails,
     phones,
     knowledges,
-    cities,
-    setCities,
-    states,
-    setStates,
+    address,
+    setAddress,
+    setForm,
   };
 };

@@ -32,3 +32,13 @@ export const ParagraphArea = styled.p`
     font-weight: bold;
   }
 `;
+
+export const AddressArea = styled.p`
+  padding-top: 20px;
+  font-size: 21px;
+  color: var(--black);
+
+  &.hide {
+    visibility: hidden;
+  }
+`;
