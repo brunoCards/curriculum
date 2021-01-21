@@ -17,16 +17,18 @@ import Text from '../../components/Text';
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
-import { BoxIcon } from '../../styles/Components/BoxIcon/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
+import { CodesIcon } from '../../styles/Components/Icons/styles';
+import { ListBox, ListItem } from '../../styles/Components/List/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 import {
   BackButton,
   NextButton,
   BackToButton,
   AddButton,
+  DeleteButton,
 } from '../../styles/Components/Buttons/styles';
 
 const KnowledgeInputPage = () => {
@@ -35,6 +37,7 @@ const KnowledgeInputPage = () => {
     form,
     handleOnchangeInput,
     handleAddingKnowledges,
+    handleDeleteknowledge,
     knowledges,
   } = useFormulary();
 
@@ -77,6 +80,21 @@ const KnowledgeInputPage = () => {
             ) : (
               <AddButton className="isdisabled" aria-disabled="true" />
             )}
+          </InputBox>
+          <InputBox className="knowledge">
+            <ListBox className="knowledge">
+              {knowledges.map((knowledge) => {
+                return (
+                  <ListItem className="knowledge" key={knowledge.id}>
+                    <CodesIcon />
+                    {knowledge.knowledge}
+                    <DeleteButton
+                      onClick={() => handleDeleteknowledge(knowledge.id)}
+                    />
+                  </ListItem>
+                );
+              })}
+            </ListBox>
           </InputBox>
         </Main>
         <MainFooter>

@@ -28,6 +28,7 @@ const initialState = {
   phone: '',
   resigndate: '',
   startdate: '',
+  isEdditing: false,
 };
 
 export const FormProvider = ({ children }) => {
@@ -39,27 +40,56 @@ export const FormProvider = ({ children }) => {
 
   const [form, handleOnchangeInput, setForm] = useForm(initialState);
 
-  //handlers
-  const handleAddingEmails = (input) => {
-    setEmails([...emails, input]);
-
+  //Emailhandlers
+  const handleAddingEmails = () => {
+    const newEmail = {
+      id: new Date().getTime(),
+      email: form.email,
+    };
+    setEmails([...emails].concat(newEmail));
     setForm({ ...form, email: '' });
   };
 
-  const handleAddingPhones = (input) => {
-    setPhones([...phones, input]);
+  const handleDeleteEmail = (id) => {
+    const emailFilter = [...emails].filter((email) => email.id !== id);
+    setEmails(emailFilter);
+  };
 
+  //Phonehandlers
+  const handleAddingPhones = () => {
+    const newPhone = {
+      id: new Date().getTime(),
+      phone: form.phone,
+    };
+    setPhones([...phones].concat(newPhone));
     setForm({ ...form, phone: '' });
   };
 
-  const handleAddingKnowledges = (input) => {
-    setKnowledges([...knowledges, input]);
+  const handleDeletePhone = (id) => {
+    const phoneFilter = [...phones].filter((phone) => phone.id !== id);
 
+    setPhones(phoneFilter);
+  };
+
+  //Knowledgehandlers
+
+  const handleAddingKnowledges = () => {
+    const newKnowledge = {
+      id: new Date().getTime(),
+      knowledge: form.knowledge,
+    };
+    setKnowledges([...knowledges].concat(newKnowledge));
     setForm({ ...form, knowledge: '' });
   };
 
-  //data persist
+  const handleDeleteknowledge = (id) => {
+    const knowledgeFilter = [...knowledges].filter(
+      (knowledge) => knowledge.id !== id
+    );
+    setKnowledges(knowledgeFilter);
+  };
 
+  //data persist
   //emails
   useEffect(() => {
     const persistEmails = window.localStorage.getItem('emails');
@@ -112,6 +142,7 @@ export const FormProvider = ({ children }) => {
     <FormContext.Provider
       value={{
         form,
+        setForm,
         address,
         setAddress,
         emails,
@@ -122,7 +153,10 @@ export const FormProvider = ({ children }) => {
         handleAddingEmails,
         handleAddingPhones,
         handleAddingKnowledges,
-        setForm,
+        handleDeleteEmail,
+        handleDeletePhone,
+        handleDeleteknowledge,
+        handleEditEmail,
       }}
     >
       {children}
@@ -134,31 +168,39 @@ export const useFormulary = () => {
   const context = useContext(FormContext);
   const {
     form,
+    setForm,
     history,
     handleOnchangeInput,
     handleAddingEmails,
     handleAddingPhones,
     handleAddingKnowledges,
+    handleDeleteEmail,
+    handleDeletePhone,
+    handleDeleteknowledge,
+    handleEditEmail,
     emails,
     phones,
     knowledges,
     address,
     setAddress,
-    setForm,
   } = context;
 
   return {
     history,
     form,
+    setForm,
     handleOnchangeInput,
+    handleDeleteEmail,
+    handleDeletePhone,
     handleAddingEmails,
     handleAddingPhones,
     handleAddingKnowledges,
+    handleDeleteknowledge,
+    handleEditEmail,
     emails,
     phones,
     knowledges,
     address,
     setAddress,
-    setForm,
   };
 };

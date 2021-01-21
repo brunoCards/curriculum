@@ -24,6 +24,7 @@ import {
   NextButton,
   BackToButton,
   AddButton,
+  DeleteButton,
 } from '../../styles/Components/Buttons/styles';
 
 const EmailInputPage = () => {
@@ -32,6 +33,7 @@ const EmailInputPage = () => {
     form,
     handleOnchangeInput,
     handleAddingEmails,
+    handleDeleteEmail,
     emails,
   } = useFormulary();
 
@@ -66,12 +68,13 @@ const EmailInputPage = () => {
             )}
           </InputBox>
           <InputBox className="email">
-            <ListBox>
+            <ListBox className="email">
               {emails.map((email) => {
                 return (
-                  <ListItem>
+                  <ListItem className="email" key={email.id}>
                     <EmailsIcon />
-                    {email}
+                    {email.email}
+                    <DeleteButton onClick={() => handleDeleteEmail(email.id)} />
                   </ListItem>
                 );
               })}
