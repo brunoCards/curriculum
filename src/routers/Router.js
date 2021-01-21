@@ -1,7 +1,6 @@
 //screens
 import ActivitiesInputPage from '../screens/ActivitiesInputPage';
 import AdmitDatePage from '../screens/AdmitDatePage';
-import AgeInputPage from '../screens/AgeInputPage';
 import CompanyNamePage from '../screens/CompanyNamePage';
 import CourseNamePage from '../screens/CourseNamePage';
 import DegreeLevelPage from '../screens/DegreeLevelPage';
@@ -37,9 +36,6 @@ const Router = () => {
             </Route>
             <Route exact path="/dados-pessoais/nome">
               <NameInputPage />
-            </Route>
-            <Route exact path="/dados-pessoais/idade">
-              <AgeInputPage />
             </Route>
             <Route exact path="/dados-pessoais/cep">
               <AddressSearchPage />

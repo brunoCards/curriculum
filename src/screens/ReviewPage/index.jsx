@@ -1,5 +1,16 @@
 import React from 'react';
 
+//import routers-goTo's
+import {
+  goToNamePage,
+  goToAddressPage,
+  goToPhonePage,
+  goToEmailPage,
+  goToDescriptionPage,
+  goToInstitutionPage,
+  goToCompanyNamePage,
+} from '../../routers/goToPages';
+
 //import context
 import { useFormulary } from '../../contexts/FormContext';
 
@@ -32,11 +43,6 @@ import {
 import Header from '../../components/Header';
 
 //styled-components
-import {
-  Submit,
-  ExitReviewButton,
-  HomeButton,
-} from '../../styles/Components/Buttons/styles';
 import { ListBox, ListItem } from '../../styles/Components/List/styles';
 
 const ReviewPage = () => {
@@ -46,9 +52,9 @@ const ReviewPage = () => {
     <>
       <ReviewPageLayout>
         <PersonalDataSection>
-          <FullName>{form.name}</FullName>
+          <FullName onClick={() => goToNamePage(history)}>{form.name}</FullName>
           <AddressContainer>
-            <AddressBox>
+            <AddressBox onClick={() => goToAddressPage(history)}>
               <PinIcon />
               <Address>
                 {address.localidade + ' - '}
@@ -60,9 +66,13 @@ const ReviewPage = () => {
             <ContactsBox>
               {phones.map((phone) => {
                 return (
-                  <ContactsText className="phone">
+                  <ContactsText
+                    onClick={() => goToPhonePage(history)}
+                    className="phone"
+                    key={phone.id}
+                  >
                     <PhoneIcon />
-                    {phone}
+                    {phone.phone}
                   </ContactsText>
                 );
               })}
@@ -70,15 +80,24 @@ const ReviewPage = () => {
             <ContactsBox>
               {emails.map((email) => {
                 return (
-                  <ContactsText className="email">
+                  <ContactsText
+                    onClick={() => goToEmailPage(history)}
+                    className="email"
+                    key={email.id}
+                  >
                     <EmailIcon />
-                    {email}
+                    {email.email}
                   </ContactsText>
                 );
               })}
             </ContactsBox>
             <ResumeBox>
-              <SectionsTitle className="resume">Resumo</SectionsTitle>
+              <SectionsTitle
+                onClick={() => goToDescriptionPage(history)}
+                className="resume"
+              >
+                Resumo
+              </SectionsTitle>
               <SectionsParagraph className="resume">
                 {form.description}
               </SectionsParagraph>
@@ -86,7 +105,10 @@ const ReviewPage = () => {
           </Contacts>
         </PersonalDataSection>
         <AcademicData>
-          <SectionsTitle className="academicSectionTitle">
+          <SectionsTitle
+            onClick={() => goToInstitutionPage(history)}
+            className="academicSectionTitle"
+          >
             Informações Acadêmicas
           </SectionsTitle>
           <AcademicBox>
@@ -128,7 +150,9 @@ const ReviewPage = () => {
           <SectionBox>
             <ListBox className="knowledges">
               {knowledges.map((knowledge) => {
-                return <ListItem>{knowledge}</ListItem>;
+                return (
+                  <ListItem key={knowledge.id}>{knowledge.knowledge}</ListItem>
+                );
               })}
             </ListBox>
             <ListBox className="languages">

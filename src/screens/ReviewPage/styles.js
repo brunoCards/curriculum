@@ -47,9 +47,14 @@ export const FullName = styled.h3`
   margin-top: 10px;
   border-radius: 6px;
 
+  display: flex;
+  align-items: flex-end;
+
   font-size: 43px;
   color: var(--purple);
   background-color: var(--black);
+
+  cursor: pointer;
 `;
 
 export const AddressBox = styled.div`
@@ -61,6 +66,7 @@ export const AddressBox = styled.div`
   justify-content: space-between;
 
   background-color: var(--black);
+  cursor: pointer;
 `;
 
 export const AddressContainer = styled.div`
@@ -109,13 +115,6 @@ export const PhoneIcon = withStyles({
   },
 })(PhoneIphoneOutlinedIcon);
 
-export const WhatsIcon = withStyles({
-  root: {
-    fontSize: '21px',
-    color: 'var(--blue)',
-  },
-})(WhatsAppIcon);
-
 export const EmailIcon = withStyles({
   root: {
     fontSize: '21px',
@@ -130,6 +129,7 @@ export const ContactsText = styled.p`
 
   &.phone {
     width: 50%;
+    cursor: pointer;
 
     display: flex;
     justify-content: space-between;
@@ -138,6 +138,7 @@ export const ContactsText = styled.p`
 
   &.email {
     width: 77%;
+    cursor: pointer;
 
     display: flex;
     justify-content: space-between;
@@ -163,6 +164,7 @@ export const SectionsTitle = styled.h5`
     width: 60%;
     padding: 5px;
     background-color: var(--black);
+    cursor: pointer;
   }
 
   &.academicSectionTitle {
@@ -170,6 +172,7 @@ export const SectionsTitle = styled.h5`
     height: 100%;
     padding: 0;
     margin-top: 10px;
+    cursor: pointer;
 
     display: flex;
     align-items: center;
@@ -194,6 +197,8 @@ export const SectionsTitle = styled.h5`
     height: 20%;
     padding-left: 20px;
     margin-top: 10px;
+    cursor: pointer;
+
     background-color: var(--black);
   }
 `;

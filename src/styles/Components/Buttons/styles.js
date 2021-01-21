@@ -12,6 +12,9 @@ import HistoryRoundedIcon from '@material-ui/icons/HistoryRounded';
 import UndoRoundedIcon from '@material-ui/icons/UndoRounded';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import SearchIcon from '@material-ui/icons/Search';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+
 export const StartButton = styled.button`
   width: 340px;
   height: 70px;
@@ -214,3 +217,53 @@ export const SearchButton = withStyles({
     },
   },
 })(SearchIcon);
+
+export const EditButton = withStyles({
+  root: {
+    width: 30,
+    height: 30,
+    marginBottom: 20,
+    marginRight: 10,
+    color: 'var(--blue)',
+    fontSize: 30,
+    cursor: 'pointer',
+
+    '&:hover': {
+      transition: 'ease-in-out .4s',
+      transform: 'scale(1.1)',
+    },
+
+    '&:active': {
+      transition: 'ease-in .2s',
+    },
+
+    '&.ishidden': {
+      opacity: '0.3',
+      transition: 'ease-in-out .5s',
+    },
+  },
+})(EditIcon);
+
+export const DeleteButton = withStyles({
+  root: {
+    width: 20,
+    height: 20,
+    color: 'var(--black)',
+    cursor: 'pointer',
+
+    '&:hover': {
+      transition: 'ease-in-out .4s',
+      transform: 'scale(1.1)',
+      color: 'var(--red)',
+    },
+
+    '&:active': {
+      transition: 'ease-in .2s',
+    },
+
+    '&.ishidden': {
+      opacity: '0.3',
+      transition: 'ease-in-out .5s',
+    },
+  },
+})(DeleteOutlineIcon);

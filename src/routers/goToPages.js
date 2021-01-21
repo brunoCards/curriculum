@@ -6,10 +6,6 @@ export const goToNamePage = (history) => {
   history.push('/dados-pessoais/nome');
 };
 
-export const goToAgePage = (history) => {
-  history.push('/dados-pessoais/idade');
-};
-
 export const goToAddressPage = (history) => {
   history.push('/dados-pessoais/cep');
 };
@@ -92,5 +88,4 @@ export const goToActtvitiesPage = (history) => {
 
 export const goToReviewPage = (history) => {
   history.push('/review');
-  console.log(history);
 };

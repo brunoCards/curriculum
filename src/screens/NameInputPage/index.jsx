@@ -4,7 +4,11 @@ import React from 'react';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToAgePage, goBack, goToReviewPage } from '../../routers/goToPages';
+import {
+  goToAddressPage,
+  goBack,
+  goToReviewPage,
+} from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -50,7 +54,7 @@ const NameInputPage = () => {
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
-          <NextButton onClick={() => goToAgePage(history)} />
+          <NextButton onClick={() => goToAddressPage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

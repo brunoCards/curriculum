@@ -9,9 +9,18 @@ export const ListBox = styled.ul`
 
   list-style: none;
 
+  &.knowledge {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+  }
+
   &.knowledges {
     width: 30%;
     height: 100%;
+    cursor: pointer;
+
     border: 3px solid var(--black);
     border-radius: 6px;
 
@@ -24,6 +33,8 @@ export const ListBox = styled.ul`
   &.languages {
     width: 30%;
     height: 100%;
+    cursor: pointer;
+
     border: 3px solid var(--black);
     border-radius: 6px;
 
@@ -32,11 +43,24 @@ export const ListBox = styled.ul`
     background-color: var(--black);
     color: var(--blue);
   }
+
+  &.phones {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  &.email {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+  }
 `;
 
 export const ListItem = styled.li`
   width: 100%;
-
   font-size: 16px;
   font-style: italic;
 
@@ -46,5 +70,37 @@ export const ListItem = styled.li`
 
   &.languagesLevel {
     font-size: 16px;
+  }
+
+  &.email {
+    width: 40%;
+    padding-top: 3px;
+    border: 3px solid var(--black);
+    border-radius: 6px;
+
+    gap: 7px;
+    background-color: var(--purple);
+  }
+
+  &.phone {
+    width: 30%;
+    padding-top: 3px;
+    border: 3px solid var(--black);
+    border-radius: 6px;
+
+    gap: 7px;
+    align-items: flex-start;
+    background-color: var(--purple);
+  }
+
+  &.knowledge {
+    width: 30%;
+    padding-top: 5px;
+    border: 3px solid var(--black);
+    border-radius: 6px;
+
+    gap: 7px;
+    align-items: center;
+    background-color: var(--purple);
   }
 `;

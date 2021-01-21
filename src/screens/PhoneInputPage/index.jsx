@@ -22,7 +22,6 @@ import { InputBox } from '../../styles/Components/InputBox/styles';
 import { Input } from '../../styles/Components/Input/styles';
 import { PhonesIcon } from '../../styles/Components/Icons/styles';
 import { ListBox, ListItem } from '../../styles/Components/List/styles';
-import { PhonesArea } from '../../components/Text/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 
 import {
@@ -30,6 +29,7 @@ import {
   NextButton,
   BackToButton,
   AddButton,
+  DeleteButton,
 } from '../../styles/Components/Buttons/styles';
 
 const PhoneInputPage = () => {
@@ -38,6 +38,7 @@ const PhoneInputPage = () => {
     form,
     handleOnchangeInput,
     handleAddingPhones,
+    handleDeletePhone,
     phones,
   } = useFormulary();
 
@@ -79,14 +80,13 @@ const PhoneInputPage = () => {
             )}
           </InputBox>
           <InputBox className="phone">
-            <ListBox>
+            <ListBox className="phones">
               {phones.map((phone) => {
                 return (
-                  <ListItem>
-                    <PhonesArea>
-                      <PhonesIcon />
-                      {phone}
-                    </PhonesArea>
+                  <ListItem className="phone" key={phone.id}>
+                    <PhonesIcon />
+                    {phone.phone}
+                    <DeleteButton onClick={() => handleDeletePhone(phone.id)} />
                   </ListItem>
                 );
               })}
