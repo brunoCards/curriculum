@@ -55,7 +55,9 @@ export const FormProvider = ({ children }) => {
       id: new Date().getTime(),
       text: form.email,
     };
-    if (emails.find((email) => email.text === form.email)) {
+    if (
+      emails.find((email) => email.text.toLowerCase === form.email.toLowerCase)
+    ) {
       alert('Este email já está em uso');
       return;
     }
@@ -118,7 +120,11 @@ export const FormProvider = ({ children }) => {
       id: new Date().getTime(),
       text: form.knowledge,
     };
-    if (knowledges.find((knowledge) => knowledge.text === form.knowledge)) {
+    if (
+      knowledges.find(
+        (knowledge) => knowledge.text.toLowerCase === form.knowledge.toLowerCase
+      )
+    ) {
       alert('Este conhecimento já foi adicionado');
       return;
     }
