@@ -38,6 +38,8 @@ const EmailInputPage = () => {
     emails,
   } = useFormulary();
 
+  console.log(form.email);
+
   return (
     <>
       <Header>

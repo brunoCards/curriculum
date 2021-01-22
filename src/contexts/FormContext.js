@@ -18,23 +18,15 @@ const initialState = {
   course: '',
   degree: '',
   description: '',
-  email: {
-    id: null,
-    text: '',
-  },
+  email: '',
   enddate: '',
-  knowledge: {
-    id: null,
-    text: '',
-  },
+  knowledge: '',
+  id: '',
   institution: '',
   language: '',
   level: '',
   name: '',
-  phone: {
-    id: null,
-    number: '',
-  },
+  phone: '',
   resigndate: '',
   startdate: '',
   isEdditing: false,
@@ -56,7 +48,9 @@ export const FormProvider = ({ children }) => {
       text: form.email,
     };
     if (
-      emails.find((email) => email.text.toLowerCase === form.email.toLowerCase)
+      emails.find(
+        (email) => email.text.toLowerCase() === form.email.toLowerCase()
+      )
     ) {
       alert('Este email já está em uso');
       return;
@@ -122,7 +116,8 @@ export const FormProvider = ({ children }) => {
     };
     if (
       knowledges.find(
-        (knowledge) => knowledge.text.toLowerCase === form.knowledge.toLowerCase
+        (knowledge) =>
+          knowledge.text.toLowerCase() === form.knowledge.toLowerCase()
       )
     ) {
       alert('Este conhecimento já foi adicionado');
