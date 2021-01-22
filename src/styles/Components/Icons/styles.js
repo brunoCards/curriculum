@@ -17,17 +17,24 @@ export const PhonesIcon = withStyles({
   root: {
     fontSize: '16px',
     marginTop: 3,
+    cursor: 'pointer',
   },
 })(PhoneIphoneOutlinedIcon);
 
 export const EmailsIcon = withStyles({
   root: {
     fontSize: '16px',
+    cursor: 'pointer',
+
+    '&.ishide': {
+      visibility: 'hidden',
+    },
   },
 })(MailOutlineIcon);
 
 export const CodesIcon = withStyles({
   root: {
     fontSize: '16px',
+    cursor: 'pointer',
   },
 })(CodeIcon);

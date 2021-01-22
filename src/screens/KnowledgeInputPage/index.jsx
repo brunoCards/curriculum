@@ -38,6 +38,7 @@ const KnowledgeInputPage = () => {
     handleOnchangeInput,
     handleAddingKnowledges,
     handleDeleteknowledge,
+    handleEditKnowledge,
     knowledges,
   } = useFormulary();
 
@@ -86,8 +87,10 @@ const KnowledgeInputPage = () => {
               {knowledges.map((knowledge) => {
                 return (
                   <ListItem className="knowledge" key={knowledge.id}>
-                    <CodesIcon />
-                    {knowledge.knowledge}
+                    <CodesIcon
+                      onClick={() => handleEditKnowledge(knowledge.id)}
+                    />
+                    {knowledge.text}
                     <DeleteButton
                       onClick={() => handleDeleteknowledge(knowledge.id)}
                     />

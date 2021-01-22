@@ -39,6 +39,7 @@ const PhoneInputPage = () => {
     handleOnchangeInput,
     handleAddingPhones,
     handleDeletePhone,
+    handleEditphone,
     phones,
   } = useFormulary();
 
@@ -82,12 +83,14 @@ const PhoneInputPage = () => {
           <InputBox className="phone">
             <ListBox className="phones">
               {phones.map((phone) => {
-                return (
+                return phone.id !== undefined ? (
                   <ListItem className="phone" key={phone.id}>
-                    <PhonesIcon />
-                    {phone.phone}
+                    <PhonesIcon onClick={() => handleEditphone(phone.id)} />
+                    {phone.number}
                     <DeleteButton onClick={() => handleDeletePhone(phone.id)} />
                   </ListItem>
+                ) : (
+                  ''
                 );
               })}
             </ListBox>
