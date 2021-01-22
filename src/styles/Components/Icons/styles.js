@@ -23,6 +23,10 @@ export const PhonesIcon = withStyles({
 export const EmailsIcon = withStyles({
   root: {
     fontSize: '16px',
+
+    '&.ishide': {
+      visibility: 'hidden',
+    },
   },
 })(MailOutlineIcon);
 

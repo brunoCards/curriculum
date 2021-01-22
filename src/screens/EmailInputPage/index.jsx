@@ -34,6 +34,7 @@ const EmailInputPage = () => {
     handleOnchangeInput,
     handleAddingEmails,
     handleDeleteEmail,
+    handleEditEmail,
     emails,
   } = useFormulary();
 
@@ -70,12 +71,14 @@ const EmailInputPage = () => {
           <InputBox className="email">
             <ListBox className="email">
               {emails.map((email) => {
-                return (
+                return email.id !== undefined ? (
                   <ListItem className="email" key={email.id}>
-                    <EmailsIcon />
-                    {email.email}
+                    <EmailsIcon onClick={() => handleEditEmail(email.id)} />
+                    {email.text}
                     <DeleteButton onClick={() => handleDeleteEmail(email.id)} />
                   </ListItem>
+                ) : (
+                  ''
                 );
               })}
             </ListBox>

@@ -18,14 +18,23 @@ const initialState = {
   course: '',
   degree: '',
   description: '',
-  email: '',
+  email: {
+    id: null,
+    text: '',
+  },
   enddate: '',
-  knowledge: '',
+  knowledge: {
+    id: null,
+    text: '',
+  },
   institution: '',
   language: '',
   level: '',
   name: '',
-  phone: '',
+  phone: {
+    id: null,
+    number: '',
+  },
   resigndate: '',
   startdate: '',
   isEdditing: false,
@@ -44,23 +53,42 @@ export const FormProvider = ({ children }) => {
   const handleAddingEmails = () => {
     const newEmail = {
       id: new Date().getTime(),
-      email: form.email,
+      text: form.email,
     };
+    if (emails.find((email) => email.text === form.email)) {
+      alert('Este email já está em uso');
+      return;
+    }
     setEmails([...emails].concat(newEmail));
     setForm({ ...form, email: '' });
   };
 
   const handleDeleteEmail = (id) => {
-    const emailFilter = [...emails].filter((email) => email.id !== id);
-    setEmails(emailFilter);
+    setEmails(emails.filter((email) => email.id !== id));
+  };
+
+  const handleEditEmail = (id) => {
+    if (form.email !== '') {
+      alert('Você já está editando um email');
+      return;
+    }
+    const findEmail = emails.find((email) => email.id === id);
+    if (findEmail !== -1) {
+      emails.pop(findEmail, 1);
+      setForm({ ...form, email: findEmail.text });
+    }
   };
 
   //Phonehandlers
   const handleAddingPhones = () => {
     const newPhone = {
       id: new Date().getTime(),
-      phone: form.phone,
+      number: form.phone,
     };
+    if (phones.find((phone) => phone.number === form.phone)) {
+      alert('Este telefone já está em uso');
+      return;
+    }
     setPhones([...phones].concat(newPhone));
     setForm({ ...form, phone: '' });
   };
@@ -71,13 +99,29 @@ export const FormProvider = ({ children }) => {
     setPhones(phoneFilter);
   };
 
+  const handleEditphone = (id) => {
+    if (form.phone !== '') {
+      alert('Você já está editando um telefone');
+      return;
+    }
+    const findPhone = phones.find((phone) => phone.id === id);
+    if (findPhone !== -1) {
+      phones.pop(findPhone, 1);
+      setForm({ ...form, phone: findPhone.number });
+    }
+  };
+
   //Knowledgehandlers
 
   const handleAddingKnowledges = () => {
     const newKnowledge = {
       id: new Date().getTime(),
-      knowledge: form.knowledge,
+      text: form.knowledge,
     };
+    if (knowledges.find((knowledge) => knowledge.text === form.knowledge)) {
+      alert('Este conhecimento já foi adicionado');
+      return;
+    }
     setKnowledges([...knowledges].concat(newKnowledge));
     setForm({ ...form, knowledge: '' });
   };
@@ -87,6 +131,18 @@ export const FormProvider = ({ children }) => {
       (knowledge) => knowledge.id !== id
     );
     setKnowledges(knowledgeFilter);
+  };
+
+  const handleEditKnowledge = (id) => {
+    if (form.knowledge !== '') {
+      alert('Você já está editando este conhecimento');
+      return;
+    }
+    const findKnowledge = knowledges.find((knowledge) => knowledge.id === id);
+    if (findKnowledge !== -1) {
+      phones.pop(findKnowledge, 1);
+      setForm({ ...form, knowledge: findKnowledge.text });
+    }
   };
 
   //data persist
@@ -157,6 +213,8 @@ export const FormProvider = ({ children }) => {
         handleDeletePhone,
         handleDeleteknowledge,
         handleEditEmail,
+        handleEditphone,
+        handleEditKnowledge,
       }}
     >
       {children}
@@ -178,6 +236,8 @@ export const useFormulary = () => {
     handleDeletePhone,
     handleDeleteknowledge,
     handleEditEmail,
+    handleEditphone,
+    handleEditKnowledge,
     emails,
     phones,
     knowledges,
@@ -197,6 +257,8 @@ export const useFormulary = () => {
     handleAddingKnowledges,
     handleDeleteknowledge,
     handleEditEmail,
+    handleEditphone,
+    handleEditKnowledge,
     emails,
     phones,
     knowledges,
