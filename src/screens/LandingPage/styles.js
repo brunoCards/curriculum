@@ -19,7 +19,7 @@ export const CartoonMan = styled.img`
 export const MainParagraph = styled.p`
   width: 340px;
 
-  font-size: 25px;
+  font-size: 26px;
   text-align: justify;
 
   .green {

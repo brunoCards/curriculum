@@ -49,6 +49,7 @@ const LanguageLevelPage = () => {
               name="level"
               value={form.level}
               onChange={handleOnchangeInput}
+              placeholder="Ex: Fluente(quando estou de capa)"
             />
           </InputBox>
         </Main>

@@ -16,7 +16,7 @@ import NameInputPage from '../screens/NameInputPage';
 import PhoneInputPage from '../screens/PhoneInputPage';
 import ResignDatePage from '../screens/ResignDatePage';
 import ReviewPage from '../screens/ReviewPage';
-import AddressSearchPage from '../screens/AddressSearchPage';
+import StateInputPage from '../screens/StateInputPage';
 import StartDatePage from '../screens/StartDatePage';
 
 //import Context
@@ -37,8 +37,8 @@ const Router = () => {
             <Route exact path="/dados-pessoais/nome">
               <NameInputPage />
             </Route>
-            <Route exact path="/dados-pessoais/cep">
-              <AddressSearchPage />
+            <Route exact path="/dados-pessoais/estado">
+              <StateInputPage />
             </Route>
             <Route exact path="/dados-pessoais/emails">
               <EmailInputPage />

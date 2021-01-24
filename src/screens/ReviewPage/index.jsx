@@ -3,7 +3,7 @@ import React from 'react';
 //import routers-goTo's
 import {
   goToNamePage,
-  goToAddressPage,
+  goToStateInputPage,
   goToPhonePage,
   goToEmailPage,
   goToDescriptionPage,
@@ -54,7 +54,7 @@ const ReviewPage = () => {
         <PersonalDataSection>
           <FullName onClick={() => goToNamePage(history)}>{form.name}</FullName>
           <AddressContainer>
-            <AddressBox onClick={() => goToAddressPage(history)}>
+            <AddressBox onClick={() => goToStateInputPage(history)}>
               <PinIcon />
               <Address>
                 {address.localidade + ' - '}
@@ -72,7 +72,7 @@ const ReviewPage = () => {
                     key={phone.id}
                   >
                     <PhoneIcon />
-                    {phone.phone}
+                    {phone.number}
                   </ContactsText>
                 );
               })}
@@ -86,7 +86,7 @@ const ReviewPage = () => {
                     key={email.id}
                   >
                     <EmailIcon />
-                    {email.email}
+                    {email.text}
                   </ContactsText>
                 );
               })}
@@ -150,9 +150,7 @@ const ReviewPage = () => {
           <SectionBox>
             <ListBox className="knowledges">
               {knowledges.map((knowledge) => {
-                return (
-                  <ListItem key={knowledge.id}>{knowledge.knowledge}</ListItem>
-                );
+                return <ListItem key={knowledge.id}>{knowledge.text}</ListItem>;
               })}
             </ListBox>
             <ListBox className="languages">

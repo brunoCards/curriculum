@@ -53,6 +53,7 @@ const EducationalInstitutionPage = () => {
               name="institution"
               value={form.institution}
               onChange={handleOnchangeInput}
+              placeholder="Ex: Nome da minha faculdade"
             />
           </InputBox>
         </Main>

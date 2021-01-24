@@ -5,7 +5,7 @@ import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
 import {
-  goToAddressPage,
+  goToStateInputPage,
   goBack,
   goToReviewPage,
 } from '../../routers/goToPages';
@@ -44,17 +44,21 @@ const NameInputPage = () => {
               name="name"
               value={form.name}
               onChange={handleOnchangeInput}
+              placeholder="Ex: Bruce Wayne"
             />
             {form.name !== '' ? (
-              <BackToButton onClick={() => goToReviewPage(history)} />
+              <BackToButton
+                className="rightradius"
+                onClick={() => goToReviewPage(history)}
+              />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton id="rightradius" className="ishidden" />
             )}
           </InputBox>
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
-          <NextButton onClick={() => goToAddressPage(history)} />
+          <NextButton onClick={() => goToStateInputPage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

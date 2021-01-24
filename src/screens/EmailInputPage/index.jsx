@@ -3,6 +3,9 @@ import React from 'react';
 //import context
 import { useFormulary } from '../../contexts/FormContext';
 
+//import react-hook
+import useEmailHandler from '../../hooks/useEmailHandler';
+
 //import routers-goTo's
 import { goToPhonePage, goBack, goToReviewPage } from '../../routers/goToPages';
 
@@ -28,15 +31,13 @@ import {
 } from '../../styles/Components/Buttons/styles';
 
 const EmailInputPage = () => {
-  const {
-    history,
-    form,
-    handleOnchangeInput,
+  const { history, form, handleOnchangeInput, emails } = useFormulary();
+
+  const [
     handleAddingEmails,
-    handleDeleteEmail,
     handleEditEmail,
-    emails,
-  } = useFormulary();
+    handleDeleteEmail,
+  ] = useEmailHandler();
 
   return (
     <>
@@ -61,6 +62,7 @@ const EmailInputPage = () => {
               name="email"
               value={form.email}
               onChange={handleOnchangeInput}
+              placeholder="Ex: emaildobatman@gothan.com"
             />
             {form.email !== '' ? (
               <AddButton onClick={() => handleAddingEmails(form.email)} />
