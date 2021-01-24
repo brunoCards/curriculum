@@ -5,11 +5,17 @@ export const Main = styled.main`
   height: 65vh;
 
   display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   text-align: center;
+
+  &.state {
+    gap: 10px;
+    padding-top: 22vh;
+  }
 `;
 
 export const LargeMain = styled.main`

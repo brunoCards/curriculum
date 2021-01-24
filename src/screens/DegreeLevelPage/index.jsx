@@ -54,6 +54,7 @@ const DegreeLevelPage = () => {
               name="degree"
               value={form.degree}
               onChange={handleOnchangeInput}
+              placeholder="Ex: Especialização, Graduação, MBA"
             />
           </InputBox>
         </Main>

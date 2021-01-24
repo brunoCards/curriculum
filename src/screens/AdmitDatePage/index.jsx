@@ -51,6 +51,7 @@ const AdmitDatePage = () => {
               name="admitdate"
               value={form.admitdate}
               onChange={handleOnchangeInput}
+              placeholder="Ex: jul/2020"
             />
           </InputBox>
         </Main>

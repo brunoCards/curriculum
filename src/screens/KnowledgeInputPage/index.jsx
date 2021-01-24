@@ -3,6 +3,9 @@ import React from 'react';
 //import context
 import { useFormulary } from '../../contexts/FormContext';
 
+//import react-hook
+import useKnowledgeHandler from '../../hooks/useKnowledgeHandler';
+
 //import routers-goTo's
 import {
   goToInstitutionPage,
@@ -32,15 +35,12 @@ import {
 } from '../../styles/Components/Buttons/styles';
 
 const KnowledgeInputPage = () => {
-  const {
-    history,
-    form,
-    handleOnchangeInput,
+  const { history, form, handleOnchangeInput, knowledges } = useFormulary();
+  const [
     handleAddingKnowledges,
-    handleDeleteknowledge,
     handleEditKnowledge,
-    knowledges,
-  } = useFormulary();
+    handleDeleteKnowledge,
+  ] = useKnowledgeHandler();
 
   return (
     <>
@@ -73,6 +73,7 @@ const KnowledgeInputPage = () => {
               name="knowledge"
               value={form.knowledge}
               onChange={handleOnchangeInput}
+              placeholder="Ex: HTML"
             />
             {form.knowledge !== '' ? (
               <AddButton
@@ -92,7 +93,7 @@ const KnowledgeInputPage = () => {
                     />
                     {knowledge.text}
                     <DeleteButton
-                      onClick={() => handleDeleteknowledge(knowledge.id)}
+                      onClick={() => handleDeleteKnowledge(knowledge.id)}
                     />
                   </ListItem>
                 );

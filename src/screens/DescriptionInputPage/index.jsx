@@ -57,6 +57,7 @@ const DescriptionInputPage = () => {
               name="description"
               value={form.description}
               onChange={handleOnchangeInput}
+              placeholder="Sou uma pessoa legal, já fui Super-Heroi, mas hoje busco um emprego, pois fui demitido da Liga da Justiça."
             />
           </LargeInputBox>
         </LargeMain>

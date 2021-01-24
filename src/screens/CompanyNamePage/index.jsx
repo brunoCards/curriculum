@@ -51,6 +51,7 @@ const CompanyNamePage = () => {
               name="company"
               value={form.company}
               onChange={handleOnchangeInput}
+              placeholder="Ex: Liga da Justiça S/A"
             />
           </InputBox>
         </Main>

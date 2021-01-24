@@ -6,8 +6,8 @@ export const goToNamePage = (history) => {
   history.push('/dados-pessoais/nome');
 };
 
-export const goToAddressPage = (history) => {
-  history.push('/dados-pessoais/cep');
+export const goToStateInputPage = (history) => {
+  history.push('/dados-pessoais/estado');
 };
 
 export const goToPhonePage = (history) => {

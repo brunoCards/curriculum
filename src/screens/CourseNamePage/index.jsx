@@ -49,6 +49,7 @@ const CourseNamePage = () => {
               name="course"
               value={form.course}
               onChange={handleOnchangeInput}
+              placeholder="Ex: Curso de Super-Heroi"
             />
           </InputBox>
         </Main>

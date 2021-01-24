@@ -51,6 +51,7 @@ const ResignDatePage = () => {
               name="resigndate"
               value={form.resigndate}
               onChange={handleOnchangeInput}
+              placeholder="Ex: jul/2020"
             />
           </InputBox>
         </Main>

@@ -53,6 +53,7 @@ const LanguageInputPage = () => {
               name="language"
               value={form.language}
               onChange={handleOnchangeInput}
+              placeholder="Ex: Ingês"
             />
           </InputBox>
         </Main>

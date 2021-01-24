@@ -52,6 +52,7 @@ const StartDatePage = () => {
               name="startdate"
               value={form.startdate}
               onChange={handleOnchangeInput}
+              placeholder="Ex: jul/2020"
             />
           </InputBox>
         </Main>

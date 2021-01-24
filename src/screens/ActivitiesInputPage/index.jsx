@@ -47,6 +47,7 @@ const ActivitiesInputPage = () => {
               name="activities"
               value={form.activities}
               onChange={handleOnchangeInput}
+              placeholder="Ex: Eram muitos afazeres, mas já salvei o mundo algumas vezes, derrotei o coringa, prendi muita gente no Asilo Arkhan"
             />
           </LargeInputBox>
         </LargeMain>

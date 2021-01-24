@@ -10,10 +10,6 @@ export const InputBox = styled(Box)`
   align-items: center;
   justify-content: center;
 
-  &.address {
-    margin-top: 15px;
-  }
-
   &.email {
     flex-direction: column;
   }

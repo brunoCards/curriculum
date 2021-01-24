@@ -3,6 +3,9 @@ import React from 'react';
 //import context
 import { useFormulary } from '../../contexts/FormContext';
 
+//import react-hook
+import usePhoneHandler from '../../hooks/usePhoneHandler';
+
 //import routers-goTo's
 import {
   goToDescriptionPage,
@@ -33,15 +36,12 @@ import {
 } from '../../styles/Components/Buttons/styles';
 
 const PhoneInputPage = () => {
-  const {
-    history,
-    form,
-    handleOnchangeInput,
+  const { history, form, handleOnchangeInput, phones } = useFormulary();
+  const [
     handleAddingPhones,
-    handleDeletePhone,
     handleEditphone,
-    phones,
-  } = useFormulary();
+    handleDeletePhone,
+  ] = usePhoneHandler();
 
   return (
     <>
@@ -73,6 +73,7 @@ const PhoneInputPage = () => {
               name="phone"
               value={form.phone}
               onChange={handleOnchangeInput}
+              placeholder="Ex: (xx) 99999-9999"
             />
             {form.phone !== '' ? (
               <AddButton onClick={() => handleAddingPhones(form.phone)} />
