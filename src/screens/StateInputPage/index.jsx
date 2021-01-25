@@ -85,10 +85,11 @@ const StateInputPage = () => {
               onClick={() => goToReviewPage(history)}
               className="state"
             />
-            <Select>
+            <Select isState>
               {states.map((state) => {
                 return (
                   <SelectOption
+                    aria-required="true"
                     style={{
                       backgroundColor:
                         selectedOption === state ? 'var(--purple)' : '',
@@ -106,7 +107,11 @@ const StateInputPage = () => {
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
-          <NextButton onClick={() => goToCityInputPage(history)} />
+          {selectedOption !== null ? (
+            <NextButton onClick={() => goToCityInputPage(history)} />
+          ) : (
+            <NextButton onClick={() => alert('Selecione um estado')} />
+          )}
         </MainFooter>
       </PagesContainer>
     </>
