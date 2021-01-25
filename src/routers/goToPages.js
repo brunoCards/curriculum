@@ -10,6 +10,10 @@ export const goToStateInputPage = (history) => {
   history.push('/dados-pessoais/estado');
 };
 
+export const goToCityInputPage = (history) => {
+  history.push('/dados-pessoais/cidade');
+};
+
 export const goToPhonePage = (history) => {
   history.push('/dados-pessoais/telefones');
 };
