@@ -2,6 +2,7 @@
 import ActivitiesInputPage from '../screens/ActivitiesInputPage';
 import AdmitDatePage from '../screens/AdmitDatePage';
 import CompanyNamePage from '../screens/CompanyNamePage';
+import CityInputPage from '../screens/CityInputPage';
 import CourseNamePage from '../screens/CourseNamePage';
 import DegreeLevelPage from '../screens/DegreeLevelPage';
 import DescriptionInputPage from '../screens/DescriptionInputPage';
@@ -39,6 +40,9 @@ const Router = () => {
             </Route>
             <Route exact path="/dados-pessoais/estado">
               <StateInputPage />
+            </Route>
+            <Route exact path="/dados-pessoais/cidade">
+              <CityInputPage />
             </Route>
             <Route exact path="/dados-pessoais/emails">
               <EmailInputPage />
