@@ -11,30 +11,50 @@ import {
 //import context
 import { useFormulary } from '../../contexts/FormContext';
 
-const Select = ({ children }) => {
+const Select = ({ children, isState }) => {
   const { isOpen, setIsOpen } = useFormulary();
 
   const handleToggle = () => setIsOpen(!isOpen);
 
   return (
     <>
-      <SelectContainer>
-        {isOpen === true ? (
-          <SelectInputHeader className="textOpacity" onClick={handleToggle}>
-            Selecione um estado
-          </SelectInputHeader>
-        ) : (
-          <SelectInputHeader onClick={handleToggle}>
-            Selecione um estado
-          </SelectInputHeader>
-        )}
+      {isState ? (
+        <SelectContainer>
+          {isOpen === true ? (
+            <SelectInputHeader className="textOpacity" onClick={handleToggle}>
+              Selecione um estado
+            </SelectInputHeader>
+          ) : (
+            <SelectInputHeader onClick={handleToggle}>
+              Selecione um estado
+            </SelectInputHeader>
+          )}
 
-        {isOpen && (
-          <SelectListContainer>
-            <SelectInput>{children}</SelectInput>
-          </SelectListContainer>
-        )}
-      </SelectContainer>
+          {isOpen && (
+            <SelectListContainer>
+              <SelectInput>{children}</SelectInput>
+            </SelectListContainer>
+          )}
+        </SelectContainer>
+      ) : (
+        <SelectContainer>
+          {isOpen === true ? (
+            <SelectInputHeader className="textOpacity" onClick={handleToggle}>
+              Selecione uma cidade
+            </SelectInputHeader>
+          ) : (
+            <SelectInputHeader onClick={handleToggle}>
+              Selecione uma cidade
+            </SelectInputHeader>
+          )}
+
+          {isOpen && (
+            <SelectListContainer>
+              <SelectInput>{children}</SelectInput>
+            </SelectListContainer>
+          )}
+        </SelectContainer>
+      )}
     </>
   );
 };

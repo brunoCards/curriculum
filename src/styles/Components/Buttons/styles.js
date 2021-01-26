@@ -134,7 +134,7 @@ export const BackToButton = withStyles({
       transition: 'ease-in .2s',
     },
 
-    '&.ishidden': {
+    '&.isHidden': {
       opacity: '0.3',
       transition: 'ease-in-out .5s',
     },

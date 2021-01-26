@@ -61,12 +61,35 @@ const StateInputPage = () => {
 
   const handleOnOptionClicked = (id) => () => {
     setSelectedOption(id);
-    if (selectedOption) {
-      setSelectedOption();
-    }
   };
 
   const handleToggle = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    const persistSelectedOption = window.localStorage.getItem('selectedOption');
+    if (persistSelectedOption) {
+      setSelectedOption(JSON.parse(persistSelectedOption));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      'selectedOption',
+      JSON.stringify(selectedOption)
+    );
+  });
+
+  useEffect(() => {
+    const persistStates = window.localStorage.getItem('states');
+    if (persistStates) {
+      setStates(JSON.parse(persistStates));
+      setIsOpen(!isOpen);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('states', JSON.stringify(states));
+  });
 
   return (
     <>
@@ -81,14 +104,20 @@ const StateInputPage = () => {
             continueContent="mora"
           />
           <InputBox>
-            <BackToButton
-              onClick={() => goToReviewPage(history)}
-              className="state"
-            />
-            <Select>
+            {selectedOption === null ? (
+              <BackToButton
+                onClick={() => goToReviewPage(history)}
+                className="isHidden"
+              />
+            ) : (
+              <BackToButton onClick={() => goToReviewPage(history)} />
+            )}
+
+            <Select isState>
               {states.map((state) => {
                 return (
                   <SelectOption
+                    aria-required="true"
                     style={{
                       backgroundColor:
                         selectedOption === state ? 'var(--purple)' : '',
@@ -106,7 +135,11 @@ const StateInputPage = () => {
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
-          <NextButton onClick={() => goToCityInputPage(history)} />
+          {selectedOption !== null ? (
+            <NextButton onClick={() => goToCityInputPage(history)} />
+          ) : (
+            <NextButton onClick={() => alert('Selecione um estado')} />
+          )}
         </MainFooter>
       </PagesContainer>
     </>

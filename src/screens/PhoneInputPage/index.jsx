@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 //import context
 import { useFormulary } from '../../contexts/FormContext';
@@ -36,12 +36,29 @@ import {
 } from '../../styles/Components/Buttons/styles';
 
 const PhoneInputPage = () => {
-  const { history, form, handleOnchangeInput, phones } = useFormulary();
+  const {
+    history,
+    form,
+    handleOnchangeInput,
+    phones,
+    setPhones,
+  } = useFormulary();
   const [
     handleAddingPhones,
     handleEditphone,
     handleDeletePhone,
   ] = usePhoneHandler();
+
+  useEffect(() => {
+    const persistPhones = window.localStorage.getItem('phones');
+    if (persistPhones) {
+      setPhones(JSON.parse(persistPhones));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('phones', JSON.stringify(phones));
+  });
 
   return (
     <>
@@ -66,7 +83,7 @@ const PhoneInputPage = () => {
             {phones.length > 0 ? (
               <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton className="isHidden" />
             )}
             <Input
               className="withAdd"

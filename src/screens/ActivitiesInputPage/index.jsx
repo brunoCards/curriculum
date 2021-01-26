@@ -40,7 +40,7 @@ const ActivitiesInputPage = () => {
             {form.activities !== '' ? (
               <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton className="isHidden" />
             )}
             <LargeInput
               className="withoutAdd"

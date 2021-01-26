@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 //import context
 import { useFormulary } from '../../contexts/FormContext';
@@ -35,12 +35,29 @@ import {
 } from '../../styles/Components/Buttons/styles';
 
 const KnowledgeInputPage = () => {
-  const { history, form, handleOnchangeInput, knowledges } = useFormulary();
+  const {
+    history,
+    form,
+    handleOnchangeInput,
+    knowledges,
+    setKnowledges,
+  } = useFormulary();
   const [
     handleAddingKnowledges,
     handleEditKnowledge,
     handleDeleteKnowledge,
   ] = useKnowledgeHandler();
+
+  useEffect(() => {
+    const persistKnowledges = window.localStorage.getItem('knowledges');
+    if (persistKnowledges) {
+      setKnowledges(JSON.parse(persistKnowledges));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('knowledges', JSON.stringify(knowledges));
+  });
 
   return (
     <>
@@ -66,7 +83,7 @@ const KnowledgeInputPage = () => {
             {knowledges.length > 0 ? (
               <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton className="isHidden" />
             )}
             <Input
               className="withAdd"

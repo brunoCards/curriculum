@@ -46,7 +46,7 @@ const EndDatePage = () => {
             {form.enddate !== '' ? (
               <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton className="isHidden" />
             )}
             <Input
               className="withoutAdd"

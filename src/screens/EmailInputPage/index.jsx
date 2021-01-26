@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 //import context
 import { useFormulary } from '../../contexts/FormContext';
@@ -31,13 +31,29 @@ import {
 } from '../../styles/Components/Buttons/styles';
 
 const EmailInputPage = () => {
-  const { history, form, handleOnchangeInput, emails } = useFormulary();
+  const {
+    history,
+    form,
+    handleOnchangeInput,
+    emails,
+    setEmails,
+  } = useFormulary();
 
   const [
     handleAddingEmails,
     handleEditEmail,
     handleDeleteEmail,
   ] = useEmailHandler();
+
+  useEffect(() => {
+    const persistEmails = window.localStorage.getItem('emails');
+    if (persistEmails) {
+      setEmails(JSON.parse(persistEmails));
+    }
+  }, []);
+  useEffect(() => {
+    window.localStorage.setItem('emails', JSON.stringify(emails));
+  });
 
   return (
     <>
@@ -55,7 +71,7 @@ const EmailInputPage = () => {
             {emails.length > 0 ? (
               <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton className="isHidden" />
             )}
             <Input
               className="withAdd"

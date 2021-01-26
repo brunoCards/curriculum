@@ -44,7 +44,7 @@ const CompanyNamePage = () => {
             {form.company !== '' ? (
               <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton className="isHidden" />
             )}
             <Input
               className="withoutAdd"
