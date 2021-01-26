@@ -44,7 +44,7 @@ const AdmitDatePage = () => {
             {form.admitdate !== '' ? (
               <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton className="isHidden" />
             )}
             <Input
               className="withoutAdd"

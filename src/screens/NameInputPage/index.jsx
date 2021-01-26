@@ -52,7 +52,7 @@ const NameInputPage = () => {
                 onClick={() => goToReviewPage(history)}
               />
             ) : (
-              <BackToButton id="rightradius" className="ishidden" />
+              <BackToButton id="rightradius" className="isHidden" />
             )}
           </InputBox>
         </Main>

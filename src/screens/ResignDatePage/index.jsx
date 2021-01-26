@@ -44,7 +44,7 @@ const ResignDatePage = () => {
             {form.resigndate !== '' ? (
               <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton className="isHidden" />
             )}
             <Input
               className="withoutAdd"

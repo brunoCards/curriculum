@@ -46,7 +46,7 @@ const LanguageInputPage = () => {
             {form.language !== '' ? (
               <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton className="isHidden" />
             )}
             <Input
               className="withoutAdd"

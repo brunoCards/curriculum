@@ -50,7 +50,7 @@ const DescriptionInputPage = () => {
             {form.description !== '' ? (
               <BackToButton onClick={() => goToReviewPage(history)} />
             ) : (
-              <BackToButton className="ishidden" />
+              <BackToButton className="isHidden" />
             )}
             <LargeInput
               className="withoutAdd"

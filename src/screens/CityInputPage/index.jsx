@@ -7,7 +7,7 @@ import api from '../../services/api';
 import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
-import { goToPhonePage, goBack, goToReviewPage } from '../../routers/goToPages';
+import { goToEmailPage, goBack, goToReviewPage } from '../../routers/goToPages';
 
 //components
 import Header from '../../components/Header';
@@ -29,13 +29,13 @@ import {
 } from '../../styles/Components/Buttons/styles';
 
 const CityInputPage = () => {
-  const [selectedCity, setSelectedCity] = useState(null);
   const {
     history,
     cities,
     setCities,
     selectedOption,
-    setSelectedOption,
+    selectedCity,
+    setSelectedCity,
     isOpen,
     setIsOpen,
   } = useFormulary();
@@ -62,13 +62,20 @@ const CityInputPage = () => {
   const handleOnOptionClicked = (id) => () => {
     setSelectedCity(id);
     console.log(id);
-    console.log(selectedCity);
-    if (selectedCity) {
-      setSelectedCity();
-    }
   };
 
   const handleToggle = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    const persistSelectedCity = window.localStorage.getItem('selectedCity');
+    if (persistSelectedCity) {
+      setSelectedCity(JSON.parse(persistSelectedCity));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('selectedCity', JSON.stringify(selectedCity));
+  });
 
   return (
     <>
@@ -104,7 +111,7 @@ const CityInputPage = () => {
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
-          <NextButton onClick={() => goToPhonePage(history)} />
+          <NextButton onClick={() => goToEmailPage(history)} />
         </MainFooter>
       </PagesContainer>
     </>

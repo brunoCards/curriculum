@@ -40,6 +40,7 @@ export const FormProvider = ({ children }) => {
   const [cities, setCities] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedCity, setSelectedCity] = useState(null);
 
   // hooks
   const [form, handleOnchangeInput, setForm] = useForm(initialState);
@@ -64,6 +65,8 @@ export const FormProvider = ({ children }) => {
         setIsOpen,
         selectedOption,
         setSelectedOption,
+        selectedCity,
+        setSelectedCity,
         history,
       }}
     >
@@ -92,6 +95,8 @@ export const useFormulary = () => {
     setIsOpen,
     selectedOption,
     setSelectedOption,
+    selectedCity,
+    setSelectedCity,
     history,
   } = context;
 
@@ -113,6 +118,8 @@ export const useFormulary = () => {
     setIsOpen,
     selectedOption,
     setSelectedOption,
+    selectedCity,
+    setSelectedCity,
     history,
   };
 };
