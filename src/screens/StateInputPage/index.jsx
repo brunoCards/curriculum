@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 //import api-instance
 import api from '../../services/api';
@@ -35,6 +35,8 @@ import {
 const StateInputPage = () => {
   const {
     history,
+    form,
+    setForm,
     states,
     setStates,
     selectedOption,
@@ -59,8 +61,9 @@ const StateInputPage = () => {
     getState();
   }, []);
 
-  const handleOnOptionClicked = (id) => () => {
+  const handleOnOptionClicked = (id) => {
     setSelectedOption(id);
+    setForm({ ...form, state: selectedOption });
   };
 
   const handleToggle = () => setIsOpen(!isOpen);
@@ -83,7 +86,6 @@ const StateInputPage = () => {
     const persistStates = window.localStorage.getItem('states');
     if (persistStates) {
       setStates(JSON.parse(persistStates));
-      setIsOpen(!isOpen);
     }
   }, []);
 
@@ -115,15 +117,21 @@ const StateInputPage = () => {
 
             <Select isState>
               {states.map((state) => {
-                return (
+                return selectedOption === null ? (
                   <SelectOption
-                    aria-required="true"
+                    key={state.id}
+                    onClick={() => handleOnOptionClicked(state)}
+                  >
+                    {state.nome}
+                  </SelectOption>
+                ) : (
+                  <SelectOption
                     style={{
                       backgroundColor:
-                        selectedOption === state ? 'var(--purple)' : '',
+                        selectedOption.id === state.id ? 'var(--purple)' : '',
                     }}
                     key={state.id}
-                    onClick={handleOnOptionClicked(state)}
+                    onClick={() => handleOnOptionClicked(state)}
                   >
                     {state.nome}
                   </SelectOption>
@@ -136,7 +144,9 @@ const StateInputPage = () => {
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
           {selectedOption !== null ? (
-            <NextButton onClick={() => goToCityInputPage(history)} />
+            <NextButton
+              onClick={() => goToCityInputPage(history, selectedOption.id)}
+            />
           ) : (
             <NextButton onClick={() => alert('Selecione um estado')} />
           )}
