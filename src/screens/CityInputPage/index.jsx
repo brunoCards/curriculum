@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 //import api-instance
 import api from '../../services/api';
@@ -8,8 +8,10 @@ import { useFormulary } from '../../contexts/FormContext';
 
 //import routers-goTo's
 import { goToEmailPage, goBack, goToReviewPage } from '../../routers/goToPages';
+import { useParams } from 'react-router-dom';
 
 //components
+import StateInputPage from '../StateInputPage';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 import Select from '../../components/Select';
@@ -43,7 +45,7 @@ const CityInputPage = () => {
   const getCities = async (id) => {
     try {
       const response = await api.get(
-        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedOption.id}/municipios`
+        `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${option.id}/municipios`
       );
       response.data.sort((a, b) => a.nome.localeCompare(b.nome));
       setCities(response.data);
@@ -52,12 +54,11 @@ const CityInputPage = () => {
     }
   };
 
-  useEffect(
-    (id) => {
-      getCities();
-    },
-    [selectedOption.id]
-  );
+  useEffect(() => {
+    getCities();
+  }, []);
+
+  const option = useParams();
 
   const handleOnOptionClicked = (id) => () => {
     setSelectedCity(id);
@@ -92,11 +93,18 @@ const CityInputPage = () => {
             />
             <Select>
               {cities.map((city) => {
-                return (
+                return selectedCity === null ? (
+                  <SelectOption
+                    key={city.id}
+                    onClick={handleOnOptionClicked(city)}
+                  >
+                    {city.nome}
+                  </SelectOption>
+                ) : (
                   <SelectOption
                     style={{
                       backgroundColor:
-                        selectedCity === city ? 'var(--purple)' : '',
+                        selectedCity.id === city.id ? 'var(--purple)' : '',
                     }}
                     key={city.id}
                     onClick={handleOnOptionClicked(city)}

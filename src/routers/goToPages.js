@@ -10,8 +10,8 @@ export const goToStateInputPage = (history) => {
   history.push('/dados-pessoais/estado');
 };
 
-export const goToCityInputPage = (history) => {
-  history.push('/dados-pessoais/cidade');
+export const goToCityInputPage = (history, selectedOption) => {
+  history.push(`/dados-pessoais/cidade/${selectedOption}`);
 };
 
 export const goToPhonePage = (history) => {
