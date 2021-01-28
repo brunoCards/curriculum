@@ -22,7 +22,7 @@ import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
-import { Input } from '../../styles/Components/Input/styles';
+import { Input } from '../../components/Input/styles';
 import { CodesIcon } from '../../styles/Components/Icons/styles';
 import { ListBox, ListItem } from '../../styles/Components/List/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
@@ -120,7 +120,17 @@ const KnowledgeInputPage = () => {
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
-          <NextButton onClick={() => goToInstitutionPage(history)} />
+          {knowledges.length > 0 ? (
+            <NextButton onClick={() => goToInstitutionPage(history)} />
+          ) : (
+            <NextButton
+              onClick={() =>
+                alert(
+                  "Adicione pelo menos 1 conhecimento clicando no botão '+'"
+                )
+              }
+            />
+          )}
         </MainFooter>
       </PagesContainer>
     </>

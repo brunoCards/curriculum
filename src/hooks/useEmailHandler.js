@@ -10,6 +10,13 @@ const useEmailHandler = () => {
       id: new Date().getTime(),
       text: form.email,
     };
+    let pattern = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+    console.log(pattern.test(newEmail.text));
+    const patternTest = pattern.test(newEmail.text);
+    if (!newEmail || patternTest === false) {
+      alert('Insira um email válido!');
+      return;
+    }
     if (
       emails.find(
         (email) => email.text.toLowerCase() === form.email.toLowerCase()
