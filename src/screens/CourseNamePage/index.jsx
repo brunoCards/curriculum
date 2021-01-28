@@ -19,7 +19,7 @@ import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
-import { Input } from '../../styles/Components/Input/styles';
+import { Input } from '../../components/Input/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
 import {
   BackButton,

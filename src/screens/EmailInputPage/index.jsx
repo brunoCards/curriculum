@@ -17,7 +17,7 @@ import Text from '../../components/Text';
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
-import { Input } from '../../styles/Components/Input/styles';
+import { Input } from '../../components/Input/styles';
 import { ListBox, ListItem } from '../../styles/Components/List/styles';
 import { EmailsIcon } from '../../styles/Components/Icons/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
@@ -76,14 +76,17 @@ const EmailInputPage = () => {
             <Input
               className="withAdd"
               name="email"
+              type="email"
               value={form.email}
               onChange={handleOnchangeInput}
               placeholder="Ex: emaildobatman@gothan.com"
+              title="Insira aqui um email válido"
+              required
             />
             {form.email !== '' ? (
               <AddButton onClick={() => handleAddingEmails(form.email)} />
             ) : (
-              <AddButton className="isdisabled" aria-disabled="true" />
+              <AddButton className="isdisabled" />
             )}
           </InputBox>
           <InputBox className="email">
@@ -104,7 +107,15 @@ const EmailInputPage = () => {
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
-          <NextButton onClick={() => goToPhonePage(history)} />
+          {emails.length > 0 ? (
+            <NextButton onClick={() => goToPhonePage(history)} />
+          ) : (
+            <NextButton
+              onClick={() =>
+                alert("Você adicionou um e-mail clicando no botão '+'")
+              }
+            />
+          )}
         </MainFooter>
       </PagesContainer>
     </>

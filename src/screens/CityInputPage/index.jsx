@@ -11,7 +11,6 @@ import { goToEmailPage, goBack, goToReviewPage } from '../../routers/goToPages';
 import { useParams } from 'react-router-dom';
 
 //components
-import StateInputPage from '../StateInputPage';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 import Select from '../../components/Select';

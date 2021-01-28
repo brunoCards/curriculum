@@ -12,7 +12,7 @@ const usePhoneHandler = () => {
       alert('Este telefone já está em uso');
       return;
     }
-    setPhones([...phones].concat(newPhone));
+    setPhones([...phones, newPhone]);
     setForm({ ...form, phone: '' });
   };
 
@@ -22,12 +22,13 @@ const usePhoneHandler = () => {
     setPhones(phoneFilter);
   };
 
-  const handleEditPhone = (id) => {
+  const handleEditPhone = (id, number) => {
     if (form.phone !== '') {
       alert('Você já está editando um telefone');
       return;
     }
     const findPhone = phones.find((phone) => phone.id === id);
+
     if (findPhone !== -1) {
       phones.pop(findPhone, 1);
       setForm({ ...form, phone: findPhone.number });

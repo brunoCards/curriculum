@@ -13,16 +13,19 @@ import {
   goToReviewPage,
 } from '../../routers/goToPages';
 
+//utils
+import { handlePhoneFormat } from '../../utils/handlePhoneFormat';
+
 //components
 import Header from '../../components/Header';
 import Text from '../../components/Text';
+import InputComponent from '../../components/Input';
 
 //styled-components
 import { PagesContainer } from '../../styles/Components/PagesContainer/styles';
 import { HeaderTitle } from '../../styles/Components/HeaderTitle/styles';
 import { Main } from '../../styles/Components/MainContainer/styles';
 import { InputBox } from '../../styles/Components/InputBox/styles';
-import { Input } from '../../styles/Components/Input/styles';
 import { PhonesIcon } from '../../styles/Components/Icons/styles';
 import { ListBox, ListItem } from '../../styles/Components/List/styles';
 import { MainFooter } from '../../styles/Components/Footer/styles';
@@ -85,12 +88,14 @@ const PhoneInputPage = () => {
             ) : (
               <BackToButton className="isHidden" />
             )}
-            <Input
+            <InputComponent
+              isNumbers="true"
               className="withAdd"
               name="phone"
+              mask="(99)9.9999-9999"
               value={form.phone}
               onChange={handleOnchangeInput}
-              placeholder="Ex: (xx) 99999-9999"
+              placeholder={'Ex: (xx) 99999-9999'}
             />
             {form.phone !== '' ? (
               <AddButton onClick={() => handleAddingPhones(form.phone)} />
@@ -104,6 +109,7 @@ const PhoneInputPage = () => {
                 return phone.id !== undefined ? (
                   <ListItem className="phone" key={phone.id}>
                     <PhonesIcon onClick={() => handleEditphone(phone.id)} />
+                    {handlePhoneFormat(phone.number)}
                     {phone.number}
                     <DeleteButton onClick={() => handleDeletePhone(phone.id)} />
                   </ListItem>
@@ -116,7 +122,17 @@ const PhoneInputPage = () => {
         </Main>
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
-          <NextButton onClick={() => goToDescriptionPage(history)} />
+          {phones.length > 0 ? (
+            <NextButton onClick={() => goToDescriptionPage(history)} />
+          ) : (
+            <NextButton
+              onClick={() =>
+                alert(
+                  "Você adicionou um telefone/celular clicando no botão '+'"
+                )
+              }
+            />
+          )}
         </MainFooter>
       </PagesContainer>
     </>
