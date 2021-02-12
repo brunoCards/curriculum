@@ -38,12 +38,12 @@ const DescriptionInputPage = () => {
       <PagesContainer>
         <LargeMain className="isDescription">
           <Text
-            content="Faça uma breve descrição sobre"
+            content="Faça um breve resumo sobre"
             span="você,"
-            isgreen="seu momento"
-            continueContent="atual. E o que"
+            isgreen="suas experiências em projetos"
+            continueContent="ou trabalhos que"
             ispurple="você"
-            afterEmphasys="espera de uma empresa?"
+            afterEmphasys="ja fez ou participou:"
             hasParagraph
           />
           <LargeInputBox>
@@ -57,7 +57,7 @@ const DescriptionInputPage = () => {
               name="description"
               value={form.description}
               onChange={handleOnchangeInput}
-              placeholder="Sou uma pessoa legal, já fui Super-Heroi, mas hoje busco um emprego, pois fui demitido da Liga da Justiça."
+              placeholder="Já transformei um carro do exército americano em um batmóvel, lutei contra muitos vilões usando meus batequipamentos, fui treinado pelo Ra's al Ghul, e me tornei o Batman"
             />
           </LargeInputBox>
         </LargeMain>

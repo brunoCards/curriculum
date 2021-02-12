@@ -1,8 +1,12 @@
 //screens
+//import react-router-dom
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+//import Context
+import { FormProvider } from '../contexts/FormContext';
 import ActivitiesInputPage from '../screens/ActivitiesInputPage';
 import AdmitDatePage from '../screens/AdmitDatePage';
-import CompanyNamePage from '../screens/CompanyNamePage';
 import CityInputPage from '../screens/CityInputPage';
+import CompanyNamePage from '../screens/CompanyNamePage';
 import CourseNamePage from '../screens/CourseNamePage';
 import DegreeLevelPage from '../screens/DegreeLevelPage';
 import DescriptionInputPage from '../screens/DescriptionInputPage';
@@ -13,18 +17,14 @@ import KnowledgeInputPage from '../screens/KnowledgeInputPage';
 import LandingPage from '../screens/LandingPage';
 import LanguageInputPage from '../screens/LanguageInputPage';
 import LanguageLevelPage from '../screens/LanguageLevelPage';
+import LinkedinInputPage from '../screens/LinkedinInputPage';
 import NameInputPage from '../screens/NameInputPage';
 import PhoneInputPage from '../screens/PhoneInputPage';
+import PortfolioInputPage from '../screens/PortfolioInputPage';
 import ResignDatePage from '../screens/ResignDatePage';
 import ReviewPage from '../screens/ReviewPage';
-import StateInputPage from '../screens/StateInputPage';
 import StartDatePage from '../screens/StartDatePage';
-
-//import Context
-import { FormProvider } from '../contexts/FormContext';
-
-//import react-router-dom
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import StateInputPage from '../screens/StateInputPage';
 
 const Router = () => {
   return (
@@ -50,12 +50,12 @@ const Router = () => {
             <Route exact path="/dados-pessoais/telefones">
               <PhoneInputPage />
             </Route>
-            {/* <Route exact path="/dados-pessoais/linkedin">
+            <Route exact path="/dados-pessoais/linkedin">
               <LinkedinInputPage />
             </Route>
             <Route exact path="/dados-pessoais/portfolio">
               <PortfolioInputPage />
-            </Route> */}
+            </Route>
             <Route exact path="/dados-pessoais/descricao">
               <DescriptionInputPage />
             </Route>

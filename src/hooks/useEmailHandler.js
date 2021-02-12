@@ -11,7 +11,6 @@ const useEmailHandler = () => {
       text: form.email,
     };
     let pattern = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
-    console.log(pattern.test(newEmail.text));
     const patternTest = pattern.test(newEmail.text);
     if (!newEmail || patternTest === false) {
       alert('Insira um email válido!');

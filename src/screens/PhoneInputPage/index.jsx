@@ -8,7 +8,7 @@ import usePhoneHandler from '../../hooks/usePhoneHandler';
 
 //import routers-goTo's
 import {
-  goToDescriptionPage,
+  goToLinkedinPage,
   goBack,
   goToReviewPage,
 } from '../../routers/goToPages';
@@ -123,7 +123,7 @@ const PhoneInputPage = () => {
         <MainFooter>
           <BackButton onClick={() => goBack(history)} />
           {phones.length > 0 ? (
-            <NextButton onClick={() => goToDescriptionPage(history)} />
+            <NextButton onClick={() => goToLinkedinPage(history)} />
           ) : (
             <NextButton
               onClick={() =>

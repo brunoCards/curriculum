@@ -1,10 +1,8 @@
 import React, { createContext, useContext, useState } from 'react';
-
-// //import react-hook
-import useForm from '../hooks/useForm';
-
 //import react-router-dom
 import { useHistory } from 'react-router-dom';
+// //import react-hook
+import useForm from '../hooks/useForm';
 
 const FormContext = createContext();
 
@@ -24,8 +22,10 @@ const initialState = {
   institution: '',
   language: '',
   level: '',
+  linkedin: '',
   name: '',
   phone: '',
+  portfolio: '',
   resigndate: '',
   startdate: '',
   state: '',

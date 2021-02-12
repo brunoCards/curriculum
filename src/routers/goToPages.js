@@ -26,13 +26,13 @@ export const goToDescriptionPage = (history) => {
   history.push('/dados-pessoais/descricao');
 };
 
-// export const goToLinkedinPage = (history) => {
-//   history.push('/dados-pessoais/linkedin');
-// };
+export const goToLinkedinPage = (history) => {
+  history.push('/dados-pessoais/linkedin');
+};
 
-// export const goToGithubPage = (history) => {
-//   history.push('/dados-pessoais/portfolio');
-// };
+export const goToPortfolioPage = (history) => {
+  history.push('/dados-pessoais/portfolio');
+};
 
 export const goToKnowledgesPage = (history) => {
   history.push('/dados-pessoais/conhecimentos');
