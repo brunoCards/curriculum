@@ -41,6 +41,7 @@ const NameInputPage = () => {
           <Text content="Olá como" span=" você " continueContent="se chama?" />
           <InputBox>
             <Input
+              className="leftborderRadius"
               name="name"
               value={form.name}
               onChange={handleOnchangeInput}

@@ -10,6 +10,7 @@ export const SelectInputHeader = styled.div`
   height: 100%;
   padding-left: 5px;
   border: 3px solid var(--black);
+  border-radius: 0 6px 0 0;
   cursor: pointer;
 
   display: flex;

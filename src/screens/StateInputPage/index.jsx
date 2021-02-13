@@ -112,7 +112,10 @@ const StateInputPage = () => {
                 className="isHidden"
               />
             ) : (
-              <BackToButton onClick={() => goToReviewPage(history)} />
+              <BackToButton
+                onClick={() => goToReviewPage(history)}
+                className="state"
+              />
             )}
 
             <Select isState>

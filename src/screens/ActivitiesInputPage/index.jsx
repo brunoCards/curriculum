@@ -38,9 +38,12 @@ const ActivitiesInputPage = () => {
           <Text content="Atividades" span="desempenhadas" />
           <LargeInputBox>
             {form.activities !== '' ? (
-              <BackToButton onClick={() => goToReviewPage(history)} />
+              <BackToButton
+                onClick={() => goToReviewPage(history)}
+                className="state"
+              />
             ) : (
-              <BackToButton className="isHidden" />
+              <BackToButton className="isHidden state" />
             )}
             <LargeInput
               className="withoutAdd"

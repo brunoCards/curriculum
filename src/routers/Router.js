@@ -71,9 +71,6 @@ const Router = () => {
             <Route exact path="/dados-academicos/nome/curso">
               <CourseNamePage />
             </Route>
-            {/* <Route exact path="/dados-academicos/descricao/curso">
-              <CourseDescriptionInputPage />
-            </Route> */}
             <Route exact path="/dados-academicos/data/inicio">
               <StartDatePage />
             </Route>
@@ -89,9 +86,6 @@ const Router = () => {
             <Route exact path="/dados-profissionais/nome-empresa">
               <CompanyNamePage />
             </Route>
-            {/* <Route exact path="/dados-profissionais/cargo">
-              <PostInputPage />
-            </Route> */}
             <Route exact path="/dados-profissionais/data/admissao">
               <AdmitDatePage />
             </Route>

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import InputMask from 'react-input-mask';
+import styled from 'styled-components';
 
 export const Input = styled.input`
   width: 100%;
@@ -13,6 +13,12 @@ export const Input = styled.input`
   text-align: center;
 
   &.withoutAdd {
+    border-radius: 0 6px 6px 0;
+  }
+  &.leftborderRadius {
+    border-radius: 6px 0 0 6px;
+  }
+  &.rightborderRadius {
     border-radius: 0 6px 6px 0;
   }
 `;
@@ -29,6 +35,12 @@ export const InputMasked = styled(InputMask)`
   text-align: center;
 
   &.withoutAdd {
+    border-radius: 0 6px 6px 0;
+  }
+  &.leftborderRadius {
+    border-radius: 6px 0 0 6px;
+  }
+  &.rightborderRadius {
     border-radius: 0 6px 6px 0;
   }
 `;

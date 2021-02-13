@@ -53,7 +53,7 @@ const PortfolioInputPage = () => {
               name="portfolio"
               value={form.portfolio}
               onChange={handleOnchangeInput}
-              placeholder="Ex: "
+              placeholder="Ex: https://github.com/seugithub"
             />
           </InputBox>
         </Main>

@@ -48,7 +48,7 @@ const StartDatePage = () => {
               <BackToButton className="isHidden" />
             )}
             <InputComponent
-              className="withoutAdd"
+              className="rightborderRadius"
               name="startdate"
               mask="aaa/9999"
               value={form.startdate}

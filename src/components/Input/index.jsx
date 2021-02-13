@@ -10,6 +10,7 @@ const InputComponent = ({
   name,
   placeholder,
   isNumbers,
+  className,
 }) => {
   const handleChangeNumbers = (event) => {
     onChange({
@@ -41,6 +42,7 @@ const InputComponent = ({
           value={value}
           onChange={handleChangeNumbers}
           placeholder={placeholder}
+          className={className}
         />
       ) : (
         <InputMasked
@@ -49,6 +51,7 @@ const InputComponent = ({
           value={value}
           placeholder={placeholder}
           onChange={handleChangeCharsENumbers}
+          className={className}
         />
       )}
     </>
