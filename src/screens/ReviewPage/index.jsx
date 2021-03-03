@@ -14,7 +14,9 @@ const ReviewPage = () => {
   return (
     <>
       <Header />
-      <PageLayout></PageLayout>
+      <PageLayout>
+        
+      </PageLayout>
     </>
   );
 };
